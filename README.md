@@ -20,7 +20,7 @@
 
 ## Network Overview
 
-![](ft-network-besu.png)
+![](images/ft-network-besu.png)
 
 ## EDI Messages
 
@@ -28,7 +28,7 @@
 
 Charging on a `per byte` basis has been and continutes to be the basis of all transactional cost models especially EDI and XML messages which provide an incentive for users not to spam the network with unnecessarily large messages. 
 
-![](EDI_Components.png)
+![](images/EDI_Components.png)
 
 
 ## Nodes
@@ -40,7 +40,7 @@ There are 5 different classes of nodes, with 2 groups.
 
 ### Network Nodes
 
-![](besu-redis-componets.png)
+![](images/besu-redis-componets.png)
 
 Besu-tx: Handling of local transaction pool.
 
@@ -51,7 +51,7 @@ Besu-sync: Handling of blockchain synchronisation through Ethereum P2P network.
 Besu-query: Handling of database queries.
 
 
-![](network-component-besu.png)
+![](images/network-component-besu.png)
 
 ### Concensus Nodes
 
@@ -69,9 +69,9 @@ Validator
 
 
 
-
-
 ## Burgess
+
+Burgess is the collection of rules and dogma. You can ignore this section if you are not interested in the `legal` aspects of our implementation. [We suggest visting the blog to find out more first](https://medium.com/freighttrust)
 
 #### Unit Concepts
 - Units of Execution
