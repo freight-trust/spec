@@ -25,7 +25,7 @@ more important aspects of utilizing a blockchain network, in addition to
 providing for a provably electronically unique piece of data (i.e. this is why
 cryptocurrencies work in the first place).
 
-![](high-level.png)
+![](images/high-level.png)
 
 ## Network Overview
 
