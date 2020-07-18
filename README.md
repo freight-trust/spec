@@ -6,6 +6,7 @@
   - [Nodes](#nodes)
     - [Network Nodes](#network-nodes)
     - [Concensus Nodes](#concensus-nodes)
+  - [Protocol](#protocol)
   - [Burgess](#burgess)
     - [Unit Concepts](#unit-concepts)
   - [Blocks as `units of agreement`](#blocks-as--units-of-agreement-)
@@ -74,6 +75,10 @@ Validator
 
 In general concept terms, a Validator inspects the chain of custody to determine
 the content and validity of individual evidence supplied by custodians.
+
+## Protocol
+
+![](images/protocol.png)
 
 ## Burgess
 
