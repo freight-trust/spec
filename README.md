@@ -15,7 +15,12 @@
   * [Further Documentation](#further-documentation)
   * [License](#license)
 
-![](simple-overview.png)
+
+# Abstract
+
+Business A and Business B have a `transaction`, in this example the transaction is a shippment of freight. This diagram shows at a high level how we facilitate these business `transactions` in a distributed, fault tolerant network utilziing hyperledger besu. Censorship resistance and high availability are some of the more important aspects of utilizing a blockchain network, in addition to providing for a provably electronically unique piece of data (i.e. this is why cryptocurrencies work in the first place). 
+
+![](high-level.png)
 
 
 ## Network Overview
