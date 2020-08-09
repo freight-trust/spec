@@ -1,0 +1,7 @@
+in: path
+description: Role name
+name: role
+schema:
+  type: string
+  example: 'tradeparty:buyer'
+required: true

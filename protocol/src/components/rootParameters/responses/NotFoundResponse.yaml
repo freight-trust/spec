@@ -1,0 +1,5 @@
+description: Object not found
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ErrorResponse.yaml

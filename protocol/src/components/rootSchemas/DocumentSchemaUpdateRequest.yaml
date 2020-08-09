@@ -1,0 +1,56 @@
+type: object
+required:
+  - jsonSupport
+  - organizationId
+  - supportedContentTypes
+properties:
+  description:
+    type: string
+    example: Commercial Invoice for US customs
+    description: Description of the document
+  docType:
+    type: string
+    example: Commercial Invoice
+    description: Type of the document
+  jsonSupport:
+    type: boolean
+    example: true
+    description: >-
+      Boolean to indicate whether paperless trade supports JSON representation
+      for this document. E.g Commerial Invoice has jsonSupport
+  name:
+    type: string
+    example: Commercial Invoice
+    description: Name of the document
+  organizationId:
+    type: string
+    example: IBM
+    description: Id of the organization
+  sampleModel:
+    type: object
+    description: >-
+      If jsonSupport is true then this model will contain a sample json object
+      which conforms to the schema defined.Can be used by the API consumer to
+      create payload for doc upload
+  schema:
+    description: >-
+      Represents the swagger schema for a document.The model field in schema
+      specifies the name of the parent/root object in the definition and the
+      definitions field of the schema Contains the parent/root type definition
+      and any other child type definitions that collectively define the schema
+      for the parent object
+    $ref: ./Schema.yaml
+  supportedContentTypes:
+    type: array
+    description: >-
+      Supported content types for document metadata and is either
+      application/json or application/pdf.
+    items:
+      type: string
+      enum:
+        - application/json
+        - application/pdf
+  uiLayout:
+    type: object
+    description: Represents the swagger ui schema for a document.
+title: DocumentSchemaUpdateRequest

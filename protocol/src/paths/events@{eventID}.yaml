@@ -1,0 +1,38 @@
+get:
+  parameters:
+    - in: path
+      name: eventID
+      schema:
+        type: string
+      required: true
+      description: The ID of the event to receive
+  tags:
+    - Events
+  summary: Find events by eventID.
+  description: Returns event with the specified eventID.
+  responses:
+    "200":
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            oneOf:
+              - $ref: "#/components/schemas/transportEvent"
+              - $ref: "#/components/schemas/shipmentEvent"
+              - $ref: "#/components/schemas/equipmentEvent"
+            discriminator:
+              propertyName: eventType
+            example:
+              eventID: "1"
+              eventType: SHIPMENT
+              eventDateTime: "2019-11-12T07:41:00+08:30"
+              eventClassifierCode: ACT
+              eventTypeCode: ARRI
+              transportCallID: 7
+              shipmentInformationTypeCode: SRM
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error"

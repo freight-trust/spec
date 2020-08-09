@@ -1,0 +1,8 @@
+$ref: ./QueryEntity.yaml
+example:
+  id: org-A
+  attributes:
+    - name: role
+      value: 'tradeparty:BUYER'
+    - name: role
+      value: 'tradeparty:SELLER'

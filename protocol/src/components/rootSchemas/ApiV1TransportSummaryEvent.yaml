@@ -1,0 +1,12 @@
+type: object
+required:
+  - event
+  - sequence
+properties:
+  sequence:
+    type: integer
+    format: int64
+    example: 1
+    description: Sequence number of this event
+  event:
+    $ref: "#/components/schemas/ApiV1TransportEvent"

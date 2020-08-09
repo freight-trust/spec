@@ -1,0 +1,8 @@
+type: object
+required:
+  - unLocode
+properties:
+  unLocode:
+    type: string
+    example: "NLRTM+11+RULED:139:6+PLP:72:306"
+    description: UN/Locode for Terminal

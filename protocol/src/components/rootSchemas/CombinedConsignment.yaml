@@ -1,0 +1,8 @@
+type: object
+properties:
+  billOfLadingNumber:
+    type: string
+  carrierBookingNumber:
+    type: string
+  consignmentId:
+    type: string

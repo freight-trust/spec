@@ -1,0 +1,1406 @@
+type: object
+required:
+  - eventSubmissionTime
+  - originatorId
+  - originatorName
+  - senderOrgName
+properties:
+  action:
+    type: string
+    description: Field for actionable flows
+  billOfLadingNumber:
+    type: string
+    description: Bill of lading number
+  bookingData:
+    $ref: "#/components/schemas/BookingData"
+  cargoRemainingOnboardCountries:
+    type: array
+    description: Countries where the cargo has remained on board
+    items:
+      type: string
+      enum:
+        - AD
+        - AE
+        - AF
+        - AG
+        - AI
+        - AL
+        - AM
+        - AO
+        - AQ
+        - AR
+        - AS
+        - AT
+        - AU
+        - AW
+        - AX
+        - AZ
+        - BA
+        - BB
+        - BD
+        - BE
+        - BF
+        - BG
+        - BH
+        - BI
+        - BJ
+        - BL
+        - BM
+        - BN
+        - BO
+        - BQ
+        - BR
+        - BS
+        - BT
+        - BV
+        - BW
+        - BY
+        - BZ
+        - CA
+        - CC
+        - CD
+        - CF
+        - CG
+        - CH
+        - CI
+        - CK
+        - CL
+        - CM
+        - CN
+        - CO
+        - CR
+        - CU
+        - CV
+        - CW
+        - CX
+        - CY
+        - CZ
+        - DE
+        - DJ
+        - DK
+        - DM
+        - DO
+        - DZ
+        - EC
+        - EE
+        - EG
+        - EH
+        - ER
+        - ES
+        - ET
+        - FI
+        - FJ
+        - FK
+        - FM
+        - FO
+        - FR
+        - GA
+        - GB
+        - GD
+        - GE
+        - GF
+        - GG
+        - GH
+        - GI
+        - GL
+        - GM
+        - GN
+        - GP
+        - GQ
+        - GR
+        - GS
+        - GT
+        - GU
+        - GW
+        - GY
+        - HK
+        - HM
+        - HN
+        - HR
+        - HT
+        - HU
+        - ID
+        - IE
+        - IL
+        - IM
+        - IN
+        - IO
+        - IQ
+        - IR
+        - IS
+        - IT
+        - JE
+        - JM
+        - JO
+        - JP
+        - KE
+        - KG
+        - KH
+        - KI
+        - KM
+        - KN
+        - KP
+        - KR
+        - KW
+        - KY
+        - KZ
+        - LA
+        - LB
+        - LC
+        - LI
+        - LK
+        - LR
+        - LS
+        - LT
+        - LU
+        - LV
+        - LY
+        - MA
+        - MC
+        - MD
+        - ME
+        - MF
+        - MG
+        - MH
+        - MK
+        - ML
+        - MM
+        - MN
+        - MO
+        - MP
+        - MQ
+        - MR
+        - MS
+        - MT
+        - MU
+        - MV
+        - MW
+        - MX
+        - MY
+        - MZ
+        - NA
+        - NC
+        - NE
+        - NF
+        - NG
+        - NI
+        - NL
+        - "NO"
+        - NP
+        - NR
+        - NU
+        - NZ
+        - OM
+        - PA
+        - PE
+        - PF
+        - PG
+        - PH
+        - PK
+        - PL
+        - PM
+        - PN
+        - PR
+        - PS
+        - PT
+        - PW
+        - PY
+        - QA
+        - RE
+        - RO
+        - RS
+        - RU
+        - RW
+        - SA
+        - SB
+        - SC
+        - SD
+        - SE
+        - SG
+        - SH
+        - SI
+        - SJ
+        - SK
+        - SL
+        - SM
+        - SN
+        - SO
+        - SR
+        - SS
+        - ST
+        - SV
+        - SX
+        - SY
+        - SZ
+        - TC
+        - TD
+        - TF
+        - TG
+        - TH
+        - TJ
+        - TK
+        - TL
+        - TM
+        - TN
+        - TO
+        - TR
+        - TT
+        - TV
+        - TW
+        - TZ
+        - UA
+        - UG
+        - UM
+        - US
+        - UY
+        - UZ
+        - VA
+        - VC
+        - VE
+        - VG
+        - VI
+        - VN
+        - VU
+        - WF
+        - WS
+        - YE
+        - YT
+        - ZA
+        - ZM
+        - ZW
+        - OA
+        - OB
+        - OC
+        - OD
+        - OE
+        - OF
+        - OG
+        - OZ
+        - XA
+        - XB
+        - XC
+        - XD
+        - XE
+        - XF
+        - XG
+        - XH
+        - XI
+        - XJ
+        - XK
+        - XL
+        - XM
+        - XN
+        - XO
+        - XP
+        - XQ
+        - XR
+        - XS
+        - XT
+        - XU
+        - XV
+        - XW
+        - XX
+        - XY
+        - XZ
+  carrierBookingNumber:
+    type: string
+    description: Carrier Booking number
+  certificateType:
+    type: string
+    description: Certificate type
+  consigneeId:
+    type: string
+    description: Consignee id
+  consigneeIdType:
+    type: string
+    description: Consignee type
+  consignmentId:
+    type: string
+    description: Generated ID for the consignment.
+  consignmentRef:
+    type: string
+    description: Reference to an existing consignment.
+  correlationId:
+    type: string
+    description: User-supplied ID for this event
+  dangerousGoodsType:
+    type: string
+    description: Dangerous goods type
+  data:
+    type: array
+    description: The event data
+    items:
+      $ref: "#/components/schemas/Data"
+  destinationOrgName:
+    type: string
+    description: >-
+      Org Name identifying who this document is being transferred to, if this is
+      a Document event with the action 'transferred' or 'surrendered'
+  doc:
+    $ref: "#/components/schemas/DocumentV2"
+  document:
+    $ref: "#/components/schemas/Document"
+  documentId:
+    type: string
+    description: Internal document identifier
+  documentType:
+    type: string
+    description: Document Type
+  documentVersion:
+    type: integer
+    format: int32
+    description: The version of the document
+  documents:
+    type: array
+    description: Internal documents list
+    items:
+      $ref: "#/components/schemas/Document"
+  eBLProvider:
+    type: string
+    description: Electronic Bill of Lading Provider
+  entryPort:
+    $ref: "#/components/schemas/Port"
+  equipmentNumber:
+    type: string
+    description: The unique identifier found on the transport equipment.
+  equipmentType:
+    type: string
+    description: The container Type based on ISO size type
+  eventName:
+    type: string
+    description: Event Name
+  eventOccurrenceTime:
+    type: integer
+    format: int64
+    description: "When the event occurred, as the number of milliseconds since Epoch"
+  eventOccurrenceTime8601:
+    type: string
+    description: >-
+      When the event occurred, in common ISO 8601 format
+      yyyy-MM-dd'T'HH:mm:ss.SSSZ.
+  eventPriority:
+    type: integer
+    format: int32
+    description: Event Priority
+  eventSubmissionGpsLocation:
+    type: string
+    description: GPS coordinates of where the event originated from (mobile device only)
+  eventSubmissionTime:
+    type: integer
+    format: int64
+    description: Time of submission
+  eventTransactionId:
+    type: string
+    description: The unique ID for the event
+  eventType:
+    type: string
+    description: Event Type
+  exitPort:
+    $ref: "#/components/schemas/Port"
+  firstPortOfEntryCountry:
+    type: string
+    description: The first port of entry country
+    enum:
+      - AD
+      - AE
+      - AF
+      - AG
+      - AI
+      - AL
+      - AM
+      - AO
+      - AQ
+      - AR
+      - AS
+      - AT
+      - AU
+      - AW
+      - AX
+      - AZ
+      - BA
+      - BB
+      - BD
+      - BE
+      - BF
+      - BG
+      - BH
+      - BI
+      - BJ
+      - BL
+      - BM
+      - BN
+      - BO
+      - BQ
+      - BR
+      - BS
+      - BT
+      - BV
+      - BW
+      - BY
+      - BZ
+      - CA
+      - CC
+      - CD
+      - CF
+      - CG
+      - CH
+      - CI
+      - CK
+      - CL
+      - CM
+      - CN
+      - CO
+      - CR
+      - CU
+      - CV
+      - CW
+      - CX
+      - CY
+      - CZ
+      - DE
+      - DJ
+      - DK
+      - DM
+      - DO
+      - DZ
+      - EC
+      - EE
+      - EG
+      - EH
+      - ER
+      - ES
+      - ET
+      - FI
+      - FJ
+      - FK
+      - FM
+      - FO
+      - FR
+      - GA
+      - GB
+      - GD
+      - GE
+      - GF
+      - GG
+      - GH
+      - GI
+      - GL
+      - GM
+      - GN
+      - GP
+      - GQ
+      - GR
+      - GS
+      - GT
+      - GU
+      - GW
+      - GY
+      - HK
+      - HM
+      - HN
+      - HR
+      - HT
+      - HU
+      - ID
+      - IE
+      - IL
+      - IM
+      - IN
+      - IO
+      - IQ
+      - IR
+      - IS
+      - IT
+      - JE
+      - JM
+      - JO
+      - JP
+      - KE
+      - KG
+      - KH
+      - KI
+      - KM
+      - KN
+      - KP
+      - KR
+      - KW
+      - KY
+      - KZ
+      - LA
+      - LB
+      - LC
+      - LI
+      - LK
+      - LR
+      - LS
+      - LT
+      - LU
+      - LV
+      - LY
+      - MA
+      - MC
+      - MD
+      - ME
+      - MF
+      - MG
+      - MH
+      - MK
+      - ML
+      - MM
+      - MN
+      - MO
+      - MP
+      - MQ
+      - MR
+      - MS
+      - MT
+      - MU
+      - MV
+      - MW
+      - MX
+      - MY
+      - MZ
+      - NA
+      - NC
+      - NE
+      - NF
+      - NG
+      - NI
+      - NL
+      - "NO"
+      - NP
+      - NR
+      - NU
+      - NZ
+      - OM
+      - PA
+      - PE
+      - PF
+      - PG
+      - PH
+      - PK
+      - PL
+      - PM
+      - PN
+      - PR
+      - PS
+      - PT
+      - PW
+      - PY
+      - QA
+      - RE
+      - RO
+      - RS
+      - RU
+      - RW
+      - SA
+      - SB
+      - SC
+      - SD
+      - SE
+      - SG
+      - SH
+      - SI
+      - SJ
+      - SK
+      - SL
+      - SM
+      - SN
+      - SO
+      - SR
+      - SS
+      - ST
+      - SV
+      - SX
+      - SY
+      - SZ
+      - TC
+      - TD
+      - TF
+      - TG
+      - TH
+      - TJ
+      - TK
+      - TL
+      - TM
+      - TN
+      - TO
+      - TR
+      - TT
+      - TV
+      - TW
+      - TZ
+      - UA
+      - UG
+      - UM
+      - US
+      - UY
+      - UZ
+      - VA
+      - VC
+      - VE
+      - VG
+      - VI
+      - VN
+      - VU
+      - WF
+      - WS
+      - YE
+      - YT
+      - ZA
+      - ZM
+      - ZW
+      - OA
+      - OB
+      - OC
+      - OD
+      - OE
+      - OF
+      - OG
+      - OZ
+      - XA
+      - XB
+      - XC
+      - XD
+      - XE
+      - XF
+      - XG
+      - XH
+      - XI
+      - XJ
+      - XK
+      - XL
+      - XM
+      - XN
+      - XO
+      - XP
+      - XQ
+      - XR
+      - XS
+      - XT
+      - XU
+      - XV
+      - XW
+      - XX
+      - XY
+      - XZ
+  fullStatus:
+    type: string
+    description: Is the container full or empty
+    enum:
+      - Full
+      - Empty
+  harmonizedCodes:
+    type: array
+    description: Harmonized System 6 Code
+    items:
+      type: string
+  location:
+    $ref: "#/components/schemas/Location"
+  netWeight:
+    type: string
+    description: Net weight (including unit of measurement)
+  newSlotNumber:
+    type: string
+    description: New Slot Number
+  operatorCode:
+    type: string
+    description: Typical SCAC code
+  operatorName:
+    type: string
+    description: Operator name
+  originatorId:
+    type: string
+    description: The Originator ID
+  originatorName:
+    type: string
+    description: The Originator Name
+  packingListNumber:
+    type: string
+    description: Packing List Number
+  partBill:
+    type: boolean
+    example: false
+    description: Whether or not the event pertains to a "part bill of lading"
+  partBillOf:
+    $ref: "#/components/schemas/PartBillOf"
+  reasonCode:
+    type: string
+    description: Reason Code
+  reasonForSurvey:
+    type: string
+    description: Reason for survey
+  references:
+    type: array
+    description: List of customer created references to this trade object
+    items:
+      $ref: "#/components/schemas/TradeObjectReference"
+  sealNumber:
+    type: string
+    description: Seal number
+  sealType:
+    type: string
+    description: Seal type
+    enum:
+      - Carrier
+      - Customs
+      - Shippers
+      - Agency
+      - Veterinary
+      - Electronic
+  seals:
+    type: array
+    description: Seals
+    items:
+      $ref: "#/components/schemas/Seal"
+  senderOrgName:
+    type: string
+    description: The name of the organization that sent the event
+  shipperId:
+    type: string
+    description: Shipper id
+  shipperIdType:
+    type: string
+    description: Shipper id type
+  splitFromConsignment:
+    $ref: "#/components/schemas/SplitFromConsignment"
+  terminal:
+    $ref: "#/components/schemas/Terminal"
+  terminalDescription:
+    type: string
+    example: "Rotterdam, ZH, NL"
+    description: The description of the terminal which this consignment is touching
+  transitExportCountries:
+    type: array
+    description: >-
+      Export countries where a transport equipment has moved across
+      international borders to another country over land
+    items:
+      type: string
+      enum:
+        - AD
+        - AE
+        - AF
+        - AG
+        - AI
+        - AL
+        - AM
+        - AO
+        - AQ
+        - AR
+        - AS
+        - AT
+        - AU
+        - AW
+        - AX
+        - AZ
+        - BA
+        - BB
+        - BD
+        - BE
+        - BF
+        - BG
+        - BH
+        - BI
+        - BJ
+        - BL
+        - BM
+        - BN
+        - BO
+        - BQ
+        - BR
+        - BS
+        - BT
+        - BV
+        - BW
+        - BY
+        - BZ
+        - CA
+        - CC
+        - CD
+        - CF
+        - CG
+        - CH
+        - CI
+        - CK
+        - CL
+        - CM
+        - CN
+        - CO
+        - CR
+        - CU
+        - CV
+        - CW
+        - CX
+        - CY
+        - CZ
+        - DE
+        - DJ
+        - DK
+        - DM
+        - DO
+        - DZ
+        - EC
+        - EE
+        - EG
+        - EH
+        - ER
+        - ES
+        - ET
+        - FI
+        - FJ
+        - FK
+        - FM
+        - FO
+        - FR
+        - GA
+        - GB
+        - GD
+        - GE
+        - GF
+        - GG
+        - GH
+        - GI
+        - GL
+        - GM
+        - GN
+        - GP
+        - GQ
+        - GR
+        - GS
+        - GT
+        - GU
+        - GW
+        - GY
+        - HK
+        - HM
+        - HN
+        - HR
+        - HT
+        - HU
+        - ID
+        - IE
+        - IL
+        - IM
+        - IN
+        - IO
+        - IQ
+        - IR
+        - IS
+        - IT
+        - JE
+        - JM
+        - JO
+        - JP
+        - KE
+        - KG
+        - KH
+        - KI
+        - KM
+        - KN
+        - KP
+        - KR
+        - KW
+        - KY
+        - KZ
+        - LA
+        - LB
+        - LC
+        - LI
+        - LK
+        - LR
+        - LS
+        - LT
+        - LU
+        - LV
+        - LY
+        - MA
+        - MC
+        - MD
+        - ME
+        - MF
+        - MG
+        - MH
+        - MK
+        - ML
+        - MM
+        - MN
+        - MO
+        - MP
+        - MQ
+        - MR
+        - MS
+        - MT
+        - MU
+        - MV
+        - MW
+        - MX
+        - MY
+        - MZ
+        - NA
+        - NC
+        - NE
+        - NF
+        - NG
+        - NI
+        - NL
+        - "NO"
+        - NP
+        - NR
+        - NU
+        - NZ
+        - OM
+        - PA
+        - PE
+        - PF
+        - PG
+        - PH
+        - PK
+        - PL
+        - PM
+        - PN
+        - PR
+        - PS
+        - PT
+        - PW
+        - PY
+        - QA
+        - RE
+        - RO
+        - RS
+        - RU
+        - RW
+        - SA
+        - SB
+        - SC
+        - SD
+        - SE
+        - SG
+        - SH
+        - SI
+        - SJ
+        - SK
+        - SL
+        - SM
+        - SN
+        - SO
+        - SR
+        - SS
+        - ST
+        - SV
+        - SX
+        - SY
+        - SZ
+        - TC
+        - TD
+        - TF
+        - TG
+        - TH
+        - TJ
+        - TK
+        - TL
+        - TM
+        - TN
+        - TO
+        - TR
+        - TT
+        - TV
+        - TW
+        - TZ
+        - UA
+        - UG
+        - UM
+        - US
+        - UY
+        - UZ
+        - VA
+        - VC
+        - VE
+        - VG
+        - VI
+        - VN
+        - VU
+        - WF
+        - WS
+        - YE
+        - YT
+        - ZA
+        - ZM
+        - ZW
+        - OA
+        - OB
+        - OC
+        - OD
+        - OE
+        - OF
+        - OG
+        - OZ
+        - XA
+        - XB
+        - XC
+        - XD
+        - XE
+        - XF
+        - XG
+        - XH
+        - XI
+        - XJ
+        - XK
+        - XL
+        - XM
+        - XN
+        - XO
+        - XP
+        - XQ
+        - XR
+        - XS
+        - XT
+        - XU
+        - XV
+        - XW
+        - XX
+        - XY
+        - XZ
+  transitImportCountries:
+    type: array
+    description: >-
+      Import countries where a transport equipment has moved across
+      international borders to another country over land
+    items:
+      type: string
+      enum:
+        - AD
+        - AE
+        - AF
+        - AG
+        - AI
+        - AL
+        - AM
+        - AO
+        - AQ
+        - AR
+        - AS
+        - AT
+        - AU
+        - AW
+        - AX
+        - AZ
+        - BA
+        - BB
+        - BD
+        - BE
+        - BF
+        - BG
+        - BH
+        - BI
+        - BJ
+        - BL
+        - BM
+        - BN
+        - BO
+        - BQ
+        - BR
+        - BS
+        - BT
+        - BV
+        - BW
+        - BY
+        - BZ
+        - CA
+        - CC
+        - CD
+        - CF
+        - CG
+        - CH
+        - CI
+        - CK
+        - CL
+        - CM
+        - CN
+        - CO
+        - CR
+        - CU
+        - CV
+        - CW
+        - CX
+        - CY
+        - CZ
+        - DE
+        - DJ
+        - DK
+        - DM
+        - DO
+        - DZ
+        - EC
+        - EE
+        - EG
+        - EH
+        - ER
+        - ES
+        - ET
+        - FI
+        - FJ
+        - FK
+        - FM
+        - FO
+        - FR
+        - GA
+        - GB
+        - GD
+        - GE
+        - GF
+        - GG
+        - GH
+        - GI
+        - GL
+        - GM
+        - GN
+        - GP
+        - GQ
+        - GR
+        - GS
+        - GT
+        - GU
+        - GW
+        - GY
+        - HK
+        - HM
+        - HN
+        - HR
+        - HT
+        - HU
+        - ID
+        - IE
+        - IL
+        - IM
+        - IN
+        - IO
+        - IQ
+        - IR
+        - IS
+        - IT
+        - JE
+        - JM
+        - JO
+        - JP
+        - KE
+        - KG
+        - KH
+        - KI
+        - KM
+        - KN
+        - KP
+        - KR
+        - KW
+        - KY
+        - KZ
+        - LA
+        - LB
+        - LC
+        - LI
+        - LK
+        - LR
+        - LS
+        - LT
+        - LU
+        - LV
+        - LY
+        - MA
+        - MC
+        - MD
+        - ME
+        - MF
+        - MG
+        - MH
+        - MK
+        - ML
+        - MM
+        - MN
+        - MO
+        - MP
+        - MQ
+        - MR
+        - MS
+        - MT
+        - MU
+        - MV
+        - MW
+        - MX
+        - MY
+        - MZ
+        - NA
+        - NC
+        - NE
+        - NF
+        - NG
+        - NI
+        - NL
+        - "NO"
+        - NP
+        - NR
+        - NU
+        - NZ
+        - OM
+        - PA
+        - PE
+        - PF
+        - PG
+        - PH
+        - PK
+        - PL
+        - PM
+        - PN
+        - PR
+        - PS
+        - PT
+        - PW
+        - PY
+        - QA
+        - RE
+        - RO
+        - RS
+        - RU
+        - RW
+        - SA
+        - SB
+        - SC
+        - SD
+        - SE
+        - SG
+        - SH
+        - SI
+        - SJ
+        - SK
+        - SL
+        - SM
+        - SN
+        - SO
+        - SR
+        - SS
+        - ST
+        - SV
+        - SX
+        - SY
+        - SZ
+        - TC
+        - TD
+        - TF
+        - TG
+        - TH
+        - TJ
+        - TK
+        - TL
+        - TM
+        - TN
+        - TO
+        - TR
+        - TT
+        - TV
+        - TW
+        - TZ
+        - UA
+        - UG
+        - UM
+        - US
+        - UY
+        - UZ
+        - VA
+        - VC
+        - VE
+        - VG
+        - VI
+        - VN
+        - VU
+        - WF
+        - WS
+        - YE
+        - YT
+        - ZA
+        - ZM
+        - ZW
+        - OA
+        - OB
+        - OC
+        - OD
+        - OE
+        - OF
+        - OG
+        - OZ
+        - XA
+        - XB
+        - XC
+        - XD
+        - XE
+        - XF
+        - XG
+        - XH
+        - XI
+        - XJ
+        - XK
+        - XL
+        - XM
+        - XN
+        - XO
+        - XP
+        - XQ
+        - XR
+        - XS
+        - XT
+        - XU
+        - XV
+        - XW
+        - XX
+        - XY
+        - XZ
+  transportEquipmentId:
+    type: string
+    description: Generated ID for the transport equipment.
+  transportEquipmentRef:
+    type: string
+    description: >-
+      Reference to an existing transport equipment.  Value should be very unique
+      and created by a user.
+  transportPlanIssuanceTime8601:
+    type: string
+    description: >-
+      A timestamp used to group planned events that make up a Transport Plan, in
+      common ISO 8601 format yyyy-MM-dd'T'HH:mm:ss.SSSZ.
+  transportationPhase:
+    type: string
+    description: The transportation phase
+    enum:
+      - Import
+      - Export
+      - Transshipment
+      - Domestic
+  transshipmentPortDescriptions:
+    type: array
+    description: >-
+      Descriptions of ports where off loading the transport equipment from one
+      vessel at an intermediate destination and loading onto another vessel to
+      be further carried to the final port of discharge
+    items:
+      type: string
+  transshipmentPorts:
+    type: array
+    description: >-
+      Ports where off loading the transport equipment from one vessel at an
+      intermediate destination and loading onto another vessel to be further
+      carried to the final port of discharge
+    items:
+      $ref: "#/components/schemas/Port"
+  vehicleId:
+    type: string
+    description: "ID of truck, rail, barge, or vessel"
+  vehicleName:
+    type: string
+    description: "Name of truck, rail, barge, or vessel"
+  verifiedGrossMass:
+    type: string
+    description: Verified Gross Mass (VGM)
+  voyageId:
+    type: string
+    description: Voyage number
+  waypointId:
+    type: string
+    description: Waypoint ID

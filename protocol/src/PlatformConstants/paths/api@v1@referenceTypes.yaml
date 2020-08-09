@@ -1,0 +1,16 @@
+get:
+  tags:
+    - Constants and Types
+  summary: Get all reference types.
+  description: >-
+    Retrieves all reference types, with their code, type and description, and
+    returns them in a json array.
+  operationId: getAllReferenceTypesUsingGET
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            $ref: ../components/schemas/ReferenceTypeInfo.yaml

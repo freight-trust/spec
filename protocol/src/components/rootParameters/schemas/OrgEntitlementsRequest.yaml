@@ -1,0 +1,12 @@
+type: object
+properties:
+  entitlements:
+    type: array
+    items:
+      $ref: ./OrgEntitlement.yaml
+example:
+  entitlements:
+    - id: bolVerifier
+      entitled: true
+required:
+  - entitlements

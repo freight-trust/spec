@@ -1,0 +1,7 @@
+in: query
+description: The desired usage timeframe end date (MM-DD-YYYY)
+name: endDate
+schema:
+  type: string
+  pattern: '^([01]\d-[0-3]\d-\d{4,})$'
+required: true

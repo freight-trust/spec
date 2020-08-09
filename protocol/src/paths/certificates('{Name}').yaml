@@ -1,0 +1,62 @@
+get:
+  summary: Return a single certificates
+  description: Returns a single certificates object using the specified key.
+  tags:
+    - certificates
+  operationId: getcertificates
+  parameters:
+    - name: Name
+      in: path
+      description: The key Name
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: certificates response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/certificates.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete certificates
+  description: Deletes the specified certificates object.
+  tags:
+    - certificates
+  operationId: deletecertificates
+  parameters:
+    - name: Name
+      in: path
+      description: The key Name
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: certificates deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

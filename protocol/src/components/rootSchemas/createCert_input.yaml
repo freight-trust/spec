@@ -1,0 +1,53 @@
+type: object
+required:
+  - Filename
+  - CommonName
+  - Serialnumber
+  - Password
+properties:
+  Filename:
+    type: string
+    description: The file name.
+  CommonName:
+    type: string
+    description: The common name.
+  Serialnumber:
+    type: string
+    description: The serial number.
+  Password:
+    type: string
+    description: The password.
+  Country:
+    type: string
+    description: The country.
+  Email:
+    type: string
+    description: The email.
+  Expiration:
+    type: string
+    description: The expiration (in years).
+    default: '1'
+  KeySize:
+    type: string
+    description: The key size.
+    default: '2048'
+  PublicKeyType:
+    type: string
+    description: The public key type.
+    default: X.509
+  SignatureAlgorithm:
+    type: string
+    description: The signature algorithm.
+    default: SHA256
+  Locality:
+    type: string
+    description: The locality.
+  Organization:
+    type: string
+    description: The organization.
+  OrganizationalUnit:
+    type: string
+    description: The organizational unit.
+  State:
+    type: string
+    description: The state.

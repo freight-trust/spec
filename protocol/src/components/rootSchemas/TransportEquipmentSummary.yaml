@@ -1,0 +1,89 @@
+type: object
+required:
+  - cargoTypes
+properties:
+  transportEquipmentId:
+    type: string
+    example: 781as5-1790-4059-bhh1-2cc0fcd03532
+    description: The unique generated Id for the transport equipment
+  transportEquipmentRefs:
+    type: array
+    description: List of customer created references to this transport equipment
+    items:
+      type: string
+  billsOfLading:
+    type: array
+    example: BOL419328
+    description: The bills of lading number
+    items:
+      type: string
+  transportEquipmentTypes:
+    type: array
+    description: The types of the transport equipment
+    items:
+      $ref: "#/components/schemas/Equipment_Type_Response"
+  equipmentNumber:
+    type: string
+    example: "10193652010736"
+    description: The unique Id that is physically on the transport equipment
+  dangerousCargo:
+    type: boolean
+    example: true
+    description: Flag for dangerous cargo
+  cargoTypes:
+    type: array
+    description: >-
+      The harmonized codes of the type of cargo being shipped plus the
+      descriptions
+    items:
+      $ref: "#/components/schemas/Harmonized_Code_Response"
+  verifiedGrossMass:
+    type: string
+    example: 413kg
+    description: Verified gross mass
+  portOfEntry:
+    type: string
+    example: NLRTM
+    description: Port of Entry
+  portOfEntryDescription:
+    type: string
+    example: "Rotterdam, ZH, NL"
+    description: Port of Entry Description
+  portOfDischarge:
+    type: string
+    example: USNWK
+    description: Port of Discharge
+  portOfDischargeDescription:
+    type: string
+    example: "Newark, DE, US"
+    description: Port of Discharge Description
+  plannedVesselDeparture:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Planned Vessel Departure in epoch milliseconds
+  plannedVesselArrival:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Planned Vessel Arrival in epoch milliseconds
+  terminals:
+    type: array
+    description: Terminals
+    items:
+      type: string
+  terminalDescriptions:
+    type: array
+    description: Terminal Descriptions
+    items:
+      type: string
+  cutOffs:
+    type: array
+    description: Cutoffs
+    items:
+      $ref: "#/components/schemas/CutOff"
+  callerRoles:
+    type: array
+    description: The list of caller party roles
+    items:
+      type: string

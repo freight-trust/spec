@@ -1,0 +1,16 @@
+type: object
+description: References associated with a partner
+properties:
+  partnerId:
+    type: string
+    description: Business Partner Id
+    example: partner123
+  references:
+    type: array
+    required:
+      - code
+    items:
+      $ref: ./OrgReference.yaml
+required:
+  - partnerId
+  - references

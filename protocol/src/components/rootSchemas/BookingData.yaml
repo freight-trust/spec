@@ -1,0 +1,44 @@
+type: object
+required:
+  - destinationLocation
+  - originLocation
+  - transportEquipmentDetails
+properties:
+  originLocation:
+    $ref: "#/components/schemas/Location"
+  destinationLocation:
+    $ref: "#/components/schemas/Location"
+  contractCarriageCondition:
+    type: string
+    description: Contract Carriage Condition
+    enum:
+      - SD_SD
+      - SD_CY
+      - CY_SD
+      - CY_CY
+  departureTime8601:
+    type: string
+    description: >-
+      Departure date and time, in common ISO 8601 format
+      yyyy-MM-dd'T'HH:mm:ss.SSSZ
+  vehicleId:
+    type: string
+    description: >-
+      Vehicle ID. For vessels, Lloyd's IMO code expected. For trucks, license
+      plate expected.
+  vehicleName:
+    type: string
+    description: "Name of truck, rail, barge, or vessel"
+  voyageId:
+    type: string
+    description: Voyage Identifier
+  transportEquipmentDetails:
+    type: array
+    description: Transport Equipment details
+    items:
+      $ref: "#/components/schemas/TransportEquipmentDetails"
+  commodities:
+    type: array
+    description: List of Commodity descriptions
+    items:
+      $ref: "#/components/schemas/Commodity"

@@ -1,0 +1,8 @@
+properties:
+  eventName:
+    type: string
+    example: billOfLadingSurrendered
+  priorities:
+    type: array
+    items:
+      $ref: ./Priority.yaml

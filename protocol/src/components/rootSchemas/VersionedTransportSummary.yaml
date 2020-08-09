@@ -1,0 +1,11 @@
+type: object
+required:
+  - transportEquipmentList
+properties:
+  consignment:
+    $ref: "#/components/schemas/ConsignmentSummary"
+  transportEquipmentList:
+    type: array
+    description: The list of transport equipment that are associated with the query
+    items:
+      $ref: "#/components/schemas/TransportEquipmentResponse"

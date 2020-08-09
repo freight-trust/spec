@@ -1,0 +1,9 @@
+in: query
+description: '{org Role}'
+name: orgRole
+required: false
+schema:
+  type: string
+  enum:
+    - port
+    - country

@@ -1,0 +1,10 @@
+type: array
+items:
+  type: object
+  properties:
+    MessageId:
+      type: string
+      description: The message Id.
+    File:
+      type: string
+      description: The file name.

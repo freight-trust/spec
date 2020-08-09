@@ -1,0 +1,28 @@
+post:
+  summary: >-
+    This action will copy the port settings to a new port based on the newly
+    specified Id.
+  description: >-
+    This action will copy the port settings to a new port based on the newly
+    specified Id.
+  tags:
+    - copyPort
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/copyPort_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

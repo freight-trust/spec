@@ -1,0 +1,25 @@
+type: object
+required:
+  - flowType
+properties:
+  flowType:
+    type: string
+    example: eBOLFlow
+    description: FlowType of the Actionableflows .Currently it can only be "eBOLFlow".
+    enum:
+      - eBOLFlow
+      - shippingInstructionsBillFlow
+  flowState:
+    type: string
+    example: ISSUED
+    description: >-
+      Flow state of the Actionableflows .Currently it is supported for
+      "eBOLFlow" flowType.
+    enum:
+      - ISSUED
+      - TRANSFERRED
+      - SURRENDERED
+      - SWITCHEDTOPAPER
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+title: QueryActionableFlowRequest

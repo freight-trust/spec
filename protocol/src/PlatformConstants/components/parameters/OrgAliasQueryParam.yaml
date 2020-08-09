@@ -1,0 +1,6 @@
+in: query
+description: '{org Alias}'
+name: orgAlias
+required: false
+schema:
+  type: string

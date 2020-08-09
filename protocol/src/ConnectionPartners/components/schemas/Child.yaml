@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: string
+  etag:
+    $ref: ./Etag.yaml
+required:
+  - id
+  - type

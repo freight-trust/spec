@@ -1,0 +1,6 @@
+in: path
+description: UUID of partnership
+name: partnershipId
+schema:
+  $ref: ../schemas/UUID.yaml
+required: true

@@ -1,0 +1,6 @@
+name: permissionId
+in: path
+description: The id for a given permission
+schema:
+  type: string
+required: true

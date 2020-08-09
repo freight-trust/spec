@@ -1,0 +1,44 @@
+type: object
+properties:
+  type:
+    allOf:
+      - description: User type.
+      - $ref: ./UserEnum.yaml
+  oid:
+    type: string
+  uid:
+    type: string
+  solution:
+    type: string
+  sid:
+    type: string
+  organization:
+    type: string
+  serviceId:
+    type: string
+  userId:
+    type: string
+  isOrganizationAdmin:
+    type: boolean
+  isSolutionAdmin:
+    type: boolean
+  isSolutionManager:
+    type: boolean
+  isSystemUser:
+    type: boolean
+  isReferenceToken:
+    type: boolean
+  isNetworkAdmin:
+    type: boolean
+  isBlockchainClient:
+    type: boolean
+  onboardedBy:
+    type: string
+  created:
+    type: number
+  updatedBy:
+    type: string
+  updated:
+    type: number
+  name:
+    type: string

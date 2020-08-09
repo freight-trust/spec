@@ -1,0 +1,10 @@
+type: object
+properties:
+  name:
+    type: string
+    example: 'Rotterdam, ZH, NL'
+    description: name xx
+  unlocode:
+    type: string
+    example: NLRTM
+    description: unlocode xx

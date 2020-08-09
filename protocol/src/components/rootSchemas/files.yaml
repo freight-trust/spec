@@ -1,0 +1,44 @@
+type: object
+properties:
+  ConnectorId:
+    description: The id of the connector.
+    type: string
+  PortId:
+    description: The id of the port.
+    type: string
+  Folder:
+    description: The folder of the file.
+    type: string
+  Filename:
+    description: The name of the file.
+    type: string
+  MessageId:
+    description: >-
+      The message id of the file. This will only have a value if the file is a
+      message.
+    type: string
+  Subfolder:
+    description: The subfolder of the file.
+    type: string
+  TimeCreated:
+    description: The time the file was created.
+    type: string
+    format: date-time
+  FilePath:
+    description: The full path to the file.
+    type: string
+  FileSize:
+    description: The size of the file.
+    type: integer
+    format: int32
+  Content:
+    description: >-
+      The Base64 encode file contents. This will only be returned when a
+      specific file is requested. This field cannot be used when filtering
+      results using the $filter parameter.
+    type: string
+required:
+  - ConnectorId
+  - Folder
+  - Filename
+  - MessageId

@@ -1,0 +1,43 @@
+post:
+  tags:
+    - Actionable Flows Queries
+  summary: Query all Next actions for a given FlowInstanceId
+  description: Query all Next actions for a given FlowInstanceId
+  operationId: getNextActionByFlowInstanceIdUsingPOST
+  parameters:
+    - name: flowInstanceId
+      in: path
+      description: flowInstanceId
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/QueryNextActionRequest"
+    description: QueryNextAction with optional filters by tradeObjectIdentifiers
+  responses:
+    "200":
+      description: OK
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/QueryNextActionResponse"
+    "202":
+      description: Request Accepted
+    "400":
+      description: Bad request
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

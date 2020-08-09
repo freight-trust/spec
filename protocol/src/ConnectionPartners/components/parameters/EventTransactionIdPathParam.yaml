@@ -1,0 +1,6 @@
+name: eventTransactionId
+in: path
+description: eventTransactionId
+required: true
+schema:
+  type: string

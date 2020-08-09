@@ -1,0 +1,9 @@
+name: cursor
+in: query
+description: >-
+  A server generated value to specify a specific point in a collection result,
+  used for pagination.
+required: false
+schema:
+  type: string
+example: abc123

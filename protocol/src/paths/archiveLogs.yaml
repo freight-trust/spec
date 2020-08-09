@@ -1,0 +1,30 @@
+post:
+  summary: >-
+    Archives log files for the specified connector(s). This removes files from
+    the application database but retains the files in an archive on disk for
+    auditing at a later date.
+  description: >-
+    Archives log files for the specified connector(s). This removes files from
+    the application database but retains the files in an archive on disk for
+    auditing at a later date.
+  tags:
+    - archiveLogs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/archiveLogs_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

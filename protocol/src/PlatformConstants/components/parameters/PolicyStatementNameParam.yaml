@@ -1,0 +1,7 @@
+in: path
+description: Name of a statement contained within a policy (unique within policy)
+name: statement
+schema:
+  type: string
+  example: allow_buyer_to_read_bills_of_lading
+required: true

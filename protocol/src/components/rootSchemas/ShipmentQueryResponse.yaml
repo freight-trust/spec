@@ -1,0 +1,23 @@
+type: object
+required:
+  - newFrom
+  - shipments
+  - size
+  - total
+properties:
+  total:
+    type: integer
+    format: int64
+    description: The total number of hits returned by the query
+  size:
+    type: integer
+    format: int32
+    description: Number of shipments in this result
+  shipments:
+    type: array
+    description: The list of shipments
+    items:
+      $ref: "#/components/schemas/Shipment"
+  newFrom:
+    type: string
+    description: Bookmark to use for retrieving more query results

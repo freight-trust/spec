@@ -1,0 +1,40 @@
+type: object
+properties:
+  Id:
+    description: The Id of the request.
+    type: string
+  Timestamp:
+    description: The time when the request was handled.
+    type: string
+    format: date-time
+  URL:
+    description: The URL of the request.
+    type: string
+  Method:
+    description: The HTTP method.
+    type: string
+  User:
+    description: The user.
+    type: string
+  RemoteIP:
+    description: The remote IP address from the request.
+    type: string
+  Script:
+    description: The script.
+    type: string
+  Bytes:
+    description: The size of the request.
+    type: integer
+    format: int64
+  Time:
+    description: The time of the request.
+    type: integer
+    format: int32
+  Error:
+    description: The error of the request.
+    type: string
+  status:
+    description: The status of the request.
+    type: string
+required:
+  - Id

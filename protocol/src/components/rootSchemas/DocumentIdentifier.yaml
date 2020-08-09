@@ -1,0 +1,19 @@
+type: object
+required:
+  - docType
+  - fileType
+properties:
+  docReferences:
+    type: object
+    description: Document Identifires in the form of key value pairs
+    additionalProperties:
+      type: string
+  docType:
+    type: string
+    example: SHIPPING_INSTRUCTIONS
+    description: Type of the document
+  fileType:
+    type: string
+    example: JSON
+    description: Type of the file
+title: DocumentIdentifier

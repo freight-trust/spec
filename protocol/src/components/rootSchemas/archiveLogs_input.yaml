@@ -1,0 +1,27 @@
+type: object
+required:
+  - Age
+properties:
+  Age:
+    type: string
+    description: >-
+      Minimum file age of the files to be archived, in days. Files more recent
+      than the specified age will not be archived.
+  ConnectorId:
+    type: string
+    description: >-
+      The Id of the connector to be archived. If not set, all connectors will be
+      archived.
+  PortId:
+    type: string
+    description: 'The Id of the Port to be archived. If not set, all ports will be archived.'
+  Folder:
+    type: string
+    description: >-
+      Archive directory name. By default, the application will create an
+      'Archive' directory in the connector folder.
+  DeleteTransactions:
+    type: string
+    description: >-
+      If true, entries corresponding to the archived logs will be deleted from
+      the corresponding Transactions table in the database.  Default is true.

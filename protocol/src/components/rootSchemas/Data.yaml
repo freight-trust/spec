@@ -1,0 +1,41 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - Barge
+      - Bill of Lading Number
+      - Booking Number
+      - Container Type Size
+      - Date and Time
+      - Duns Number
+      - Event Name
+      - MRN Number
+      - Phyto Number
+      - Rail
+      - Truck
+      - Vessel
+      - Weight
+      - Booking Confirmation
+      - Proof of Ready
+      - Certificate of Origin
+      - Inspection Type
+      - Reason
+      - New Transport Owner
+      - Survey result
+      - Survey report
+      - Reason for survey
+      - "HTS Code, Schedule B"
+      - Reason for split
+      - Temperature
+      - Agency Seal
+      - Carrier Seal
+      - Customs Seal
+      - Veterinary Seal
+      - Electronic Seal
+      - Shippers Own Seal
+      - Partner Role
+      - Container Type
+      - Cargo Type
+  value:
+    type: string

@@ -1,0 +1,10 @@
+properties:
+  locale:
+    type: string
+    example: en_US
+  contacts:
+    type: array
+    items:
+      $ref: ./contacts.yaml
+required:
+  - contacts

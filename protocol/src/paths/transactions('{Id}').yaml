@@ -1,0 +1,62 @@
+get:
+  summary: Return a single transactions
+  description: Returns a single transactions object using the specified key.
+  tags:
+    - transactions
+  operationId: gettransactions
+  parameters:
+    - name: Id
+      in: path
+      description: The key Id
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: transactions response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/transactions.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete transactions
+  description: Deletes the specified transactions object.
+  tags:
+    - transactions
+  operationId: deletetransactions
+  parameters:
+    - name: Id
+      in: path
+      description: The key Id
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: transactions deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

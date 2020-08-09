@@ -1,0 +1,18 @@
+allOf:
+  - $ref: ./PartnershipDetails.yaml
+  - type: object
+    properties:
+      displayName:
+        type: string
+        description: alias name for Partner Id
+      organizationTypes:
+        type: array
+        items:
+          type: string
+          description: Organization Types
+      references:
+        type: array
+        items:
+          oneOf:
+            - $ref: ./OrgReference.yaml
+            - $ref: ./SystemGeneratedOrgReference.yaml

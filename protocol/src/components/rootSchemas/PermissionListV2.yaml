@@ -1,0 +1,50 @@
+type: array
+items:
+  type: object
+  properties:
+    id:
+      type: string
+    subject:
+      $ref: ./PermissionSubject.yaml
+    resource:
+      $ref: ./PermissionResource.yaml
+    action:
+      type: array
+      items:
+        type: string
+  required:
+    - subject
+    - resource
+    - action
+example:
+  - subject:
+      id: org-A
+      attributes:
+        - name: role
+          value: 'tradeparty:BUYER'
+        - name: role
+          value: 'tradeparty:SELLER'
+    resource:
+      id: document-BoL-123
+      attributes:
+        - name: 'resource:type'
+          value: document
+        - name: 'document:type'
+          value: BILL_OF_LADING
+    action:
+      - 'document:read'
+  - subject:
+      id: org-B
+      attributes:
+        - name: role
+          value: 'tradeparty:OCEAN_CARRIER'
+    resource:
+      id: document-BoL-123
+      attributes:
+        - name: 'resource:type'
+          value: document
+        - name: 'document:type'
+          value: BILL_OF_LADING
+    action:
+      - 'document:read'
+      - 'document:upload'

@@ -1,0 +1,8 @@
+description: |
+  Update conflict, which may occur if concurrent updates are attempted
+  on the same object, or if the provided "etag" does not match the
+  latest version of the document
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ErrorResponse.yaml

@@ -1,0 +1,28 @@
+post:
+  summary: >-
+    This action will copy the connector settings to a new connector based on the
+    newly specified Id.
+  description: >-
+    This action will copy the connector settings to a new connector based on the
+    newly specified Id.
+  tags:
+    - copyConnector
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/copyConnector_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

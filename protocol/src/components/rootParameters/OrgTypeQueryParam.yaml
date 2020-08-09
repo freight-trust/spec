@@ -1,0 +1,21 @@
+in: query
+description: '{org Type}'
+name: orgType
+required: false
+schema:
+  type: string
+  enum:
+    - authority
+    - barge
+    - consignee
+    - customs broker
+    - drayage
+    - freight forwarder
+    - ocean carrier
+    - port
+    - rail
+    - shipper
+    - terminal
+    - truck
+    - 3PL
+    - 4PL

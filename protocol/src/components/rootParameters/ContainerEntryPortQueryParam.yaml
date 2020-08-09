@@ -1,0 +1,6 @@
+in: query
+description: '{container entry port}'
+name: containerEntryPort
+required: false
+schema:
+  type: string

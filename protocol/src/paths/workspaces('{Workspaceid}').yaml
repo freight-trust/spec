@@ -1,0 +1,62 @@
+get:
+  summary: Return a single workspaces
+  description: Returns a single workspaces object using the specified key.
+  tags:
+    - workspaces
+  operationId: getworkspaces
+  parameters:
+    - name: Workspaceid
+      in: path
+      description: The key Workspaceid
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: workspaces response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/workspaces.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete workspaces
+  description: Deletes the specified workspaces object.
+  tags:
+    - workspaces
+  operationId: deleteworkspaces
+  parameters:
+    - name: Workspaceid
+      in: path
+      description: The key Workspaceid
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: workspaces deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

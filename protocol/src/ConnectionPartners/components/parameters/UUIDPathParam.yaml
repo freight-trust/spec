@@ -1,0 +1,6 @@
+name: id
+in: path
+description: UUID parameter in path
+schema:
+  $ref: ../schemas/UUID.yaml
+required: true

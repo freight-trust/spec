@@ -1,0 +1,16 @@
+type: object
+required:
+  - eventTransactionId
+  - message
+properties:
+  eventTransactionId:
+    type: string
+    example: 66ea8047-1790-4929-a118-2actocd0322b
+    description: Unique identifier for a successfully published event
+  message:
+    type: string
+    example: Event submitted
+    description: >-
+      Message describing the status. This will be "Event submitted" if the
+      operation was successful. In the event of an error, the "message" field
+      will contain a description of the error

@@ -1,0 +1,9 @@
+type: object
+required:
+  - shipmentCreators
+properties:
+  shipmentCreators:
+    type: array
+    description: Information about the organizations returned by the query.
+    items:
+      $ref: "#/components/schemas/TradeObjectCreator"

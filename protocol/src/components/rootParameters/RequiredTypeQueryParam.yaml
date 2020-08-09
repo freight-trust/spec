@@ -1,0 +1,7 @@
+in: query
+description: user type.
+name: type
+schema:
+  allOf:
+    - $ref: ../schemas/UserEnum.yaml
+required: true

@@ -1,0 +1,42 @@
+type: object
+properties:
+  description:
+    type: string
+    example: "Rotterdam, ZH, NL"
+    description: Human readable location data for the event when type is UN/Locode
+  locationKey:
+    type: string
+    description: >-
+      The value of the highest priority Location field in a group of events. 
+      Only returned on transportSummary queries. Purpose is to help group events
+      that are in the same location.
+  type:
+    type: string
+    description: DEPRECATED (DO NOT USE)- The-type-of-location-provided-in-the-value-field
+    enum:
+      - UN/Locode
+      - GLN
+      - Address
+  value:
+    type: string
+    description: DEPRECATED (DO NOT USE)- Location-data-for-the-event
+  unlocode:
+    type: string
+    example: USNWK
+    description: A valid UN/CEFACT value for a UN/Locode
+  address:
+    $ref: "#/components/schemas/Address"
+  smdgTerminal:
+    type: string
+    example: USEWR-PNCT
+    description: A valid SMDG code for a Ocean Terminal
+  geoCoord:
+    $ref: "#/components/schemas/GeoCoordinates"
+  splc:
+    type: string
+    example: "191821"
+    description: A valid SPLC code for a Rail Terminal
+  gln:
+    type: string
+    example: "1234567890123"
+    description: A GS1 Identification Key for the location

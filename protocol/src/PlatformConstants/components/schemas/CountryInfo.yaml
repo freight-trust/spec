@@ -1,0 +1,12 @@
+type: array
+items:
+  type: object
+  properties:
+    name:
+      type: string
+      example: BR
+      description: Country code
+    value:
+      type: string
+      example: Brazil
+      description: Country description

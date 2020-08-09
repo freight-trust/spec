@@ -1,0 +1,41 @@
+type: object
+properties:
+  Id:
+    description: The id of the logs.
+    type: string
+  ConnectorId:
+    description: The id of the connector.
+    type: string
+  PortId:
+    description: The id of the port.
+    type: string
+  MessageId:
+    description: The message Id.
+    type: string
+  Direction:
+    description: The direction of the file transaction.
+    type: string
+  Status:
+    description: The status of the transaction.
+    type: string
+  Filename:
+    description: The name of the file being transferred.
+    type: string
+  FilePath:
+    description: The full path to the file that was sent or received.
+    type: string
+  FileSize:
+    description: The size of the file.
+    type: integer
+    format: int32
+  Timestamp:
+    description: The time that the file was sent or received.
+    type: string
+    format: date-time
+  ETag:
+    description: >-
+      The ETag for the file being transferred. This is only available when using
+      AS2 Restart.
+    type: string
+required:
+  - Id

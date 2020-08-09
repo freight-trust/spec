@@ -1,0 +1,16 @@
+type: object
+required:
+  - AFQueryResponseList
+properties:
+  AFQueryResponseList:
+    type: array
+    description: "list of all Actionable flow instances "
+    items:
+      $ref: "#/components/schemas/AFQueryResponseByFlowType"
+  hasMore:
+    type: boolean
+    description: hasMore
+  newFrom:
+    type: string
+    description: newFrom
+title: PaginatedAFQueryResponse

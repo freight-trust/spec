@@ -1,0 +1,8 @@
+in: query
+description: Reference Codes
+name: code
+schema:
+  type: array
+  items:
+    type: string
+required: true

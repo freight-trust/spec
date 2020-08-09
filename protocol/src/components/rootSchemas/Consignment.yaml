@@ -1,0 +1,143 @@
+type: object
+required:
+  - consignmentId
+  - createdBy
+  - creationTime
+  - status
+properties:
+  consignmentId:
+    type: string
+    description: Service created identifier for this consignment
+  carrierBookingNumber:
+    type: string
+    description: Carrier booking number for this consignment
+  consignmentRefs:
+    type: array
+    description: List of customer created references to this consignment.
+    items:
+      type: string
+  status:
+    type: string
+    description: Status of this consignment
+    enum:
+      - Active
+      - Canceled
+      - Combined
+  cutOffs:
+    type: array
+    description: Cutoffs for all transport equipments for this consignment.
+    items:
+      $ref: "#/components/schemas/CutOff"
+  transportEquipmentIds:
+    type: array
+    description: Affiliated transport equipments' IDs
+    items:
+      type: string
+  transportEquipmentRefs:
+    type: array
+    description: Affiliated transport equipments' reference numbers
+    items:
+      type: string
+  exportCountries:
+    type: array
+    description: Affiliated transport equipments' planned export countries
+    items:
+      type: string
+  importCountries:
+    type: array
+    description: Affiliated transport equipments' planned import countries
+    items:
+      type: string
+  entryPorts:
+    type: array
+    description: Affiliated transport equipments' planned entry ports
+    items:
+      type: string
+  exitPorts:
+    type: array
+    description: Affiliated transport equipments' planned exit ports
+    items:
+      type: string
+  harmonizedCodes:
+    type: array
+    description: Affiliated transport equipments' harmonized system codes
+    items:
+      type: string
+  billOfLadingNumbers:
+    type: array
+    description: Affiliated transport equipments' bill of lading numbers
+    items:
+      type: string
+  creationTime:
+    type: integer
+    format: int64
+    description: Time this consignment was created
+  terminals:
+    type: array
+    description: Affiliated transport equipments' planned terminals
+    items:
+      type: string
+  plannedVesselArrival:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Planned Vessel Arrival in epoch milliseconds
+  plannedVesselDeparture:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Planned Vessel Departure in epoch milliseconds
+  eventCreationTime:
+    type: integer
+    format: int64
+    description: Submission time of the event that created the consignment
+  eventUpdateTime:
+    type: integer
+    format: int64
+    description: Submission time of the event that most recently updated the consignment
+  consignmentCreationTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the consignment was created
+  consignmentUpdateTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the consignment was most recently updated
+  bookingData:
+    $ref: "#/components/schemas/BookingData"
+  parentConsignmentIds:
+    type: array
+    description: ID of the parent consignment for which this consignment subcontracts
+    items:
+      type: string
+  subcontractIds:
+    type: array
+    description: IDs of the children consignments which subcontract this consignment
+    items:
+      type: string
+  callerRoles:
+    type: array
+    description: The list of caller party roles
+    items:
+      type: string
+  createdBy:
+    type: string
+    description: The organization name of the creator of the consignment
+  splitFromConsignment:
+    $ref: "#/components/schemas/SplitFromConsignment"
+  combinedIntoConsignment:
+    $ref: "#/components/schemas/CombinedConsignment"
+  combinedConsignments:
+    type: array
+    description: >-
+      The combined consignment information of consignments that were combined
+      into this one
+    items:
+      $ref: "#/components/schemas/CombinedConsignment"
+  formerlyAssociatedTransportEquipment:
+    type: array
+    description: Transport equipment in the system that was formerly associated
+    items:
+      $ref: "#/components/schemas/FormerlyAssociatedTransportEquipment"
+  partBillOf:
+    $ref: "#/components/schemas/PartBillOf"

@@ -1,0 +1,22 @@
+required:
+  - type
+  - isAdmin
+  - orgId
+type: object
+properties:
+  name:
+    type: string
+    description: User Name.
+    example: user1
+  type:
+    allOf:
+      - description: User type.
+      - $ref: ./UserEnum.yaml
+  isAdmin:
+    type: boolean
+    description: set as true if the user has to be added with admin privilages.
+    example: true
+  orgId:
+    type: string
+    description: orgId in which user needs to be updated
+    example: 2b061469-c35a-4725-986f-74043736f61a

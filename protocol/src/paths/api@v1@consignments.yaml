@@ -1,0 +1,343 @@
+get:
+  tags:
+    - Consignment Queries
+  summary: Query all consignments
+  description: >
+    Queries for all consignments visible to the user, filtered using the
+    criteria below.
+
+
+    We return up to a maximum of 1000 consignments in one query. Paging is used
+    to retrieve consignments beyond this number. Provide the "newFrom" value
+    from the response body as the "from" parameter to retrieve the next page of
+    results. If "from" is given, all other parameters are ignored, except for
+    "size".
+
+
+    For the fields listed below, wildcard matching is supported. A '*' can be
+    used in place of one or more characters, and a '?' can replace a single
+    character.
+
+    - exportCountry
+
+    - importCountry
+
+    - entryPort
+
+    - exitPort
+
+    - consignmentId
+
+    - consignmentRef
+
+    - transportEquipmentId
+
+    - transportEquipmentRef
+
+    - harmonizedCode
+
+    - billOfLadingNumber
+
+    - carrierBookingNumber
+
+    - originLocation
+
+    - destinationLocation
+
+    - terminal
+
+
+    Commodity information visibility is restricted to orgs that were onboarded
+    with certain types. If your org does not have one of the correct types, then
+    the following fields will be removed from all consignment response objects,
+    and you will not be allowed to search on these fields:
+
+    - harmonizedCode
+
+    - commodityHarmonizedCode (in the commodities array in bookingData)
+
+    - commodityDescription (in the commodities array in bookingData)
+  operationId: queryConsignmentsUsingGET
+  parameters:
+    - name: size
+      in: query
+      description: "Optional, number of consignments to return, max 1000"
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 50
+    - name: from
+      in: query
+      description: >-
+        Optional, bookmark to get the next chunk of results to a previously
+        executed query. This must be the newFrom value from a previous
+        consignments query.
+      required: false
+      schema:
+        type: string
+    - name: createdBy
+      in: query
+      description: >-
+        Optional, only include results that were created by any of the given
+        organizations
+      required: false
+      explode: true
+      schema:
+        type: array
+        items:
+          type: string
+    - name: createdAfter
+      in: query
+      description: >-
+        Optional, only include results that were created on or after this date.
+        The date must be in epoch format.
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: createdBefore
+      in: query
+      description: >-
+        Optional, only include results that were created on or before this date.
+        The date must be in epoch format.
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: exportCountry
+      in: query
+      description: "Optional, only include results that match this export country"
+      required: false
+      schema:
+        type: string
+    - name: importCountry
+      in: query
+      description: "Optional, only include results that match this import country"
+      required: false
+      schema:
+        type: string
+    - name: entryPort
+      in: query
+      description: "Optional, only include results that match this entry port"
+      required: false
+      schema:
+        type: string
+    - name: exitPort
+      in: query
+      description: "Optional, only include results that match this exit port"
+      required: false
+      schema:
+        type: string
+    - name: consignmentId
+      in: query
+      description: "Optional, only include results that match this consignment ID"
+      required: false
+      schema:
+        type: string
+    - name: consignmentRef
+      in: query
+      description: "Optional, only include results that match this consignment reference"
+      required: false
+      schema:
+        type: string
+    - name: status
+      in: query
+      description: "Optional, only include results that match this consignment status"
+      required: false
+      schema:
+        type: string
+    - name: transportEquipmentId
+      in: query
+      description: >-
+        Optional, only include results with a container that matches this
+        transport equipment ID
+      required: false
+      schema:
+        type: string
+    - name: transportEquipmentRef
+      in: query
+      description: >-
+        Optional, only include results with a container that matches this
+        transport equipment reference
+      required: false
+      schema:
+        type: string
+    - name: equipmentNumber
+      in: query
+      description: >-
+        Optional, only include results with a transport equipment that matches
+        this equipment number
+      required: false
+      schema:
+        type: string
+    - name: billOfLadingNumber
+      in: query
+      description: "Optional, only include results that match this bill of lading number"
+      required: false
+      schema:
+        type: string
+    - name: harmonizedCode
+      in: query
+      description: >-
+        Optional, only include results that match this harmonized system code.
+        Your org must have permission to see commodity information to search on
+        this parameter
+      required: false
+      schema:
+        type: string
+    - name: carrierBookingNumber
+      in: query
+      description: "Optional, only include results that match this carrier booking number"
+      required: false
+      schema:
+        type: string
+    - name: terminal
+      in: query
+      description: "Optional, only include results that match this terminal name"
+      required: false
+      schema:
+        type: string
+    - name: startPlannedVesselDeparture
+      in: query
+      description: >-
+        Optional, start date in Planned Vessel Departure date range. Only
+        include results where a consignment leaves the Exit Port (Planned Vessel
+        Departure) on this date or later. The date must be in epoch milliseconds
+        format. The value used will be this epoch day at time 00:00:01 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: endPlannedVesselDeparture
+      in: query
+      description: >-
+        Optional, end date in Planned Vessel Departure date range. Only include
+        results where a consignment leaves the Exit Port (Planned Vessel
+        Departure) on this date or earlier. The date must be in epoch
+        milliseconds format. The value used will be this epoch day at time
+        23:59:59 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: startPlannedVesselArrival
+      in: query
+      description: >-
+        Optional, start date in Planned Vessel Arrival date range. Only include
+        results where a consignment arrives at the Entry Port (Planned Vessel
+        Arrival) on this date or later. The date must be in epoch milliseconds
+        format. The value used will be this epoch day at time 00:00:01 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: endPlannedVesselArrival
+      in: query
+      description: >-
+        Optional, end date in Planned Vessel Arrival date range. Only include
+        results where a consignment arrives at the Entry Port (Planned Vessel
+        Arrival) on this date or earlier. The date must be in epoch milliseconds
+        format. The value used will be this epoch day at time 23:59:59 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: originLocation
+      in: query
+      description: >-
+        Optional, only include results that match the value of the origin
+        location. Searches for matches in the originLocation in the booking data
+        as well as the exit port
+      required: false
+      schema:
+        type: string
+    - name: destinationLocation
+      in: query
+      description: >-
+        Optional, only include results that match the value of the destination
+        location. Searches for matches in the destinationLocation in the
+        bookingData as well as the entry port
+      required: false
+      schema:
+        type: string
+    - name: startBookingDepartureDate
+      in: query
+      description: >-
+        Optional, start departure date in Booking . Only include results where a
+        consignment leaves the origin on this date or later. The date must be in
+        epoch milliseconds format. The value used will be this epoch day at time
+        00:00:01 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: endBookingDepartureDate
+      in: query
+      description: >-
+        Optional, end departure date in Booking. Only include results when a
+        consignment arrives at the destination on this date or earlier. The date
+        must be in epoch milliseconds format. The value used will be this epoch
+        day at time 23:59:59 HH:MM:SS
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: commodityHarmonizedCode
+      in: query
+      description: >-
+        Optional, only include results that match this commodity harmonized
+        system code. Your org must have permission to see harmonized system
+        codes to search on this parameter
+      required: false
+      schema:
+        type: string
+    - name: commodityDescription
+      in: query
+      description: >-
+        Optional, only include results that match this commodity description.
+        Your org must have permission to see commodity information to search on
+        this parameter
+      required: false
+      schema:
+        type: string
+    - name: vehicleName
+      in: query
+      description: >-
+        Optional, only include results that match this vehicleName in the
+        bookingData
+      required: false
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ConsignmentQueryResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

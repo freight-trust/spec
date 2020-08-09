@@ -1,0 +1,30 @@
+type: object
+properties:
+  name:
+    type: string
+  subject:
+    $ref: ./Descriptor.yaml
+  resource:
+    $ref: ./Descriptor.yaml
+  action:
+    type: array
+    items:
+      type: string
+required:
+  - subject
+  - resource
+  - action
+example:
+  name: buyer_can_read_bills_of_lading
+  subject:
+    attributes:
+      - name: role
+        value: 'tradeparty:BUYER'
+  resource:
+    attributes:
+      - name: 'resource:type'
+        value: document
+      - name: 'document:type'
+        value: BILL_OF_LADING
+  action:
+    - 'document:read'

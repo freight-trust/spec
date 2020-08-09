@@ -1,0 +1,10 @@
+type: object
+properties:
+  referenceName:
+    type: string
+    example: billOfLadingNumber
+    description: Reference Name
+  referenceValue:
+    type: string
+    example: BOL8331939
+    description: Reference Value

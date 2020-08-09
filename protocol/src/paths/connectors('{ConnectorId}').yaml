@@ -1,0 +1,102 @@
+get:
+  summary: Return a single connectors
+  description: Returns a single connectors object using the specified key.
+  tags:
+    - connectors
+  operationId: getconnectors
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: connectors response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/connectors.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+put:
+  summary: Update connectors
+  description: Updates the specified connectors object.
+  tags:
+    - connectors
+  operationId: updateconnectors
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: The connectors entity to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/connectors.yaml
+  responses:
+    '200':
+      description: EntitySet connectors
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/connectors.yaml
+    '204':
+      description: connectors updated
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete connectors
+  description: Deletes the specified connectors object.
+  tags:
+    - connectors
+  operationId: deleteconnectors
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: connectors deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

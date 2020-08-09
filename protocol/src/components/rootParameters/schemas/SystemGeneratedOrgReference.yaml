@@ -1,0 +1,14 @@
+required:
+  - code
+  - isSystemGenerated
+properties:
+  id:
+    description: Reference Id
+    type: string
+  code:
+    description: Value or code to be used to refer to the organization (e.g. SCV code)
+    type: string
+  isSystemGenerated:
+    description: Additional paramter indicates the reference is system generated.
+    type: boolean
+    default: true

@@ -1,0 +1,26 @@
+type: string
+example: SRM
+enum:
+  - BOK
+  - SHI
+  - VGM
+  - SRM
+  - TRD
+  - ARN
+maxLength: 3
+description: >
+  The code to identify the type of information that is related to the shipment.
+  This code can have the values:
+
+  - BOK (Booking)
+
+  - SHI (Shipping Instruction)
+
+  - VGM (Verified Gross Mass)
+
+  - SRM (Shipment Release Message)
+
+  - TRD (Transport Document)
+
+  - ARN (Arrival Notice)
+nullable: false

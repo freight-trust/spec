@@ -1,0 +1,5 @@
+name: deleted
+in: query
+description: Included soft deleted resources
+schema:
+  type: boolean

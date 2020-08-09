@@ -1,0 +1,24 @@
+summary: Parntership with system generated reference
+value:
+  - partnerId: partner123
+    displayName: partner_123
+    organizationTypes:
+      - ocean carrier
+    status: accepted
+    hasReference: true
+    references:
+      - id: systemGeneratedRef123
+        code: systemGeneratedRef123
+        isSystemGenerated: true
+      - id: partner123Ref
+        code: partner123Code
+        name: partner123Name
+        masterId: partner132MasterId
+        masterName: partner123MasterName
+        address:
+          address1: partnerAddress1123
+          address2: partnerAddress2123
+          postalCode: partner123PostalCode
+          city: partner123City
+          state: partner123State
+          country: partner123Country

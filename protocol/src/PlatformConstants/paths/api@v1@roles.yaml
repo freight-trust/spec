@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Constants and Types
+  summary: Returns roles used to validate content
+  description: Returns list of supported roles in Tradelens
+  operationId: getMetaInfoRoles
+  parameters:
+    - in: query
+      description: >-
+        Filter roles supported by each tradeObject type. Note that only one
+        tradeObject type can be specified (shipment, consignment or
+        transportEquipment)
+      name: tradeObject
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Meta information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/roles'

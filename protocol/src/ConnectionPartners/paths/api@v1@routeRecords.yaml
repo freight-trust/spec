@@ -1,0 +1,23 @@
+get:
+  summary: Get Route Records.
+  description: >-
+    This API is to fetch the route records based on owningCarrierOrgId and it
+    works with App Token.
+  operationId: getRouteRecords
+  tags:
+    - Inland Provider Route Records
+  parameters:
+    - $ref: ../components/parameters/OwningOrgIdQueryParam.yaml
+  responses:
+    '200':
+      description: Route Records found successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RouteRecordsResponse.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

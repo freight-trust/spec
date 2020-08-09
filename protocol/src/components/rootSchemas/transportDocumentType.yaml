@@ -1,0 +1,11 @@
+type: string
+enum:
+  - BOL
+  - SWB
+description: >
+  The Transport Document Type is used to identify which type of document, the
+  value of "transportDocumentID" represents. The values available are:
+
+  - BOL (Bill of Lading)
+
+  - SWB (Sea Waybill)

@@ -1,0 +1,5 @@
+in: query
+description: The customer maseter id to filter search results on (exact match)
+name: masterId
+schema:
+  type: string

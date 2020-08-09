@@ -1,0 +1,35 @@
+get:
+  tags:
+    - UN Locode Queries
+  summary: Query for UN/Locodes beginning with the given string.
+  description: Queries for UN/locodes matching the given search criteria.
+  operationId: queryUnlocodesUsingGET
+  parameters:
+    - in: query
+      description: >-
+        Returns all UN/locodes whose UN/locode code and/or UN/locode description
+        begins with the specified locationName
+      name: locationName
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Meta information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/UnlocodesResponse.yaml
+    '403':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ForbiddenResponse.yaml
+    '404':
+      $ref: ../components/responses/NotFoundResponse.yaml
+    '429':
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RateLimitResponseModel.yaml

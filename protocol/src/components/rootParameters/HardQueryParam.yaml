@@ -1,0 +1,5 @@
+name: hard
+in: query
+description: Completely removes the resource and cannot be restored
+schema:
+  type: boolean

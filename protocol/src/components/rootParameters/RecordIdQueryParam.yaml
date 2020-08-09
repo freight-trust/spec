@@ -1,0 +1,5 @@
+in: query
+description: Filter for a specific recordId
+name: recordId
+schema:
+  $ref: ../schemas/UUID.yaml

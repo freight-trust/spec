@@ -1,0 +1,9 @@
+type: object
+required:
+  - partyRef
+properties:
+  partyRef:
+    type: string
+    example: Customer
+    description: partyRef of the document associated with Action.
+title: TransferIdentifier

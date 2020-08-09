@@ -1,0 +1,38 @@
+get:
+  summary: Return specified property value of specified connectors
+  description: >-
+    Returns property value of connectors object using the specified key and
+    property name.
+  tags:
+    - connectors
+  operationId: getconnectorsProperty
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: propertyName
+      in: path
+      schema:
+        type: string
+      description: The property name
+      required: true
+  responses:
+    '200':
+      description: The property value
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            type: string
+    default:
+      description: Unexpected error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

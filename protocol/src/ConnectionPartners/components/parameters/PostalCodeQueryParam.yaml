@@ -1,0 +1,7 @@
+in: query
+description: >-
+  The customer postal code to filter search results on (includes match; ignores
+  case)
+name: postalCode
+schema:
+  type: string

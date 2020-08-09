@@ -1,0 +1,31 @@
+required:
+  - routePartnerRef
+  - routeOrigin
+  - routeDestination
+description: Route Records
+type: object
+properties:
+  routeType:
+    allOf:
+      - description: Route Type
+      - $ref: ./RouteTypeEnum.yaml
+    description: Route Type.
+  routePartnerRef:
+    type: string
+    description: Partner Ref associatied with the route.
+  routeOrigin:
+    description: unlocode associatied with the route Origin location.
+    allOf:
+      - $ref: ./UnLocode.yaml
+  routeDestination:
+    description: unlocode associatied with the route Destination location.
+    allOf:
+      - $ref: ./UnLocode.yaml
+additionalProperties: false
+example:
+  routeType: vessel
+  routePartnerRef: routeRef1
+  routeOrigin:
+    unlocode: CUQMA
+  routeDestination:
+    unlocode: SIPTV

@@ -1,0 +1,12 @@
+description: Business partner
+allOf:
+  - $ref: ./PartnerId.yaml
+  - type: object
+    properties:
+      status:
+        $ref: ./StatusEnum.yaml
+  - type: object
+    properties:
+      hasReference:
+        type: boolean
+        description: 'Boolean value, true if there are any non system generated references'

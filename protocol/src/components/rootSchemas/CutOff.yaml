@@ -1,0 +1,23 @@
+type: object
+properties:
+  cutOffDateTime8601:
+    type: string
+    description: >-
+      Deadline for the cut off, in common ISO 8601 format
+      yyyy-MM-dd'T'HH:mm:ss.SSSZ
+  cutOffType:
+    type: string
+    description: "Type of cut off, e.g. Documentation, VGM, Cargo"
+    enum:
+      - Cargo
+      - Documentation
+      - VGM
+  eventSubmissionTime:
+    type: integer
+    format: int64
+    description: The time the event creating the cutOff was submitted
+  eventTransactionId:
+    type: string
+    description: The event transaction ID of the event that created this cut off
+  location:
+    $ref: "#/components/schemas/Location"

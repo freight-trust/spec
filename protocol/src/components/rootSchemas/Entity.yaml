@@ -1,0 +1,6 @@
+allOf:
+  - $ref: ./Descriptor.yaml
+  - type: object
+    properties:
+      id:
+        type: string

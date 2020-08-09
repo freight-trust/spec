@@ -1,0 +1,8 @@
+type: object
+required:
+  - unLocode
+properties:
+  unLocode:
+    type: string
+    example: NLRTM
+    description: UN/Locode for Port

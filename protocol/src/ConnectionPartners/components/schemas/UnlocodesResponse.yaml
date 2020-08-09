@@ -1,0 +1,9 @@
+type: object
+properties:
+  locations:
+    type: array
+    description: List of UN/locodes matching the query.
+    items:
+      $ref: ./EventTypeInfoUnlcodes.yaml
+required:
+  - locations

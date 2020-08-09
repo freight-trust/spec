@@ -1,0 +1,6 @@
+in: path
+description: The entitlements assosiated with the orgId.
+name: orgId
+schema:
+  type: string
+required: true

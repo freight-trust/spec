@@ -1,0 +1,45 @@
+type: object
+required:
+  - consignmentId
+properties:
+  consignmentId:
+    type: string
+    example: 7ciusuhd-8r3y12r-dhf-84683-sdfhiy32
+    description: The unique identifier for a consignment
+  consignmentRefs:
+    type: array
+    description: The list of consignment references
+    items:
+      type: string
+  carrierBookingNumber:
+    type: string
+    description: The carrier booking number of the consignment
+  status:
+    type: string
+    description: The status of the consignment
+    enum:
+      - Active
+      - Canceled
+      - Combined
+  plannedVesselDeparture:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Consignment Planned Vessel Departure in epoch milliseconds
+  plannedVesselArrival:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Consignment Planned Vessel Arrival in epoch milliseconds
+  bookingData:
+    $ref: "#/components/schemas/BookingData"
+  callerRoles:
+    type: array
+    description: The list of caller party roles
+    items:
+      type: string
+  transportPlans:
+    type: array
+    description: The list of transport plans
+    items:
+      $ref: "#/components/schemas/TransportPlanResponse"

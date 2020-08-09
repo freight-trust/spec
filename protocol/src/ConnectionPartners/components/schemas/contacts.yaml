@@ -1,0 +1,21 @@
+type: object
+properties:
+  contact:
+    type: object
+    properties:
+      contactType:
+        allOf:
+          - description: Contact type.
+          - $ref: ./ContactTypeEnum.yaml
+      contactInfo:
+        type: string
+        example: 'https://foo.bar'
+      nickname:
+        type: string
+        example: JohnDoe
+    required:
+      - contactType
+      - contactInfo
+      - nickname
+required:
+  - contact

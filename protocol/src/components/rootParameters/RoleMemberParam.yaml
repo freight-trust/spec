@@ -1,0 +1,7 @@
+in: path
+description: Organization ID
+name: member
+schema:
+  type: string
+  example: org-A
+required: true

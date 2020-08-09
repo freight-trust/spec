@@ -1,0 +1,7 @@
+allOf:
+  - type: object
+    properties:
+      id:
+        type: string
+        description: Reference Id
+  - $ref: ./OrgReferenceWithoutId.yaml

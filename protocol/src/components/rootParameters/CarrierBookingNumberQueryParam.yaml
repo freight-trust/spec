@@ -1,0 +1,7 @@
+name: carrierBookingNumber
+in: query
+description: >
+  The carrier booking number (CBN) for an existing consignment. Either
+  **consignmentId** or **carrierBookingNumber** is _**required**_.
+schema:
+  type: string

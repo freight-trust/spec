@@ -1,0 +1,17 @@
+required:
+  - type
+  - isAdmin
+type: object
+properties:
+  name:
+    type: string
+    description: User Name.
+    example: user1
+  type:
+    allOf:
+      - description: User type.
+      - $ref: ./UserEnum.yaml
+  isAdmin:
+    type: boolean
+    description: set as true if the user has to be added with admin privilages.
+    example: true

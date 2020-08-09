@@ -1,0 +1,38 @@
+get:
+  summary: Return specified property value of specified logs
+  description: >-
+    Returns property value of logs object using the specified key and property
+    name.
+  tags:
+    - logs
+  operationId: getlogsProperty
+  parameters:
+    - name: Id
+      in: path
+      description: The key Id
+      required: true
+      schema:
+        type: string
+    - name: propertyName
+      in: path
+      schema:
+        type: string
+      description: The property name
+      required: true
+  responses:
+    '200':
+      description: The property value
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            type: string
+    default:
+      description: Unexpected error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

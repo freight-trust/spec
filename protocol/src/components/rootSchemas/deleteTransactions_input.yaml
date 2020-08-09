@@ -1,0 +1,16 @@
+type: object
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the connector.
+  PortId:
+    type: string
+    description: The id of the port.
+  Direction:
+    type: string
+    description: The direction of the file transaction.
+  TimeStamp:
+    type: string
+    description: >-
+      When set, all transaction logs older than this value will be deleted.  If
+      this field is left empty, all logs will be deleted.

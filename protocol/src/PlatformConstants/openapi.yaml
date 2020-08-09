@@ -1,0 +1,58 @@
+openapi: 3.0.0
+tags:
+  - name: Constants and Types
+info:
+  title: Platform Constants API
+  version: 1.80.0
+paths:
+  /api/v1/countryCodes:
+    $ref: paths/api@v1@countryCodes.yaml
+  /api/v1/eventTypes:
+    $ref: paths/api@v1@eventTypes.yaml
+  /api/v1/referenceTypes:
+    $ref: paths/api@v1@referenceTypes.yaml
+  /api/v1/unlocodes:
+    $ref: paths/api@v1@unlocodes.yaml
+  /api/v1/roles:
+    $ref: paths/api@v1@roles.yaml
+  /api/v1/documentTypes:
+    $ref: paths/api@v1@documentTypes.yaml
+  /api/v1/documentActions:
+    $ref: paths/api@v1@documentActions.yaml
+components:
+  schemas:
+    roles:
+      type: object
+      properties:
+        roles:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                $ref: ./components/schemas/TradePartyEnum.yaml
+              display:
+                type: string
+                description: Friendly description of the trade party role
+            required:
+              - code
+              - description
+    contact:
+      type: object
+      properties:
+        contactId:
+          type: string
+          example: UUID-123-234
+        contactType:
+          allOf:
+            - description: Contact type.
+            - $ref: ./components/schemas/ContactTypeEnum.yaml
+        contactInfo:
+          type: string
+          example: 'https://foo.bar'
+        nickname:
+          type: string
+          example: JohnDoe
+        verified:
+          type: boolean
+          example: false

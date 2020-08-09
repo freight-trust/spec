@@ -1,0 +1,18 @@
+type: object
+properties:
+  equipmentNumber:
+    type: string
+    example: ACME1122334
+    description: The transport equipment number to search with
+  carrierBookingNumber:
+    type: string
+    example: "123456789"
+    description: The carrier booking number to search with
+  billOfLadingNumber:
+    type: string
+    example: BOL8331939
+    description: The bill of lading number to search with
+  references:
+    type: array
+    items:
+      $ref: "#/components/schemas/TradeObjectReference"

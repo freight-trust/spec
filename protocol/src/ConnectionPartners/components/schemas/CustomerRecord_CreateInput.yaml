@@ -1,0 +1,25 @@
+description: Create/replace customer records request.
+type: array
+items:
+  $ref: ./CustomerRecord_CreateReplace.yaml
+example:
+  - associatedCarrierName: Carrier123
+    associatedCarrierOrgId: 7e341469-c35a-4725-986f-74043736f61a
+    code: '11111111111'
+    name: CustomerA-B
+    address: 1111 Main St.
+    postalCode: '11111'
+    city: Somecity
+    country: Somecountry
+    masterId: '12345678'
+    masterName: CustomerA
+  - associatedCarrierName: Carrier123
+    associatedCarrierOrgId: 7e341469-c35a-4725-986f-74043736f61a
+    code: '22222222222'
+    name: CustomerA-C
+    address: 2222 Main St.
+    postalCode: '22222'
+    city: Anothercity
+    country: Somecountry
+    masterId: '12345678'
+    masterName: CustomerA

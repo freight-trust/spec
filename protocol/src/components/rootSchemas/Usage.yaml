@@ -1,0 +1,13 @@
+properties:
+  organizationId:
+    type: string
+  nextPage:
+    type: string
+  requestParameters:
+    $ref: ./RequestParameters.yaml
+  summary:
+    $ref: ./Summary.yaml
+  containers:
+    type: array
+    items:
+      $ref: ./Container.yaml

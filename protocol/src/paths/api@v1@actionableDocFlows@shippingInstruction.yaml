@@ -1,0 +1,59 @@
+put:
+  tags:
+    - Actionable Doc Flows
+  summary: "Shipping Instructions actionable doc flow "
+  description: >-
+    Triggers the actionable flow associated with Shipping Instruction document.
+    Only structured document is supported. The document schema will be validated
+    against the platform defined Document Schema. The platform defined schema Id
+    and version can be retrieved from the DocumentSchema API (DocSharing). The
+    structured document will be processed to retrieve the required fields for
+    actionable doc flow.
+  operationId: upsertShippingInstructionsUsingPUT
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              description: >-
+                Browse the file to upload/ update the Shipping Instructions
+                document.
+              type: string
+              format: binary
+            metadata:
+              description: "A JSON Object. Supported properties:\r\n\r\n - [Optional] docIssuanceTime: Document Issued Time. Must be in ISO 8601 format (yyyy-MM-dd'T'HH:mm:ss'Z') \r\nSample request: {\"docIssuanceTime\":\"2018-03-13T11:30:00.000-05:00\"}</i>"
+              type: string
+            schemaReference:
+              description: >-
+                Platform defined schema reference for validating structured file
+                as jsonString. The platform defined schema Id and version  can
+                be retrieved from the DocumentSchema API (DocSharing). Sample
+                request: {"documentSchemaId":"121212", "version":"1"}
+              type: string
+          required:
+            - file
+            - schemaReference
+  responses:
+    "202":
+      description: Accepted
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/SIActionableDocFlowResponse"
+    "400":
+      description: Invalid document structure.
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

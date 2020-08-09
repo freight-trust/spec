@@ -1,0 +1,67 @@
+type: object
+required:
+  - actions
+  - docType
+  - errorCode
+  - errorMessage
+  - flowTransactionId
+  - lastModifiedDate
+  - originator
+  - status
+  - txnStartTime
+  - txnStopTime
+properties:
+  actions:
+    type: object
+    example:
+      createConsignmentAction:
+        actionId: c93b1946-d8f7-11e7-9296-cec278b6b50a
+        status: INPROGRESS
+    description: stores all Action Related Information
+    additionalProperties:
+      $ref: "#/components/schemas/FlowActionResponse"
+  docType:
+    type: string
+    example: SHIPPING_INSTRUCTIONS
+    description: Represent the type of the document.
+  errorCode:
+    type: string
+    example: AF_xxx
+    description: Failure error code
+  errorMessage:
+    type: string
+    example: Internal server error
+    description: Failure message
+  flowTransactionId:
+    type: string
+    example: c93b1946-d8f7-11e7-9296-cec278b6b50a
+    description: Unique ID Generated for the Transaction
+  lastModifiedDate:
+    type: string
+    example: 2018-09-27T09:08:00.000Z
+    description: Last Modified Date
+  originator:
+    type: string
+    example: gtd-demo-jv-sunny-farms
+    description: Request originator
+  status:
+    type: string
+    example: InProgress
+    description: "Status of the transaction.This can be either Complete,Failed or InProgress"
+    enum:
+      - Complete
+      - Failed
+      - InProgress
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  txnStartTime:
+    type: integer
+    format: int64
+    example: 1561585550449
+    description: "Time when the Txn was created "
+  txnStopTime:
+    type: integer
+    format: int64
+    example: 1561585551449
+    description: "Time when the Txn was completed "
+title: TransactionResponse

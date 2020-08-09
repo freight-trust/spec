@@ -1,0 +1,30 @@
+type: object
+required:
+  - error
+  - message
+  - path
+  - status
+  - timestamp
+properties:
+  error:
+    type: string
+    example: Too Many Requests
+    description: Human readable http response
+  message:
+    type: string
+    example: Request rate exceeded.
+    description: Translated error message
+  path:
+    type: string
+    example: /api/v1/path/to/endpoint
+    description: Path to API called
+  status:
+    type: integer
+    format: int32
+    example: 429
+    description: HTTP status (429)
+  timestamp:
+    type: integer
+    format: int64
+    example: 1583434912493
+    description: 'Timestamp at which the rejected request was submitted, in epoch time'

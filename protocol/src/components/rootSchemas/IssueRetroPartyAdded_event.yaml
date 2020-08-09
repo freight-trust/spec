@@ -1,0 +1,47 @@
+type: object
+required:
+  - originatorName
+  - originatorId
+properties:
+  originatorName:
+    type: string
+    description: The proper name (human readable) of the entity that published this event
+  originatorId:
+    type: string
+    description: >-
+      The party identification code (i.e SCAC) of the organization publishing
+      event
+  eventSubmissionTime:
+    type: number
+    description: 'Time of submission, as the number of milliseconds since Epoch'
+  eventSubmissionTime8601:
+    type: string
+    description: 'Time of submission, in common ISO 8601 fromat yyyy-MM-dd''T''HH:mm:ss.SSSZ'
+  eventSubmissionGpsLocation:
+    type: string
+    description: GPS coordinates of where the event originated from(mobile device only)
+  correlationId:
+    type: string
+    description: User-supplied Id for this event
+  orgId:
+    type: string
+    description: >-
+      Resolved organizationId for the partyRef which will now be retroactively
+      applied
+  consignments:
+    type: array
+    items:
+      type: string
+    description: Array of the consignment IDs of the consignments to be updated
+  transportEquipment:
+    type: array
+    items:
+      type: string
+    description: >-
+      Array of the transport equipment IDs of the transport equipment to be
+      updated
+  shipments:
+    type: array
+    items:
+      type: string
+    description: Array of theshipment IDs of the shipments to be updated

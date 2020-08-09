@@ -1,0 +1,7 @@
+required:
+  - nickname
+type: object
+properties:
+  nickname:
+    type: string
+    example: user123

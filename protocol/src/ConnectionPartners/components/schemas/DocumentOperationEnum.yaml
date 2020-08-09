@@ -1,0 +1,5 @@
+type: string
+enum:
+  - 'document:read'
+  - 'document:upload'
+  - 'document:write'

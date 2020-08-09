@@ -1,0 +1,27 @@
+post:
+  summary: >-
+    This action will import partner/connector profiles from previous versions of
+    the application.
+  description: >-
+    This action will import partner/connector profiles from previous versions of
+    the application.
+  tags:
+    - importProfiles
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/importProfiles_input.yaml
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

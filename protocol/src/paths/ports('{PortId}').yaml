@@ -1,0 +1,102 @@
+get:
+  summary: Return a single ports
+  description: Returns a single ports object using the specified key.
+  tags:
+    - ports
+  operationId: getports
+  parameters:
+    - name: PortId
+      in: path
+      description: The key PortId
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: ports response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ports.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+put:
+  summary: Update ports
+  description: Updates the specified ports object.
+  tags:
+    - ports
+  operationId: updateports
+  parameters:
+    - name: PortId
+      in: path
+      description: The key PortId
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: The ports entity to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/ports.yaml
+  responses:
+    '200':
+      description: EntitySet ports
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ports.yaml
+    '204':
+      description: ports updated
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete ports
+  description: Deletes the specified ports object.
+  tags:
+    - ports
+  operationId: deleteports
+  parameters:
+    - name: PortId
+      in: path
+      description: The key PortId
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: ports deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

@@ -1,0 +1,6 @@
+type: string
+example: ARRI
+maxLength: 4
+description: >-
+  Unique identifier for Event Type Code. This code has different ENUM values
+  depending on the type of event

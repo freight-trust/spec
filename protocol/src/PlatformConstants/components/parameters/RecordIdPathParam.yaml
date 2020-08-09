@@ -1,0 +1,6 @@
+in: path
+description: The id by which to fetch a given customer record
+name: recordId
+schema:
+  type: string
+required: true

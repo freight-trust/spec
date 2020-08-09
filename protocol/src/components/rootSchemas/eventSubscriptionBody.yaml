@@ -1,0 +1,21 @@
+description: The object used by the POST event-subscriptions endpoint
+type: object
+properties:
+  callbackUrl:
+    $ref: "#/components/schemas/callbackUrl"
+  eventType:
+    $ref: "#/components/schemas/eventTypeList"
+  bookingReference:
+    $ref: "#/components/schemas/bookingReference"
+  transportDocumentID:
+    $ref: "#/components/schemas/transportDocumentID"
+  transportDocumentType:
+    $ref: "#/components/schemas/transportDocumentType"
+  equipmentReference:
+    $ref: "#/components/schemas/equipmentReference"
+  scheduleID:
+    $ref: "#/components/schemas/scheduleID"
+  transportCallID:
+    $ref: "#/components/schemas/transportCallID"
+required:
+  - callbackUrl

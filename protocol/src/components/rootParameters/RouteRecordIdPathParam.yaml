@@ -1,0 +1,6 @@
+in: path
+description: UUID associated with each route record
+name: routeRecordId
+schema:
+  type: string
+required: true

@@ -1,0 +1,27 @@
+post:
+  summary: >-
+    Delete all the application and access logs older than the specified
+    timestamp.
+  description: >-
+    Delete all the application and access logs older than the specified
+    timestamp.
+  tags:
+    - deleteLogs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/deleteLogs_input.yaml
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

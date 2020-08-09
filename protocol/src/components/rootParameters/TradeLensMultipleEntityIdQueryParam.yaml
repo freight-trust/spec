@@ -1,0 +1,9 @@
+in: query
+description: Comma-separated list of unique identifiers of resources in TradeLens
+name: id
+schema:
+  type: array
+  items:
+    type: string
+  example: 'consignment-123,document-xyz'
+required: true

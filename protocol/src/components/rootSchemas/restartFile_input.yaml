@@ -1,0 +1,17 @@
+type: object
+required:
+  - Filename
+  - etag
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the partner/connector. Required.
+  PortId:
+    type: string
+    description: The id of the partner/port.
+  Filename:
+    type: string
+    description: The file name.
+  etag:
+    type: string
+    description: The ETag.

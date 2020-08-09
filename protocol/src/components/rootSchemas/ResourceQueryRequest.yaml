@@ -1,0 +1,35 @@
+type: object
+required:
+  - callerOrg
+  - ruleType
+  - queries
+properties:
+  callerOrg:
+    type: string
+    description: caller org id
+    example: org123
+  ruleType:
+    description: FlowType. Currently only `SI-BOL` is supported.
+    type: string
+    enum:
+      - SI-BOL
+      - ACTIONABLE_FLOW_BY_FLOW_TYPE
+  queries:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 0003f9c7-ef2e-4c9f-8018-cc9e98faed37
+        attributes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: 'resource:type'
+              value:
+                type: string
+                example: document

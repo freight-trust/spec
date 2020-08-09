@@ -1,0 +1,11 @@
+required:
+  - nickname
+  - otp
+type: object
+properties:
+  nickname:
+    type: string
+    example: user123
+  otp:
+    type: string
+    example: otp123

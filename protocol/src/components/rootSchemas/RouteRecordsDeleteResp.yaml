@@ -1,0 +1,10 @@
+description: Route Records Delete Response
+type: object
+properties:
+  routeRecordId:
+    type: string
+  status:
+    type: string
+example:
+  routeRecordId: id123
+  status: deleted

@@ -1,0 +1,26 @@
+type: object
+properties:
+  transportEquipmentSummary:
+    $ref: "#/components/schemas/TransportEquipmentSummary"
+  transportPlanIssuanceTime8601:
+    type: string
+    example: 2017-09-15T20:30:00.000Z
+    description: >-
+      A timestamp used to group planned events that make up a Transport Plan, in
+      common ISO 8601 format yyyy-MM-dd'T'HH:mm:ss.SSSZ . This field must be set
+      in every planned event in the transport plan for the transport equipment
+      to calculate a dynamic route using this transport plan
+  senderOrgName:
+    type: string
+    example: ACME
+    description: The name of the organization that sent the transport plan
+  sequenceOfLastActual:
+    type: integer
+    format: int64
+    example: ACME
+    description: The sequence number of the last actual event
+  currentProgressEvents:
+    type: array
+    description: The current progress for a given Transport Equipment
+    items:
+      $ref: "#/components/schemas/CurrentProgressEvent"

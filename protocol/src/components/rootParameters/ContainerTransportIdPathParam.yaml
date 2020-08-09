@@ -1,0 +1,6 @@
+in: path
+name: transportEquipmentId
+description: transportEquipmentId
+required: true
+schema:
+  type: string

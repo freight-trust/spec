@@ -1,0 +1,36 @@
+get:
+  summary: Return count of workspaces
+  description: >-
+    Returns count of records from the workspaces entity that match the specified
+    query parameters.  All count will be returned when no parameters are
+    specified.
+  tags:
+    - workspaces
+  operationId: getworkspacesCount
+  parameters:
+    - name: $filter
+      in: query
+      schema:
+        type: string
+      description: >-
+        Use this to filter the results by specific property values. For example,
+        you can use the following filter to retrieve records with the name
+        'John': $filter=Name eq 'John'
+  responses:
+    '200':
+      description: The count
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            type: string
+            format: int32
+    default:
+      description: Unexpected error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

@@ -1,0 +1,7 @@
+allOf:
+  - $ref: ./VersionedBasePolicyNode.yaml
+  - required:
+      - id
+      - properties
+      - policy
+      - roles

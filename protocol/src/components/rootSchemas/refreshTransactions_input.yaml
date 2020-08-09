@@ -1,0 +1,8 @@
+type: object
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the connector. Required
+  PortId:
+    type: string
+    description: The id of the port.

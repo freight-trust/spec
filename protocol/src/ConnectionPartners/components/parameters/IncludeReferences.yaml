@@ -1,0 +1,9 @@
+in: query
+description: To include reference records in the response or not
+name: include_reference_records
+schema:
+  type: string
+  enum:
+    - 'true'
+    - 'false'
+  default: 'false'

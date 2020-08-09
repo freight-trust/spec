@@ -1,0 +1,14 @@
+description: Request parameters
+required:
+  - accountId
+  - startDate
+  - endDate
+properties:
+  accountId:
+    type: string
+  startDate:
+    type: string
+  endDate:
+    type: string
+  pageIndex:
+    type: string

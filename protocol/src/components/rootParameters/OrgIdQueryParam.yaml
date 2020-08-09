@@ -1,0 +1,5 @@
+in: query
+description: The customer organization id to filter search results on (exact match)
+name: orgId
+schema:
+  type: string

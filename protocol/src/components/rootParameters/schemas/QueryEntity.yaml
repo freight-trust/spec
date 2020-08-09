@@ -1,0 +1,9 @@
+allOf:
+  - $ref: ./Entity.yaml
+  - type: object
+    properties:
+      partial:
+        type: boolean
+        description: >-
+          If set to true, permissions will be returned that result from
+          statements which _partially match_ the given descriptor

@@ -1,0 +1,43 @@
+type: object
+required:
+  - consignmentId
+properties:
+  consignmentId:
+    type: string
+    example: 7ciusuhd-8r3y12r-dhf-84683-sdfhiy32
+    description: The unique identifier for a consignment
+  consignmentRefs:
+    type: array
+    description: The list of consignment references
+    items:
+      type: string
+  carrierBookingNumber:
+    type: string
+    description: The carrier booking number of the consignment
+  billOfLadingNumber:
+    type: string
+    description: The bill of lading number of the consignment
+  cutOffs:
+    type: array
+    description: Cutoffs
+    items:
+      $ref: "#/components/schemas/CutOff"
+  plannedVesselDeparture:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Consignment Planned Vessel Departure in epoch milliseconds
+  plannedVesselArrival:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: Consignment Planned Vessel Arrival in epoch milliseconds
+  bookingData:
+    $ref: "#/components/schemas/BookingData"
+  cargoTypes:
+    type: array
+    description: >-
+      The harmonized codes of the type of cargo being shipped plus the
+      descriptions
+    items:
+      $ref: "#/components/schemas/Harmonized_Code_Response"

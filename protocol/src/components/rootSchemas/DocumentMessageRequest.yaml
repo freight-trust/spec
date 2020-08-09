@@ -1,0 +1,21 @@
+type: object
+required:
+  - actionIdentifiers
+  - tradeObjectIdentifiers
+properties:
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  documentId:
+    type: string
+    example: 897b1946-d8f7-11e7-9296-cec278b6b50a
+    description: Unique id of the document associated with Action.
+  documentIdentifier:
+    $ref: "#/components/schemas/DocumentIdentifier"
+  docVersion:
+    type: integer
+    format: int32
+    example: 1
+    description: The version of this document in Platform
+  actionIdentifiers:
+    $ref: "#/components/schemas/ActionIdentifiers"
+title: DocumentMessageRequest

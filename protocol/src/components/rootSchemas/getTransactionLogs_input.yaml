@@ -1,0 +1,24 @@
+type: object
+required:
+  - MessageId
+  - Direction
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the connector. Required.
+  PortId:
+    type: string
+    description: The id of the port.
+  MessageId:
+    type: string
+    description: The message Id.
+  Direction:
+    type: string
+    description: The direction of the transaction.
+  Type:
+    type: string
+    description: The type of the log file.
+  IncludeContent:
+    type: string
+    description: Whether to return the content of the log file.
+    default: 'False'

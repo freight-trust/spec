@@ -1,0 +1,25 @@
+type: object
+required:
+  - commodityDescription
+  - itemNumber
+properties:
+  itemNumber:
+    type: integer
+    format: int64
+    example: 1
+    description: Item Number
+  commodityDescription:
+    type: string
+    example: "Coffee, Roasted, Not Decaffeinated"
+    description: Commodity Description
+  commodityHarmonizedCode:
+    type: string
+    description: Commodity Harmonized Code
+  commodityQuantity:
+    type: integer
+    format: int64
+    description: Commodity Quantity
+  commodityWeight:
+    type: string
+    example: 100 Kg
+    description: Commodity Gross Weight. Specify units in Kg or Lb

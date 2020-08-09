@@ -1,0 +1,13 @@
+properties:
+  organizationId:
+    type: string
+  pageCount:
+    type: number
+  nextPage:
+    type: number
+  requestParameters:
+    $ref: ./RequestParametersWithPageIndex.yaml
+  containers:
+    type: array
+    items:
+      $ref: ./Container.yaml

@@ -1,0 +1,18 @@
+type: array
+items:
+  type: object
+  properties:
+    code:
+      type: string
+      example: E278
+      description: Event code
+    description:
+      type: string
+      example: >-
+        Starts the tracking of the container. A container transport ID is
+        returned
+      description: Description of the event
+    name:
+      type: string
+      example: Start container tracking
+      description: Name of the event

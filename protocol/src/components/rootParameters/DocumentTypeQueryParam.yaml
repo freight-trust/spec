@@ -1,0 +1,7 @@
+name: documentType
+in: query
+description: The list of document types to filter
+schema:
+  type: array
+  items:
+    $ref: ../schemas/DocumentTypeEnum.yaml
