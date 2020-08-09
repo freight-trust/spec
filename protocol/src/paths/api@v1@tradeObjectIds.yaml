@@ -1,9 +1,9 @@
 post:
   tags:
     - Trade Object Id Queries
-  summary: Query for a TradeLens object id by external references.
+  summary: Query for a  object id by external references.
   description: >+
-    Queries for unique IDs of TradeLens objects matching the given search
+    Queries for unique IDs of  objects matching the given search
     criteria.
 
 
@@ -18,12 +18,12 @@ post:
     Search for shipments by providing the 'shipment' search criteria. Matching
     shipment IDs are returned.
 
-  operationId: queryTradeObjectIdsUsingPOST
+  operationId: queryTradeInstrumentIdsUsingPOST
   requestBody:
     content:
       application/json:
         schema:
-          $ref: "#/components/schemas/TradeObjectIdsIdentifiers"
+          $ref: "#/components/schemas/TradeInstrumentIdsIdentifiers"
     description: >-
       See Model to the right for the full description of the identifiers. Note
       that only one identifier can be specified (consignment, transportEquipment
@@ -35,7 +35,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/TradeObjectIdsResponse"
+            $ref: "#/components/schemas/TradeInstrumentIdsResponse"
     "403":
       description: Forbidden
       content:

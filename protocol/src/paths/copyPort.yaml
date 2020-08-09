@@ -14,7 +14,7 @@ post:
           $ref: ../components/schemas/copyPort_input.yaml
     required: true
   responses:
-    '200':
+    "200":
       description: The action result
     default:
       description: Unexpected error

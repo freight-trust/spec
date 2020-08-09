@@ -21,4 +21,4 @@ properties:
   IncludeContent:
     type: string
     description: Whether to return the content of the log file.
-    default: 'False'
+    default: "False"

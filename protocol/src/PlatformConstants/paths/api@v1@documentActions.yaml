@@ -5,7 +5,7 @@ get:
   description: Returns list of supported document actions in Tradelens
   operationId: getDocActions
   responses:
-    '200':
+    "200":
       description: Meta information
       content:
         application/json:

@@ -1,5 +1,5 @@
 type: object
 properties:
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
 title: QueryNextActionRequest

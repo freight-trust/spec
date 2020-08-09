@@ -21,30 +21,30 @@ example:
       id: org-A
       attributes:
         - name: role
-          value: 'tradeparty:BUYER'
+          value: "tradeparty:BUYER"
         - name: role
-          value: 'tradeparty:SELLER'
+          value: "tradeparty:SELLER"
     resource:
       id: document-BoL-123
       attributes:
-        - name: 'resource:type'
+        - name: "resource:type"
           value: document
-        - name: 'document:type'
+        - name: "document:type"
           value: BILL_OF_LADING
     action:
-      - 'document:read'
+      - "document:read"
   - subject:
       id: org-B
       attributes:
         - name: role
-          value: 'tradeparty:OCEAN_CARRIER'
+          value: "tradeparty:OCEAN_CARRIER"
     resource:
       id: document-BoL-123
       attributes:
-        - name: 'resource:type'
+        - name: "resource:type"
           value: document
-        - name: 'document:type'
+        - name: "document:type"
           value: BILL_OF_LADING
     action:
-      - 'document:read'
-      - 'document:upload'
+      - "document:read"
+      - "document:upload"

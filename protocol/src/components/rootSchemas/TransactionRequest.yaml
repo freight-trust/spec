@@ -4,6 +4,6 @@ properties:
     type: string
     example: PACKING_LIST
     description: Represent the type of the document.
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
 title: TransactionRequest

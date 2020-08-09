@@ -13,21 +13,21 @@ get:
       schema:
         type: string
   responses:
-    '200':
+    "200":
       description: Meta information
       content:
         application/json:
           schema:
             $ref: ../components/schemas/UnlocodesResponse.yaml
-    '403':
+    "403":
       description: Forbidden
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ForbiddenResponse.yaml
-    '404':
+    "404":
       $ref: ../components/responses/NotFoundResponse.yaml
-    '429':
+    "429":
       description: Too Many Requests
       content:
         application/json:

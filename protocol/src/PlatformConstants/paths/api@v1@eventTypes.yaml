@@ -15,7 +15,7 @@ get:
       required: false
       description: Language understood by client
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:

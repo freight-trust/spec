@@ -11,7 +11,7 @@ get:
     - $ref: ../components/parameters/ReferenceCodePathParam.yaml
     - $ref: ../components/parameters/OrgIdPathParam.yaml
   responses:
-    '200':
+    "200":
       description: Reference for the given organization and code
       content:
         application/json:

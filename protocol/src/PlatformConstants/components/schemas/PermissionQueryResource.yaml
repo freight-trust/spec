@@ -2,7 +2,7 @@ $ref: ./QueryEntity.yaml
 example:
   id: document-BoL-123
   attributes:
-    - name: 'resource:type'
+    - name: "resource:type"
       value: document
-    - name: 'document:type'
+    - name: "document:type"
       value: BILL_OF_LADING

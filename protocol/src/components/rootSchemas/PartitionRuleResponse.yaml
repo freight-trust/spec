@@ -21,7 +21,7 @@ properties:
     type: string
     example: participantList
     description: Type of the document
-  tradeObjectType:
+  tradeInstrumentType:
     type: string
     example: consignment
     description: Name of the trade object type

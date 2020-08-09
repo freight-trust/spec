@@ -52,8 +52,8 @@ properties:
       - Complete
       - Failed
       - InProgress
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
   txnStartTime:
     type: integer
     format: int64

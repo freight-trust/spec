@@ -6,4 +6,4 @@ properties:
     $ref: "#/components/schemas/ShipmentIdentifier"
   transportEquipment:
     $ref: "#/components/schemas/TransportEquipmentIdentifier"
-title: TradeObjectIdentifiers
+title: TradeInstrumentIdentifiers

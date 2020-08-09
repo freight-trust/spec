@@ -11,7 +11,7 @@ required:
   - role
   - members
 example:
-  role: 'tradeparty:CUSTOMS_BROKER'
+  role: "tradeparty:CUSTOMS_BROKER"
   members:
     - usa_customs_broker
     - ita_customs_broker

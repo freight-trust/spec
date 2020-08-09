@@ -2,7 +2,7 @@ post:
   tags:
     - Transactions
   summary: Fetch actionable doc flow transactions
-  description: "Fetch the actionable doc flow transactions based on OrganizationId .\r\n\r\n\r\nSupports optional filtering by TransactionRequest object which are docType and tradeObjectIdentifiers.\r\nFor filtering using tradeObjectIdentifiers use the tradeObjectIdentifiers property in the request payload.\r\n\r\n\r\ntradeObjectIdentifiers: At least one of the defined trade object(consignment or transportEquipment), with at least one of the \r\nobject properties(carrierBookingNumber and/or billOfLadingNumber and/or equipmentNumber) must be specified.\r\n\r\ne.g. \r\n{\"tradeObjectIdentifiers\":{\"consignment\":{\"carrierBookingNumber\":\"CBN12345\"}}}"
+  description: "Fetch the actionable doc flow transactions based on OrganizationId .\r\n\r\n\r\nSupports optional filtering by TransactionRequest object which are docType and tradeInstrumentIdentifiers.\r\nFor filtering using tradeInstrumentIdentifiers use the tradeInstrumentIdentifiers property in the request payload.\r\n\r\n\r\ntradeInstrumentIdentifiers: At least one of the defined trade object(consignment or transportEquipment), with at least one of the \r\nobject properties(carrierBookingNumber and/or billOfLadingNumber and/or equipmentNumber) must be specified.\r\n\r\ne.g. \r\n{\"tradeInstrumentIdentifiers\":{\"consignment\":{\"carrierBookingNumber\":\"CBN12345\"}}}"
   operationId: getAllTransactionsUsingPOST
   requestBody:
     content:
@@ -11,7 +11,7 @@ post:
           $ref: "#/components/schemas/TransactionRequest"
     description: >-
       TransactionRequest object with optional filters by docType and
-      tradeObjectIdentifiers
+      tradeInstrumentIdentifiers
     required: true
   responses:
     "200":

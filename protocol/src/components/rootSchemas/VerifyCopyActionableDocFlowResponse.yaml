@@ -21,6 +21,6 @@ properties:
       flowTransactionId.
   schemaReference:
     $ref: "#/components/schemas/SchemaReference"
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
 title: VerifyCopyActionableDocFlowResponse

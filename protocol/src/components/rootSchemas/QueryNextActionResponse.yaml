@@ -4,8 +4,8 @@ properties:
     type: string
   flowState:
     type: string
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
   nextActions:
     type: array
     items:

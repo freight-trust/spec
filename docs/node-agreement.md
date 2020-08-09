@@ -4,11 +4,7 @@ Parties {{curly}}, e.g.  {{DELEGATOR}}
 author: Adapted From Bison Trails
 </pre>
 
-
-
-
 # Digital Asset Rights Delegation Agreement
-
 
 This Digital Asset Rights Delegation Agreement (this “Agreement”) is made on the date of a Delegation (the “Effective Date”) by and between you (the “{{DELEGATOR}}”) and {{NETWORK_OPERATOR}} Co., a {{STATE OF REGISTRATION, REGISTRATION TYPE}} (“{{NETWORK_OPERATOR}}” and together with the {{DELEGATOR}}, the “Parties”, and each a “Party”).
 
@@ -18,6 +14,7 @@ WHEREAS, the {{DELEGATOR}} may, from time to time, seek to delegate to {{NETWORK
 Now, therefore, in consideration of the foregoing and other good and valuable consideration, the receipt and sufficiency of which hereby acknowledged, the {{DELEGATOR}} and {{NETWORK_OPERATOR}} hereby agree as follows:
 
 ### A. DEFINITIONS.
+
 “Applicable Law” means any applicable national, provincial, international, federal, state, county, and local statute, law, ordinance, regulation, rule, code, and order.
 
 “Blockchain” means a distributed ledger or database recording transactions in a Digital Asset.
@@ -55,6 +52,7 @@ Now, therefore, in consideration of the foregoing and other good and valuable co
 “Withdrawal” means a withdrawal by {{DELEGATOR}} of Rewards generated under the Agreement in the form of Supported Digital Assets, which will be subject to Unbonding Periods.
 
 ### B. COVENANTS OF {{NETWORK_OPERATOR}}.
+
 Subject to the conditions set forth in Section D, {{NETWORK_OPERATOR}} will provide the {{DELEGATOR}} with the following Services:
 
 (i) Delegation. Subject to the terms and conditions hereof, the {{DELEGATOR}} may, from time to time, delegate the Staking Rights or Voting Rights with respect to a specified number of Supported Digital Assets to {{NETWORK_OPERATOR}} via the delegation mechanism established by the applicable Supported Network Protocol. Staking Rights that have been Delegated to {{NETWORK_OPERATOR}} by or on behalf of {{DELEGATOR}} in accordance with this Agreement are referred to as “Delegated Staking Rights” and Voting Rights that have been Delegated to {{NETWORK_OPERATOR}} by or on behalf of {{DELEGATOR}} in accordance with this Agreement are referred to as “Delegated Voting Rights”. IF THE {{DELEGATOR}} DOES NOT AGREE TO (OR CANNOT COMPLY WITH) ALL OF THE TERMS OF THIS AGREEMENT, {{DELEGATOR}} SHALL NOT DELEGATE TO {{NETWORK_OPERATOR}}.
@@ -64,6 +62,7 @@ Subject to the conditions set forth in Section D, {{NETWORK_OPERATOR}} will prov
 (iii) Voting Rights. {{NETWORK_OPERATOR}} may (but shall not be required to) exercise any Delegated Voting Rights in its sole and absolute discretion. {{NETWORK_OPERATOR}} assumes no responsibility for any third-party action taken against the {{DELEGATOR}} in connection with those actions. {{NETWORK_OPERATOR}} will not be liable as a result of any violation in Applicable Law, mistake of judgment, or any other matter or thing done, suffered, or omitted to be done under this Agreement, except for any claims relating to the {{NETWORK_OPERATOR}}' fraud or willful misconduct.
 
 ### C. REWARDS, WITHDRAWALS, REVOCATION FORKS, AND FORFEITURES.
+
 (i) Calculation of Rewards.
 
 (a) Rewards for each Supported Network Protocol will be calculated based on a percentage which shall be set out as a fraction (i) the numerator of which is the number of the particular type of the Supported Digital Asset with respect to which {{DELEGATOR}} has Delegated Staking Rights (“{{DELEGATOR}} Delegated Digital Assets”) and, (ii) the denominator of which is the number of that type of Supported Digital Asset with respect to which all {{NETWORK_OPERATOR}} {{DELEGATOR}}s have Delegated Staking Rights (“Total Delegated Digital Assets”).
@@ -99,6 +98,7 @@ Subject to the conditions set forth in Section D, {{NETWORK_OPERATOR}} will prov
 (ix) Forfeitures. {{DELEGATOR}} SHALL BE SOLELY RESPONSIBLE FOR ALL LOSSES RELATED TO FORFEITURES OF THEIR DELEGATED DIGITAL ASSETS. {{NETWORK_OPERATOR}} SHALL HAVE NO LIABILITY WITH RESPECT TO ANY FORFEITURES OF {{DELEGATOR}}’S DELEGATED DIGITAL ASSETS OR {{DELEGATOR}} EARNED REWARDS.
 
 ### D. COVENANTS OF {{DELEGATOR}}.
+
 The obligations of {{NETWORK_OPERATOR}} to fulfill the Services (including Staking of Delegated Staking Rights) contemplated by this Agreement shall be subject to the fulfillment, of each of the following conditions:
 
 (i) {{DELEGATOR}} must abide by all of its covenants and obligations under this Agreement and {{NETWORK_OPERATOR}}’ Term of Service and Privacy Policy.
@@ -106,6 +106,7 @@ The obligations of {{NETWORK_OPERATOR}} to fulfill the Services (including Staki
 (ii) Legislative and regulatory changes or actions that adversely affect Staking generally or {{NETWORK_OPERATOR}} specifically and prohibit {{NETWORK_OPERATOR}} from providing the Services.
 
 ### E. REPRESENTATIONS AND WARRANTIES
+
 (i) {{NETWORK_OPERATOR}} has full legal capacity, power and authority to execute and deliver this Agreement and to perform its obligations hereunder. This Agreement constitutes the valid and binding obligation of {{NETWORK_OPERATOR}}, enforceable against {{NETWORK_OPERATOR}} in accordance with its terms, except as limited by bankruptcy, insolvency or other laws of general application relating to or affecting the enforcement of creditors’ rights generally and general principles of equity. {{NETWORK_OPERATOR}} entering into this Agreement will not be a breach or violation of any other contract or agreement to which {{NETWORK_OPERATOR}} is bound or Applicable Law to which {{NETWORK_OPERATOR}} is subject.
 
 (ii) {{DELEGATOR}} represents and warrants to {{NETWORK_OPERATOR}} as follows:
@@ -123,6 +124,7 @@ The obligations of {{NETWORK_OPERATOR}} to fulfill the Services (including Staki
 (f) {{DELEGATOR}}s understands, agrees, and acknowledges that it is not relying on any other representations or warranties other than those expressly set forth in this Agreement.
 
 ### F. LIMITATION OF LIABILITY; DAMAGES; INDEMNIFICATION
+
 (i) {{NETWORK_OPERATOR}}, its officers, managers, employees and members shall not be liable to the {{DELEGATOR}} except by reason of any act or omission arising from their intentional misconduct or fraud in connection with this Agreement. Notwithstanding the generality of the foregoing, the {{DELEGATOR}} shall bear the risk of any taxes imposed on the {{DELEGATOR}} arising from activities under this Agreement and shall bear the risk of all losses with respect to the Delegated Staking Rights and Delegated Voting Rights, including (a) Forfeitures enforced by Network Protocols; (b) missed block creation or endorsement opportunities by {{NETWORK_OPERATOR}} for any reason; (c) loss of {{DELEGATOR}} Earned Reward while in a {{NETWORK_OPERATOR}} wallet; and (d) Digital Asset devaluation; or any of the inherent risks described in Exhibit A.
 
 (ii) {{NETWORK_OPERATOR}} SHALL NOT BE LIABLE FOR ANY INDIRECT, SPECIAL, OR CONSEQUENTIAL DAMAGES ARISING IN CONNECTION WITH THIS AGREEMENT, INCLUDING, WITHOUT LIMITATION, LOSS OF PROFITS OR REVENUE, DAMAGE TO REPUTATION, AND COST OF PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES, WHETHER IN AN ACTION IN CONTRACT, TORT OR STRICT LIABILITY OR OTHER LEGAL THEORY, EVEN IF {{NETWORK_OPERATOR}} HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. THESE LIMITATIONS OF LIABILITY WILL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY, AND SHALL BE ENFORCED TO THE MAXIMUM EXTENT ALLOWABLE BY APPLICABLE LAW. IN NO CIRCUMSTANCES WILL THE AGGREGATE LIABILITY OF THE {{NETWORK_OPERATOR}}, WHETHER IN CONTRACT, WARRANT, TORT OR OTHER THEORY, FOR DAMAGES TO {{DELEGATOR}} UNDER THIS AGREEMENT EXCEED THE AMOUNT OF THE {{NETWORK_OPERATOR}} SERVICE FEE DURING THE PRECEEDING 12 MOTNH PERIOD OF THIS AGREEMENT.
@@ -130,6 +132,7 @@ The obligations of {{NETWORK_OPERATOR}} to fulfill the Services (including Staki
 (iii) To the fullest extent permitted by Applicable Law, the {{DELEGATOR}} agrees to and shall defend, indemnify and hold {{NETWORK_OPERATOR}} and its affiliates and their respective employees (present and former), members, officers, directors and agents (collectively, the “{{NETWORK_OPERATOR}} Indemnified Persons”) harmless from and against any and all claims, damages, expenses (including reasonable attorney fees), losses and costs sustained by {{NETWORK_OPERATOR}} Indemnified Persons arising out of, or relating to, this Agreement, except that {{NETWORK_OPERATOR}} Indemnified Persons shall not be entitled to indemnification hereunder for any conduct determined by a judge or through an arbitration proceeding to constitute intentional misconduct or fraud in connection with this Agreement.
 
 ### G. MISCELLANEOUS.
+
 (i) Dispute Resolution
 
 This Agreement is governed by, and shall be construed and enforced under, the laws of the State of New York applicable to contracts made and to be performed wholly within such State, without regard to any choice or conflict of laws rules. If a dispute arises out of or relates to this Agreement, or the breach thereof, and if said dispute cannot be settled through negotiation it shall be finally resolved by arbitration. The arbitration will be administered by the Judicial Arbitration and Mediation Services (JAMS) pursuant to its Comprehensive Arbitration Rules and Procedures. Disputes will not be resolved in any other forum or venue. The arbitrator shall monitor and reasonably limit discovery in the arbitration to ensure the efficient and timely adjudication of the Parties’ dispute, and to prevent the harassment or burden of the Parties’ respective employees, agents, business partners or third parties. Document discovery shall be limited to information requests deemed necessary and potentially admissible by the arbitrator for adjudication of the dispute. Neither party shall communicate with or seek to subpoena any third-party witness absent prior leave from the arbitrator and upon a showing of necessity related to the claims or defenses in suit. The arbitrator may order that a requesting party pay for discovery related fees or costs reasonably and actually incurred by the other side. The arbitration award will not include factual findings or conclusions of law, and no punitive damages will be awarded. Judgment may be entered upon any award granted in any arbitration in any court of competent jurisdiction in the county and state in which the prevailing party maintains its principal office at the time the award is rendered, or in any other court having jurisdiction. This agreement to arbitrate shall apply to both Parties. The Parties understand that they are giving up their right to a trial in a court of law.
@@ -181,8 +184,6 @@ The Parties acknowledge that the terms of this Agreement and any Arbitration pro
 #### (xiii) Miscellaneous.
 
 Whenever used herein, the singular number shall include the plural, the plural the singular, and the use of the masculine, feminine, or neuter gender shall include all genders. “Including” means “including but not limited to”. “Or” means the non-exclusive “or” or “and/or,” unless qualified by the word “alternative.” This Agreement is solely for the benefit of the parties hereto and their respective successors and assigns, and no other person shall have any right, benefit, priority or interest under, or because of the existence of, this Agreement. The section headings are for convenience only and shall not affect the interpretation or construction of this Agreement. The Parties acknowledge that the Agreement and any Order are the result of negotiation between the Parties which are represented by sophisticated counsel and therefore none of the Agreement’s provisions will be construed against the drafter.
-
-
 
 {{NETWORK_OPERATOR}}
 {{MAILING ADDDRESS}}
