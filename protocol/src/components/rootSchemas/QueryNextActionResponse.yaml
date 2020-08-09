@@ -1,0 +1,13 @@
+type: object
+properties:
+  flowInstanceId:
+    type: string
+  flowState:
+    type: string
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  nextActions:
+    type: array
+    items:
+      $ref: "#/components/schemas/QueryNextAction"
+title: QueryNextActionResponse

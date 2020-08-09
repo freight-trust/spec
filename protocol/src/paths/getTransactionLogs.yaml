@@ -1,0 +1,28 @@
+post:
+  summary: Retrieves the transaction details of the application.
+  description: Retrieves the transaction details of the application.
+  tags:
+    - getTransactionLogs
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/getTransactionLogs_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/getTransactionLogs_output.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

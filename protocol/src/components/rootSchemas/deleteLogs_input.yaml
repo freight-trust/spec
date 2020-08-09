@@ -1,0 +1,7 @@
+type: object
+properties:
+  TimeStamp:
+    type: string
+    description: >-
+      When set, all logs older than this value will be deleted.  If this field
+      is left empty, all logs will be deleted.

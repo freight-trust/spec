@@ -1,0 +1,18 @@
+type: object
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the connector. Required.
+  PortId:
+    type: string
+    description: The id of the port.
+  File:
+    type: string
+    description: >-
+      The file to be downloaded. When file is not supplied, all files will be
+      downloaded based on the connector's settings.
+  RemotePath:
+    type: string
+    description: >-
+      The path to overrides the Remote path settings in the connector(Only used
+      for FTP, SFTP)

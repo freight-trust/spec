@@ -1,0 +1,5 @@
+in: query
+description: Name of the trade object
+name: tradeObjectType
+schema:
+  type: string

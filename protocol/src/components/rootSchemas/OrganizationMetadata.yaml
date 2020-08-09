@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: OrgId
+  name:
+    type: string
+    description: Org Name
+  address:
+    $ref: ./Address.yaml
+  organizationTypes:
+    type: array
+    items:
+      type: string
+      description: Organization Types
+required:
+  - id

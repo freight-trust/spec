@@ -1,0 +1,9 @@
+type: object
+required:
+  - documentHash
+properties:
+  documentHash:
+    type: string
+    example: 6-d8f7-11e7-9296-cec278b6b50a
+    description: Hash of the document (SHA256) associated with Action.
+title: ApproveIdentifier

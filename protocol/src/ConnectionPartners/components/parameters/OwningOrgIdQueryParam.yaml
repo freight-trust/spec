@@ -1,0 +1,6 @@
+in: query
+description: Id to fetch specific route records
+name: owningCarrierOrgId
+schema:
+  type: string
+required: true

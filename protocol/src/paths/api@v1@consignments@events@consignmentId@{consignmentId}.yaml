@@ -1,0 +1,81 @@
+get:
+  tags:
+    - Consignment Queries
+  summary: Query for consignment events by consignment ID
+  description: >
+    Commodity and originator information visibility is restricted to orgs that
+    were onboarded with certain types. If your org does not have one of these
+    correct types, then you may not have visibility to the following fields in
+    each event:
+
+    Commodity information:
+
+    - harmonizedCodes
+
+    - bookingData.commodities.commodityDescription
+
+    - bookingData.commodities.commodityHarmonizedCode
+
+
+    Originator information:
+
+    - originatorName
+
+    - originatorId
+
+    - senderOrgId
+
+
+    In addition, The originator information on a Party Add/Update/Remove event
+    will be hidden if you are not the org who submitted the event or one of the
+    parties being added. The originator information and 'destinationOrgName'
+    field on a Document event whose 'action' field is 'issued', 'transferred',
+    or 'surrendered' will be hidden if you are not the org who submitted the
+    event or the org that the document is being transferred to.
+  operationId: queryConsignmentEventsByConsignmentIdUsingGET
+  parameters:
+    - name: consignmentId
+      in: path
+      description: Get the events of this consignment
+      required: true
+      schema:
+        type: string
+    - name: eventFilter
+      in: query
+      description: "{all | latest}"
+      required: false
+      schema:
+        type: string
+        default: all
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ConsignmentEventsResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

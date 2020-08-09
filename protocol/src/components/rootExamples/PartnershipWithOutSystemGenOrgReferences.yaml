@@ -1,0 +1,21 @@
+summary: Parntership without system generated reference
+value:
+  - partnerId: partner234
+    displayName: partner_234
+    organizationTypes:
+      - ocean carrier
+    status: pending
+    hasReference: true
+    references:
+      - id: partner234ef
+        code: partner234Code
+        name: partner234Name
+        masterId: partner234MasterId
+        masterName: partner234MasterName
+        address:
+          address1: partnerAddress1234
+          address2: partnerAddress2234
+          postalCode: partner234PostalCode
+          city: partner234City
+          state: partner234State
+          country: partner234Country

@@ -1,0 +1,6 @@
+in: path
+description: The id by which to fetch a given account
+name: accountId
+schema:
+  type: string
+required: true

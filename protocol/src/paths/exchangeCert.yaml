@@ -1,0 +1,24 @@
+post:
+  summary: Exchange the specified certificate.
+  description: Exchange the specified certificate.
+  tags:
+    - exchangeCert
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/exchangeCert_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

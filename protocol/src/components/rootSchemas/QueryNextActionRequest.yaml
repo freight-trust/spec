@@ -1,0 +1,5 @@
+type: object
+properties:
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+title: QueryNextActionRequest

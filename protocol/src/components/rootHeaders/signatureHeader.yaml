@@ -1,0 +1,16 @@
+schema:
+  type: object
+  properties:
+    keyId:
+      type: string
+      format: uuid
+      example: 123e4567-e89b-12d3-a456-426614174000
+    created:
+      type: integer
+      example: 1591960384
+    headers:
+      type: string
+      example: (request-target) (created) date host
+    signature:
+      type: string
+      example: aGkgZnJvbSBkZW5tYXJr

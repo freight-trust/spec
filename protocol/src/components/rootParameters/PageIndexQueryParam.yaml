@@ -1,0 +1,6 @@
+in: query
+description: Index of page. (nextPage response parameter from previous call)
+name: pageIndex
+schema:
+  type: string
+required: false

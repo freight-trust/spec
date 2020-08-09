@@ -1,0 +1,33 @@
+get:
+  tags:
+    - Shipment Queries
+  summary: Query for organization names of shipment creators
+  description: >-
+    Queries for the names of all organizations that have created a shipment that
+    the user has access to.
+  operationId: queryShipmentCreatorsUsingGET
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ShipmentCreatorsResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

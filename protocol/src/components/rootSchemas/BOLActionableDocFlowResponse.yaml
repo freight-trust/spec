@@ -1,0 +1,26 @@
+type: object
+required:
+  - docType
+  - fileType
+  - flowTransactionId
+properties:
+  docType:
+    type: string
+    example: SEA_WAYBILL
+    description: Represent the type of the document.
+  fileType:
+    type: string
+    example: JSON
+    description: File type of the document uploaded.
+  flowTransactionId:
+    type: string
+    example: t2f2ff97d2bf49e985b507854e6d597f
+    description: >-
+      Unique ID generated for the each request. Each request is represented as
+      actionable doc flow transaction and refer with the unique
+      flowTransactionId.
+  schemaReference:
+    $ref: "#/components/schemas/SchemaReference"
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+title: BOLActionableDocFlowResponse

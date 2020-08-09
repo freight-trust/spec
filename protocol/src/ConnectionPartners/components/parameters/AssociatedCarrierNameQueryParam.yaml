@@ -1,0 +1,7 @@
+in: query
+description: >-
+  The carrier organization id to filter search results on (includes match;
+  ignores case)
+name: associatedCarrierName
+schema:
+  type: string

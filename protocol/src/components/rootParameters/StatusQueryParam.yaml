@@ -1,0 +1,5 @@
+in: query
+description: Filter business partner list based on connection status (ignore case)
+name: status
+schema:
+  $ref: ../schemas/StatusEnum.yaml

@@ -1,0 +1,36 @@
+type: object
+required:
+  - description
+  - docType
+  - id
+  - name
+  - organizationId
+  - transactionId
+properties:
+  description:
+    type: string
+    example: Packing list of US Customs
+    description: Description of the document metadata.
+  docType:
+    type: string
+    example: Packing list
+    description: Type of the document metadata.
+  id:
+    type: string
+    example: b2f2ff97d2bf49e985b507854e6d597f
+    description: Unique id generated for the document metadata.
+  name:
+    type: string
+    example: Packing list
+    description: Name of the document metadata.
+  organizationId:
+    type: string
+    example: IBM
+    description: Organization where document metadata defined.
+  transactionId:
+    type: string
+    example: t2f2ff97d2bf49e985b507854e6d597f
+    description: >-
+      Unique id generated for the each request. Each request is represented as
+      transaction and refer with the unique transactionId.
+title: DocumentSchemaCreatedUpdatedResponse

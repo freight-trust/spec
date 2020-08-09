@@ -1,0 +1,38 @@
+get:
+  tags:
+    - Transactions
+  summary: Fetch a actionable doc flow transaction
+  description: >-
+    Fetch the actionable doc flow transaction based on flowTransactionId. The
+    flowTransactionId is the unique ID that was generated for the transaction
+    when it was created.
+  operationId: getTransactionUsingGET
+  parameters:
+    - name: flowTransactionId
+      in: path
+      description: flowTransactionId
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: OK
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/TransactionResponse"
+    "400":
+      description: Bad request
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

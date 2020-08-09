@@ -1,0 +1,7 @@
+description: Business partner
+allOf:
+  - $ref: ./PartnerId.yaml
+  - type: object
+    properties:
+      status:
+        $ref: ./StatusEnum.yaml

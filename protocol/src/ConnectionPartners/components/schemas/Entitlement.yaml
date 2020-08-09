@@ -1,0 +1,23 @@
+properties:
+  contractHeaderId:
+    type: string
+  contractLineItems:
+    type: array
+    items:
+      $ref: ./ContractLineItem.yaml
+  startDate:
+    type: string
+  endDate:
+    type: string
+example:
+  contractHeaderId: '9998'
+  contractLineItems:
+    - contractLineId: '1'
+      productId: SR41101
+  startDate: '2018-06-07'
+  endDate: '2019-06-06'
+required:
+  - contractHeaderId
+  - contractLineItems
+  - startDate
+  - endDate

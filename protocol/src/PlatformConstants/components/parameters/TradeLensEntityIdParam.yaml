@@ -1,0 +1,6 @@
+in: path
+description: Unique identifier of a resource in the TradeLens platform
+name: id
+schema:
+  $ref: ../schemas/UUID.yaml
+required: true

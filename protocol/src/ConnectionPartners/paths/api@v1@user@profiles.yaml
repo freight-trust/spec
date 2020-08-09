@@ -1,0 +1,18 @@
+get:
+  summary: Fetch all user preferences
+  operationId: Fetch all user preferences
+  tags:
+    - User Preferences
+  responses:
+    '200':
+      description: Successfully created user preferences.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GetAllUserPreferencesResponse.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

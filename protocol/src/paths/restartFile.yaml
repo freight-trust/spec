@@ -1,0 +1,24 @@
+post:
+  summary: Restart an outgoing transmission for the specified file.
+  description: Restart an outgoing transmission for the specified file.
+  tags:
+    - restartFile
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/restartFile_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

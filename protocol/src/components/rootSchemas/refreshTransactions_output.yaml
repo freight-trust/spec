@@ -1,0 +1,7 @@
+type: array
+items:
+  type: object
+  properties:
+    Result:
+      type: string
+      description: The result of rebuilding the transactions cache.

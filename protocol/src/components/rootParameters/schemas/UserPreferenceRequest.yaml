@@ -1,0 +1,11 @@
+type: object
+properties:
+  name:
+    type: string
+    example: John
+  prefs:
+    type: object
+    $ref: ./prefs.yaml
+required:
+  - name
+  - prefs

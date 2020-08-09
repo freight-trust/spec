@@ -1,0 +1,50 @@
+description: >-
+  The shipment event entity is a specialization of the event entity to support
+  specification of data that only applies to a shipment event.
+allOf:
+  - $ref: "#/components/schemas/event"
+  - type: object
+    properties:
+      eventType:
+        type: string
+        example: SHIPMENT
+        nullable: false
+        enum:
+          - SHIPMENT
+      eventTypeCode:
+        type: string
+        example: RECE
+        enum:
+          - RECE
+          - CONF
+          - ISSU
+          - APPR
+          - SUBM
+          - SURR
+          - REJE
+          - PENA
+        nullable: false
+        maxLength: 4
+        description: >
+          Unique identifier for Event Type Code. For shipment events this can
+          be:
+
+          - RECE (Received)
+
+          - CONF (Confirmed)
+
+          - ISSU (Issued)
+
+          - APPR (Approved)
+
+          - SUBM (Submitted)
+
+          - SURR (Surrendered)
+
+          - REJE (Rejected)
+
+          - PENA (Pending approval)
+      shipmentInformationTypeCode:
+        $ref: "#/components/schemas/shipmentInformationTypeCode"
+    required:
+      - shipmentInformationTypeCode

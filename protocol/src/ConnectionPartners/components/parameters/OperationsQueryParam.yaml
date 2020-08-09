@@ -1,0 +1,7 @@
+name: operations
+in: query
+description: The list of operations to filter
+schema:
+  type: array
+  items:
+    $ref: ../schemas/OperationEnum.yaml

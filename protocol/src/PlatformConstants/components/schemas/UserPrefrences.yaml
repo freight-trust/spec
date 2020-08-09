@@ -1,0 +1,12 @@
+type: object
+items:
+  properties:
+    profile:
+      type: object
+    items:
+      $ref: ./UserPreferenceRequest.yaml
+example:
+  orgId: testOrgId
+  userId: testUserId
+  prefs:
+    - locale: en_US

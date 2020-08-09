@@ -1,0 +1,70 @@
+get:
+  summary: Return transactions
+  description: >-
+    Returns records from the transactions entity that match the specified query
+    parameters.  All records will be returned when no parameters are specified.
+  tags:
+    - transactions
+  operationId: getAlltransactions
+  parameters:
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: >-
+        A comma-separated list of properties to include in the results. When
+        this field is left empty, all properties will be returned.
+    - name: $orderby
+      in: query
+      schema:
+        type: string
+      description: >-
+        Order the results by this property in ascending or descending order. 
+        Example for ascending: 'Name ASC' Example for descending: 'Name DESC'
+    - name: $top
+      in: query
+      schema:
+        type: integer
+      description: The number of results to return.
+    - name: $skip
+      in: query
+      schema:
+        type: integer
+      description: This is the offset of results to skip when returning results.
+    - name: $count
+      in: query
+      schema:
+        type: boolean
+      description: >-
+        When set, the results will return a count of results and not the actual
+        results.
+    - name: $filter
+      in: query
+      schema:
+        type: string
+      description: >-
+        Use this to filter the results by specific property values. For example,
+        you can use the following filter to retrieve records with the name
+        'John': $filter=Name eq 'John'
+  responses:
+    '200':
+      description: transactions response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              value:
+                type: array
+                items:
+                  $ref: ../components/schemas/transactions.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

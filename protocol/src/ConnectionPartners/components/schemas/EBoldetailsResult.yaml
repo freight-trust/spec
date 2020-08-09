@@ -1,0 +1,13 @@
+properties:
+  organizationId:
+    type: string
+  pageCount:
+    type: number
+  nextPage:
+    type: number
+  requestParameters:
+    $ref: ./RequestParametersWithPageIndex.yaml
+  actions:
+    type: array
+    items:
+      $ref: ./EBOLActions.yaml

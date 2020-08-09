@@ -1,0 +1,16 @@
+type: object
+properties:
+  ConnectorId:
+    description: The id of the connector.
+    type: string
+  Workspace:
+    description: The workspace of the connector.
+    type: string
+  ConnectorType:
+    description: The type of the connector.
+    type: string
+  ParentConnector:
+    description: The parent connector separated by a comma.
+    type: string
+required:
+  - ConnectorId

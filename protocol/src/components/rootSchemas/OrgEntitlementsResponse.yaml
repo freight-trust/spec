@@ -1,0 +1,16 @@
+type: array
+items:
+  properties:
+    orgId:
+      type: string
+    entitlements:
+      type: array
+      items:
+        $ref: ./OrgEntitlement.yaml
+  example:
+    orgId: testOrgId
+    entitlements:
+      - id: bolVerifier
+        entitled: true
+  required:
+    - entitlements

@@ -1,0 +1,18 @@
+properties:
+  organizationId:
+    type: string
+  requestParameters:
+    $ref: ./RequestParameters.yaml
+  summary:
+    type: object
+    properties:
+      total:
+        type: number
+      eBL_IssuedTo:
+        type: number
+      eBL_TransferredTo:
+        type: number
+      eBL_TransferredFrom:
+        type: number
+      eBL_SurrenderedFrom:
+        type: number

@@ -1,0 +1,194 @@
+type: object
+required:
+  - consignmentId
+  - createdBy
+  - creationTime
+  - onWater
+  - references
+  - status
+  - transshipment
+properties:
+  consignmentId:
+    type: string
+    description: Service created identifier for this consignment
+  carrierBookingNumber:
+    type: string
+    description: Carrier booking number for this consignment
+  status:
+    type: string
+    description: Status of this consignment
+    enum:
+      - Active
+      - Canceled
+      - Combined
+  cutOffs:
+    type: array
+    description: Cutoffs for all transport equipments for this consignment.
+    items:
+      $ref: "#/components/schemas/CutOff"
+  transportEquipmentIds:
+    type: array
+    description: Affiliated transport equipments' IDs
+    items:
+      type: string
+  transportEquipmentRefs:
+    type: array
+    description: Affiliated transport equipments' reference numbers
+    items:
+      type: string
+  exportCountries:
+    type: array
+    description: Affiliated transport equipments' planned export countries
+    items:
+      type: string
+  importCountries:
+    type: array
+    description: Affiliated transport equipments' planned import countries
+    items:
+      type: string
+  entryPorts:
+    type: array
+    description: Affiliated transport equipments' planned entry ports
+    items:
+      type: string
+  exitPorts:
+    type: array
+    description: Affiliated transport equipments' planned exit ports
+    items:
+      type: string
+  harmonizedCodes:
+    type: array
+    description: Affiliated transport equipments' harmonized system codes
+    items:
+      type: string
+  billOfLadingNumbers:
+    type: array
+    description: Affiliated transport equipments' bill of lading numbers
+    items:
+      type: string
+  creationTime:
+    type: integer
+    format: int64
+    description: Time this consignment was created
+  terminals:
+    type: array
+    description: Affiliated transport equipments' planned terminals
+    items:
+      type: string
+  plannedVesselArrival:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: >-
+      Planned Vessel Arrival at the Entry Port in epoch milliseconds. If the
+      consignment has already arrived at the entry port this will be null. Based
+      on the event occurrence time of the latest estimatedVesselArrival event if
+      they are available, or the latest plannedVesselArrival event otherwise
+  plannedVesselDeparture:
+    type: integer
+    format: int64
+    example: 1514782800000
+    description: >-
+      Planned Vessel Departure from the Exit Port in epoch milliseconds. If the
+      consignment has already left the exit port this will be null. Based on the
+      event occurrence time of the latest estimatedVesselDeparture event if they
+      are available, or the latest plannedVesselDeparture event otherwise
+  eventCreationTime:
+    type: integer
+    format: int64
+    description: Submission time of the event that created the consignment
+  eventUpdateTime:
+    type: integer
+    format: int64
+    description: Submission time of the event that most recently updated the consignment
+  consignmentCreationTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the consignment was created
+  consignmentUpdateTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the consignment was most recently updated
+  bookingData:
+    $ref: "#/components/schemas/BookingData"
+  parentConsignmentIds:
+    type: array
+    description: ID of the parent consignment for which this consignment subcontracts
+    items:
+      type: string
+  subcontractIds:
+    type: array
+    description: IDs of the children consignments which subcontract this consignment
+    items:
+      type: string
+  callerRoles:
+    type: array
+    description: The list of caller party roles
+    items:
+      type: string
+  createdBy:
+    type: string
+    description: The organization name of the creator of the consignment
+  splitFromConsignment:
+    $ref: "#/components/schemas/SplitFromConsignment"
+  combinedIntoConsignment:
+    $ref: "#/components/schemas/CombinedConsignment"
+  combinedConsignments:
+    type: array
+    description: >-
+      The combined consignment information of consignments that were combined
+      into this one
+    items:
+      $ref: "#/components/schemas/CombinedConsignment"
+  formerlyAssociatedTransportEquipment:
+    type: array
+    description: Transport equipment in the system that was formerly associated
+    items:
+      $ref: "#/components/schemas/FormerlyAssociatedTransportEquipment"
+  references:
+    type: array
+    description: List of customer created references to this consignment
+    items:
+      $ref: "#/components/schemas/DescriptiveTradeObjectReference"
+  onWater:
+    type: boolean
+    example: false
+    description: >-
+      True if all equipment for this consignment have been loaded onto the
+      vessel and none have been offloaded, false otherwise.
+  transshipment:
+    type: boolean
+    example: false
+    description: >-
+      True if two different vehicle IDs are used in the vessel transport events
+      sent to the consignment or its equipment, indicating its equipment will be
+      transferred between vessels mid journey, false otherwise. If the
+      consignment has no TEs then this will be false
+  changeInVesselArrivalFromFirstPlan:
+    type: integer
+    format: int64
+    description: >-
+      Difference in current plannedVesselArrival (the planned time of arrival at
+      the entry port) from the plannedVesselArrival calculated when this
+      consignment first received a transport plan. If the consignment has
+      already arrived at the entry port, this value will be the difference
+      between the occurrence time of the actualVesselArrival and the first
+      plannedVesselArrival at the entry port. If there is no planned vessel
+      arrival, this field will be null. Negative times indicate the vessel will
+      arrive earlier than first planned, positive times indicate it will arrive
+      later
+  latestPlanIssuanceTime:
+    type: integer
+    format: int64
+    description: >-
+      transportPlanIssuanceTime on the latest set of planned events sent to this
+      consignment, in milliseconds since epoch. If no plan has ever been sent to
+      this consignment this field will be null
+  numberPlansReceived:
+    type: integer
+    format: int64
+    description: >-
+      Number of complete transport plans which have been sent to this
+      consignment
+  partBillOf:
+    $ref: "#/components/schemas/PartBillOf"

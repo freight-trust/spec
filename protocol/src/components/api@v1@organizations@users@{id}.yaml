@@ -1,0 +1,62 @@
+put:
+  summary: Updates an existing user for the logged-In organization.
+  description: >
+    Updates an existing user for the logged in organization. With the PUT
+    operation, the logged in user can update the `name` and/or `isAdmin` value
+    for the id specified. The `type` of user is a part of the identifier, and
+    hence cannot be modified. 
+  operationId: UpdateUser
+  tags:
+    - Organization Admin
+  parameters:
+    - $ref: ../components/parameters/IdPathParam.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/UpdateUserRequest.yaml
+  responses:
+    '200':
+      description: User updated succesfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/UserProfile.yaml
+          examples:
+            UserProfile:
+              $ref: ../components/examples/UserProfile.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml
+delete:
+  summary: Delete the specified user associated with the logged in organization.
+  description: >
+    Delete the specified user associated with the logged in organization. To
+    perform a delete operation, the `type` associated with the `id` has to be
+    set. The type of user is a part of the identifier, and hence it is required
+    to set the correct type.
+  operationId: DeleteUsers
+  tags:
+    - Organization Admin
+  parameters:
+    - $ref: ../components/parameters/IdPathParam.yaml
+    - $ref: ../components/parameters/RequiredTypeQueryParam.yaml
+  responses:
+    '200':
+      description: User deleted succesfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/DeleteUserResponse.yaml
+          examples:
+            DeleteUserResponse:
+              $ref: ../components/examples/DeleteUserResponse.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

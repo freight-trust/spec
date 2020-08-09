@@ -1,0 +1,26 @@
+type: object
+required:
+  - flowTransactionId
+  - tradeObjectIdentifiers
+properties:
+  actionIdentifiers:
+    $ref: "#/components/schemas/ActionIdentifiers"
+  docVersion:
+    type: integer
+    format: int32
+    example: 1
+    description: The version of this document in Platform
+  documentId:
+    type: string
+    example: 897b1946-d8f7-11e7-9296-cec278b6b50a
+    description: Unique id of the document associated with Action.
+  flowTransactionId:
+    type: string
+    example: t2f2ff97d2bf49e985b507854e6d597f
+    description: >-
+      Unique ID generated for the each request. Each request is represented as
+      actionable doc flow transaction and refer with the unique
+      flowTransactionId.
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+title: DocumentMessageResponse

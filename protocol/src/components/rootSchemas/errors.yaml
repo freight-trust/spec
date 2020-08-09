@@ -1,0 +1,15 @@
+type: array
+items:
+  type: object
+  properties:
+    reason:
+      description: High level error message.
+      type: string
+      example: invalidQuery
+    message:
+      description: Detailed error message.
+      type: string
+      example: The request did not contain one of the three required query parameters.
+  required:
+    - reason
+    - message

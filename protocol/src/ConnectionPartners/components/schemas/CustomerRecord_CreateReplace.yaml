@@ -1,0 +1,47 @@
+description: Create/replace customer record (carrier only)
+required:
+  - associatedCarrierName
+  - associatedCarrierOrgId
+  - code
+properties:
+  associatedCarrierName:
+    description: Name of carrier associated with customer
+    type: string
+  associatedCarrierOrgId:
+    description: Onboarding organization id of carrier associated with customer
+    type: string
+  code:
+    description: Customer code (CUCC)
+    type: string
+  name:
+    description: Customer name
+    type: string
+  address:
+    description: Customer street address
+    type: string
+  postalCode:
+    description: Customer postal code
+    type: string
+  city:
+    description: Customer city
+    type: string
+  country:
+    description: Customer country
+    type: string
+  masterId:
+    description: Customer master id
+    type: string
+  masterName:
+    description: Customer master name
+    type: string
+example:
+  associatedCarrierName: Carrier123
+  associatedCarrierOrgId: 7e341469-c35a-4725-986f-74043736f61a
+  code: '11111111111'
+  name: CustomerA-B
+  address: 1111 Main St.
+  postalCode: '11111'
+  city: Somecity
+  country: Somecountry
+  masterId: '12345678'
+  masterName: CustomerA

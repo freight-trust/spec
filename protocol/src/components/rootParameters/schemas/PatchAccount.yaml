@@ -1,0 +1,13 @@
+properties:
+  name:
+    type: string
+  oid:
+    type: string
+  contact:
+    $ref: ./Contact.yaml
+example:
+  name: ClientXYZ
+  oid: 2b061469-c35a-4725-986f-74043736f61a
+  contact:
+    name: Jane Smith
+    email: jane.smith@clientXYZ.com

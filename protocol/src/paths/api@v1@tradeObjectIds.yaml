@@ -1,0 +1,56 @@
+post:
+  tags:
+    - Trade Object Id Queries
+  summary: Query for a TradeLens object id by external references.
+  description: >+
+    Queries for unique IDs of TradeLens objects matching the given search
+    criteria.
+
+
+    Search for consignments by providing the 'consignment' search criteria.
+    Matching consignment IDs are returned.
+
+
+    Search for transport equipments by providing the 'transportEquipment' search
+    criteria. Matching transport equipment IDs are returned.
+
+
+    Search for shipments by providing the 'shipment' search criteria. Matching
+    shipment IDs are returned.
+
+  operationId: queryTradeObjectIdsUsingPOST
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/TradeObjectIdsIdentifiers"
+    description: >-
+      See Model to the right for the full description of the identifiers. Note
+      that only one identifier can be specified (consignment, transportEquipment
+      or shipment) and within that identifier, at least one field must be
+      specified but not all are required.
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/TradeObjectIdsResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

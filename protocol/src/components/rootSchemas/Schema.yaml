@@ -1,0 +1,24 @@
+type: object
+required:
+  - definitions
+  - model
+  - properties
+  - type
+properties:
+  definitions:
+    type: object
+    description: definitions
+  model:
+    type: string
+    example: Commercial Invoice
+    description: model
+  properties:
+    type: object
+    description: properties
+    additionalProperties:
+      type: object
+  type:
+    type: string
+    example: object
+    description: type
+title: Schema

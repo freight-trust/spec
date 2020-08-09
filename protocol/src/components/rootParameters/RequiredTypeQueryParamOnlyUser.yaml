@@ -1,0 +1,8 @@
+in: query
+description: user type.
+name: type
+schema:
+  type: string
+  enum:
+    - user
+required: true

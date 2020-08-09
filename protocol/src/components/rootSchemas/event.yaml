@@ -1,0 +1,24 @@
+description: >-
+  The event entity is described as a generalization of all the specific event
+  categories. An event always takes place in relation to a shipment and can
+  additionally be linked to a transport or an equipment
+type: object
+properties:
+  eventID:
+    $ref: "#/components/schemas/eventID"
+  eventType:
+    $ref: "#/components/schemas/eventType"
+  eventDateTime:
+    $ref: "#/components/schemas/eventDateTime"
+  eventClassifierCode:
+    $ref: "#/components/schemas/eventClassifierCode"
+  eventTypeCode:
+    $ref: "#/components/schemas/eventTypeCode"
+  transportCallID:
+    $ref: "#/components/schemas/transportCallID"
+required:
+  - eventID
+  - eventType
+  - eventDateTime
+  - eventClassifierCode
+  - eventTypeCode

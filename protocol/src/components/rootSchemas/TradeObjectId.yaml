@@ -1,0 +1,23 @@
+type: object
+required:
+  - creationTime
+  - relatedTradeObjectIds
+properties:
+  consignmentId:
+    type: string
+    description: The ID of the consignment matching the query.
+  transportEquipmentId:
+    type: string
+    description: The ID of the transport equipment matching the query.
+  shipmentId:
+    type: string
+    description: The ID of the shipment matching the query.
+  relatedTradeObjectIds:
+    type: array
+    description: Alternate unique identifiers that are associated with this trade object.
+    items:
+      type: string
+  creationTime:
+    type: integer
+    format: int64
+    description: "Time (since epoch, in milliseconds) at which the trade object was created."

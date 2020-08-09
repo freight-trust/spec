@@ -1,0 +1,16 @@
+get:
+  summary: Get all country codes.
+  operationId: getAllCountryCodesUsingGET
+  tags:
+    - Constants and Types
+  description: >-
+    Retrieves all country codes (for events), with their code and name, and
+    returns them in a json array.
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            $ref: ../components/schemas/CountryInfo.yaml

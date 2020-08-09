@@ -1,0 +1,11 @@
+type: object
+properties:
+  roles:
+    type: array
+    items:
+      type: object
+      properties:
+        value:
+          $ref: ./DocumentOperationEnum.yaml
+        display:
+          type: string

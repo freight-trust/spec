@@ -1,0 +1,8 @@
+allOf:
+  - $ref: ./Partnership.yaml
+  - type: object
+    properties:
+      references:
+        type: array
+        items:
+          $ref: ./OrgReference.yaml

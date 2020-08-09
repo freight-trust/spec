@@ -1,0 +1,22 @@
+allOf:
+  - $ref: ./PatchAccount.yaml
+  - type: object
+    properties:
+      accountId:
+        type: string
+      contact:
+        allOf:
+          - $ref: ./Contact.yaml
+        required:
+          - email
+    required:
+      - accountId
+      - name
+      - contact
+example:
+  accountId: 12-345-6789
+  name: ClientXYZ
+  oid: 2b061469-c35a-4725-986f-74043736f61a
+  contact:
+    name: John Smith
+    email: johnsmith@clientxyz.com

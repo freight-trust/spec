@@ -1,0 +1,19 @@
+type: object
+required:
+  - creationTime
+  - numberOfOrgs
+  - orgMetricsList
+properties:
+  creationTime:
+    type: string
+    example: '2018-03-01T13:00:00-0500'
+    description: Time when this query was executed.
+  numberOfOrgs:
+    type: integer
+    format: int32
+    description: Number of organizations found that match the filters given.
+  orgMetricsList:
+    type: array
+    description: List of metrics for each org that met the filter criteria.
+    items:
+      $ref: ./OrgMetrics.yaml

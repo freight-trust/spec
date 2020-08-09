@@ -1,0 +1,19 @@
+type: array
+items:
+  type: object
+  properties:
+    TimeCreated:
+      type: string
+      description: The time the log file was created.
+    Type:
+      type: string
+      description: The type of the log file.
+    File:
+      type: string
+      description: The name of the log file.
+    Path:
+      type: string
+      description: The path of the log file.
+    Content:
+      type: string
+      description: The Base64 encoded content of the log file.

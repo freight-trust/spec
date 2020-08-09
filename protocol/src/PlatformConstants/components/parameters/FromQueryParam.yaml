@@ -1,0 +1,5 @@
+in: query
+description: Specifies the bookmark or offset we start from.
+name: from
+schema:
+  type: string

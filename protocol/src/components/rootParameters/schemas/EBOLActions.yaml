@@ -1,0 +1,16 @@
+type: object
+properties:
+  fromOrganization:
+    type: string
+  toOrganization:
+    type: string
+  issuerOrganization:
+    type: string
+  billOfLadingNumber:
+    type: string
+  actionableFlowId:
+    type: string
+  timestamp:
+    type: string
+  action:
+    type: string

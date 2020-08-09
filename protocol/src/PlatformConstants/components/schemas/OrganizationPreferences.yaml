@@ -1,0 +1,13 @@
+type: object
+properties:
+  displayName:
+    type: string
+    description: Org Name alias
+  searchable:
+    type: boolean
+    description: Flag enables organization to be discoverable by name in the application.
+    default: true
+  autoApprove:
+    type: boolean
+    description: Flag auto approves the incoming business partner requestParameters
+    default: true

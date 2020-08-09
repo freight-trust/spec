@@ -1,0 +1,51 @@
+get:
+  tags:
+    - Shipment Queries
+  summary: Fetch a specific shipment's events
+  operationId: queryShipmentEventsUsingGET
+  parameters:
+    - name: shipmentId
+      in: path
+      description: Fetch the events for a specific shipment.
+      required: true
+      schema:
+        type: string
+    - name: eventFilter
+      in: query
+      description: "{all | latest}"
+      required: false
+      schema:
+        type: string
+        default: all
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ShipmentEventsResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

@@ -1,0 +1,19 @@
+type: object
+required:
+  - status
+  - version
+properties:
+  status:
+    type: string
+    example: DEPRECATED
+    description: Status of Schema
+    enum:
+      - ACTIVE
+      - DEPRECATED
+      - INACTIVE
+  version:
+    type: integer
+    format: int32
+    example: 1
+    description: Status of Schema
+title: DocumentSchemaMetadataStatusRequest

@@ -1,0 +1,16 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 88617827-0ae8-4eb7-84fc-1a7b368b97fb
+  permissions:
+    $ref: ./PermissionListV2.yaml
+  attributes:
+    type: array
+    items:
+      $ref: ./Attribute.yaml
+  etag:
+    $ref: ./Etag.yaml
+required:
+  - id
+  - permissions

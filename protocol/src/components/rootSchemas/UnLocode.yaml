@@ -1,0 +1,7 @@
+type: object
+properties:
+  unlocode:
+    type: string
+    example: CUQMA
+required:
+  - unlocode

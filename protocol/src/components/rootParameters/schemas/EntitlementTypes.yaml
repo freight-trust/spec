@@ -1,0 +1,9 @@
+type: object
+properties:
+  displayName:
+    type: string
+  id:
+    type: string
+example:
+  displayName: billOfLadingVerifier
+  id: bolVerifier

@@ -1,0 +1,109 @@
+get:
+  tags:
+    - Transport Equipment Queries
+  summary: Query TE events by TE ID
+  description: >
+    Query for events for the Transport Equipment with the given ID. The event
+    filter parameter can be used to control how much processing is done to the
+    resulting list.
+
+
+
+    * latest - Only the most recent versions of an event will be returned. The
+    transportPlanIssuanceTime8601 will be used to determine the most recent
+    Planned events. All Actual events will be returned, no filtering is done.
+    For Estimated events, the location, the eventSubmissionTime, the
+    originatorId, and the fullStatus fields will be used. For non transport
+    events, the eventSubmissionTime will be used.
+
+
+
+    * all - No filtering is done. All events are returned.
+
+
+
+    If the eventFilter is not specified, the default is "all".  You may
+    optionally specify a transportEquipmentId to return only results for the
+    transport equipment with that ID.
+
+
+
+    The list of events are sorted on occurrence time if present, otherwise the
+    submission time.
+
+
+    Commodity and originator information visibility is restricted to orgs that
+    were onboarded with certain types. If your org does not have one of these
+    correct types, then you may not have visibility to the following fields in
+    each event:
+
+    Commodity information:
+
+    - harmonizedCodes
+
+    - bookingData.commodities.commodityDescription
+
+    - bookingData.commodities.commodityHarmonizedCode
+
+
+    Originator information:
+
+    - originatorName
+
+    - originatorId
+
+    - senderOrgId
+
+
+    In addition, The originator information on a Party Add/Update/Remove event
+    will be hidden if you are not the org who submitted the event or one of the
+    parties being added. The originator information and 'destinationOrgName'
+    field on a Document event whose 'action' field is 'issued', 'transferred',
+    or 'surrendered' will be hidden if you are not the org who submitted the
+    event or the org that the document is being transferred to.
+  operationId: queryTEEventsTEIdUsingGET
+  parameters:
+    - name: transportEquipmentId
+      in: path
+      description: Transport Equipment ID
+      required: true
+      schema:
+        type: string
+    - name: eventFilter
+      in: query
+      description: "{all | latest}"
+      required: false
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NewAllEventsQueryResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

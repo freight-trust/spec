@@ -1,0 +1,4 @@
+type: string
+format: uri
+example: "https://myserver.com/send/callback/here"
+description: "Your server, where the API server should send the event data"

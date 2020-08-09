@@ -1,0 +1,30 @@
+type: object
+required:
+  - Certificate
+  - ExchangeType
+properties:
+  ConnectorId:
+    type: string
+    description: The connector id. Required.
+  PortId:
+    type: string
+    description: The port id.
+  Certificate:
+    type: string
+    description: The certificate to exchange.
+  ExchangeType:
+    type: string
+    description: >-
+      The exchange type. Validate values are AS2(Request, Response),
+      OFTP(Deliver, Request, Replace)
+  CertificatePassword:
+    type: string
+    description: The password of certificate(AS2).
+  CertificateUsage:
+    type: string
+    description: >-
+      The cryptographic function(s) for the certificate. Validate values are
+      'Encryption,Verification,ServerTLS,ClientTLS'(AS2).
+  ResponseURL:
+    type: string
+    description: The URL which the response should be sent(AS2).

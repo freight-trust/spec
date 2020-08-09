@@ -1,0 +1,11 @@
+type: object
+required:
+  - PortId
+  - NewPortId
+properties:
+  PortId:
+    type: string
+    description: The Id of the port to copy.
+  NewPortId:
+    type: string
+    description: The Id of the new port.

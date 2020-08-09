@@ -1,0 +1,56 @@
+get:
+  summary: Return specified property value of specified files
+  description: >-
+    Returns property value of files object using the specified key and property
+    name.
+  tags:
+    - files
+  operationId: getfilesProperty
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: Folder
+      in: path
+      description: The key Folder
+      required: true
+      schema:
+        type: string
+    - name: Filename
+      in: path
+      description: The key Filename
+      required: true
+      schema:
+        type: string
+    - name: MessageId
+      in: path
+      description: The key MessageId
+      required: true
+      schema:
+        type: string
+    - name: propertyName
+      in: path
+      schema:
+        type: string
+      description: The property name
+      required: true
+  responses:
+    '200':
+      description: The property value
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            type: string
+    default:
+      description: Unexpected error
+      content:
+        text/plain; charset=utf-8:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

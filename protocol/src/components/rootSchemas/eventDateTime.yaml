@@ -1,0 +1,4 @@
+type: string
+format: date-time
+example: "2019-11-12T07:41:00+08:30"
+description: "The local date and time, where the event took place, in ISO 8601 format."

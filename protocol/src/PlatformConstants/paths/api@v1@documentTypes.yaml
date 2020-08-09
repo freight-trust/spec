@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Constants and Types
+  summary: Returns docTypes used to validate content
+  description: Returns list of supported document types in Tradelens
+  operationId: getMetaInfo
+  parameters:
+    - in: query
+      description: >-
+        Filter document types supported by each tradeObject type. Note that only
+        one tradeObject type can be specified (shipment, consignment or
+        transportEquipment)
+      name: tradeObject
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Meta information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/resource.yaml

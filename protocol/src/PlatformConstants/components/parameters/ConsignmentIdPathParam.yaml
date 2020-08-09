@@ -1,0 +1,6 @@
+in: path
+description: The ID for an existing consignment
+name: consignmentId
+schema:
+  type: string
+required: true

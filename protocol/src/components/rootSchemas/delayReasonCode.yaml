@@ -1,0 +1,6 @@
+description: >-
+  Reason code for the delay. The SMDG-Delay-Reason-Codes are used for this
+  attribute. The code list can be found at http://www.smdg.org/smdg-code-lists/
+type: string
+maxLength: 3
+example: WEA

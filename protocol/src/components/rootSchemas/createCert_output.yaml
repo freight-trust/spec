@@ -1,0 +1,13 @@
+type: array
+items:
+  type: object
+  properties:
+    Name:
+      type: string
+      description: The file name.
+    Password:
+      type: string
+      description: The password.
+    Pubname:
+      type: string
+      description: The public cert file name.

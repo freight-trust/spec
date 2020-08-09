@@ -1,0 +1,57 @@
+get:
+  tags:
+    - Subscriptions
+  summary: Receive a list of your active event subscriptions
+  responses:
+    "200":
+      description: Returns a list of event subscriptions
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/eventSubscription"
+post:
+  tags:
+    - Subscriptions
+  summary: Create an event subscription
+  requestBody:
+    description: Parameters used to configure the subscription
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/eventSubscriptionBody"
+  responses:
+    "201":
+      description: Subscription created
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/eventSubscription"
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/error"
+  callbacks:
+    event:
+      "{$request.body.callbackUrl}":
+        post:
+          parameters:
+            - in: header
+              name: Signature
+              required: true
+              explode: true
+              schema:
+                $ref: "#/components/headers/signatureHeader"
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  $ref: "#/components/schemas/events"
+          responses:
+            "200":
+              description: Your server returns this code if it accepts the callback

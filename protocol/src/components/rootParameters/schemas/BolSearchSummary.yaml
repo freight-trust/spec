@@ -1,0 +1,20 @@
+properties:
+  organizationId:
+    type: string
+  requestParameters:
+    $ref: ./RequestParameters.yaml
+  summary:
+    type: object
+    properties:
+      total:
+        type: number
+      success:
+        type: number
+      uniqueSuccessCalls:
+        type: number
+      duplicateSuccessCalls:
+        type: number
+      failedCalls:
+        type: number
+      internalErrorCalls:
+        type: number

@@ -1,0 +1,12 @@
+type: object
+required:
+  - code
+properties:
+  code:
+    type: string
+    example: 090121
+    description: Harmonized code
+  description:
+    type: string
+    example: Coffee roasted
+    description: Description of code

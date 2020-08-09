@@ -1,0 +1,20 @@
+type: object
+properties:
+  contact:
+    type: object
+    properties:
+      contactId:
+        type: string
+        example: UUID-123-456
+      contactType:
+        allOf:
+          - description: Contact type.
+          - $ref: ./ContactTypeEnum.yaml
+      contactInfo:
+        type: string
+        example: 'https://foo.bar'
+      nickname:
+        type: string
+        example: JohnDoe
+required:
+  - contact

@@ -1,0 +1,6 @@
+name: consignmentId
+in: query
+description: |
+  The ID for an existing consignment
+schema:
+  $ref: ../schemas/UUID.yaml

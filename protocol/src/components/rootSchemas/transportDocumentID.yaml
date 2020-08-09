@@ -1,0 +1,12 @@
+type: string
+example: ABCD421911263977
+maxLength: 20
+description: >-
+  The Transport Document ID number is an identifier that links to a shipment,
+  i.e. a Bill of Lading or a Sea Waybill. A bill of lading is the document of
+  title to the goods issued to the customer which confirms the carrier's receipt
+  of the cargo from the customer, acknowledging goods being shipped and
+  specifying the terms of delivery.
+
+  The Sea Waybill is a simpler document, the main difference being that it is
+  non-negotiable.

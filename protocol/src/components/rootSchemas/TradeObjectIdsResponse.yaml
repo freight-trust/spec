@@ -1,0 +1,9 @@
+type: object
+required:
+  - tradeObjectIds
+properties:
+  tradeObjectIds:
+    type: array
+    description: IDs of trade objects matching the query.
+    items:
+      $ref: "#/components/schemas/TradeObjectId"

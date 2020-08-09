@@ -1,0 +1,7 @@
+type: object
+properties:
+  carrierName:
+    type: string
+  scacCode:
+    type: string
+title: SIToBillFlow

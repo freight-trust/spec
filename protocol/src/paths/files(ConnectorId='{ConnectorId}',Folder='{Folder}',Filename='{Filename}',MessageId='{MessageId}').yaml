@@ -1,0 +1,156 @@
+get:
+  summary: Return a single files
+  description: Returns a single files object using the specified key.
+  tags:
+    - files
+  operationId: getfiles
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: Folder
+      in: path
+      description: The key Folder
+      required: true
+      schema:
+        type: string
+    - name: Filename
+      in: path
+      description: The key Filename
+      required: true
+      schema:
+        type: string
+    - name: MessageId
+      in: path
+      description: The key MessageId
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: files response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/files.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+put:
+  summary: Update files
+  description: Updates the specified files object.
+  tags:
+    - files
+  operationId: updatefiles
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: Folder
+      in: path
+      description: The key Folder
+      required: true
+      schema:
+        type: string
+    - name: Filename
+      in: path
+      description: The key Filename
+      required: true
+      schema:
+        type: string
+    - name: MessageId
+      in: path
+      description: The key MessageId
+      required: true
+      schema:
+        type: string
+  requestBody:
+    description: The files entity to update.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/files.yaml
+  responses:
+    '200':
+      description: EntitySet files
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/files.yaml
+    '204':
+      description: files updated
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []
+delete:
+  summary: Delete files
+  description: Deletes the specified files object.
+  tags:
+    - files
+  operationId: deletefiles
+  parameters:
+    - name: ConnectorId
+      in: path
+      description: The key ConnectorId
+      required: true
+      schema:
+        type: string
+    - name: Folder
+      in: path
+      description: The key Folder
+      required: true
+      schema:
+        type: string
+    - name: Filename
+      in: path
+      description: The key Filename
+      required: true
+      schema:
+        type: string
+    - name: MessageId
+      in: path
+      description: The key MessageId
+      required: true
+      schema:
+        type: string
+  responses:
+    '204':
+      description: files deleted
+      content: {}
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

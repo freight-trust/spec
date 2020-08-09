@@ -1,0 +1,9 @@
+in: query
+description: Filters unmapped records only
+name: unmapped_records_only
+schema:
+  type: string
+  enum:
+    - 'true'
+    - 'false'
+  default: 'true'

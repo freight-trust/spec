@@ -1,0 +1,5 @@
+in: query
+description: The customer code to filter search results on (exact match)
+name: code
+schema:
+  type: string

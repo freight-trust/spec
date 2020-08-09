@@ -1,0 +1,24 @@
+type: object
+properties:
+  flowInstanceId:
+    type: string
+  flowStatus:
+    type: string
+  flowDefnMetadata:
+    $ref: "#/components/schemas/FlowDefnMetadata"
+  flowTypeAttributes:
+    $ref: "#/components/schemas/FlowTypeAttributes"
+  tradeObjectIdentifiers:
+    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  flowState:
+    type: string
+  instantiatedBy:
+    type: string
+  instantiationTime:
+    type: integer
+    format: int64
+  actionObjects:
+    type: array
+    items:
+      $ref: "#/components/schemas/ActionObjectResponse"
+title: AFQueryResponseByFlowType

@@ -1,0 +1,17 @@
+type: object
+properties:
+  role:
+    type: string
+  members:
+    type: array
+    items:
+      type: string
+      description: IDs of users who play this role
+required:
+  - role
+  - members
+example:
+  role: 'tradeparty:CUSTOMS_BROKER'
+  members:
+    - usa_customs_broker
+    - ita_customs_broker

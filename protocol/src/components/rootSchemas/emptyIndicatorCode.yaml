@@ -1,0 +1,7 @@
+type: string
+example: EMPTY
+enum:
+  - EMPTY
+  - LADEN
+nullable: false
+description: Code to denote whether the equipment is empty or laden.

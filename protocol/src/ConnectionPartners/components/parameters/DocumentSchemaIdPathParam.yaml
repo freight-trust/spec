@@ -1,0 +1,6 @@
+in: path
+description: documentSchemaId
+name: documentSchemaId
+required: true
+schema:
+  type: string

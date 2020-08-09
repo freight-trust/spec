@@ -1,0 +1,27 @@
+post:
+  summary: >-
+    Delete all the transaction logs for the connector older than the specified
+    timestamp.
+  description: >-
+    Delete all the transaction logs for the connector older than the specified
+    timestamp.
+  tags:
+    - deleteTransactions
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/deleteTransactions_input.yaml
+  responses:
+    '200':
+      description: The action result
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

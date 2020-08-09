@@ -1,0 +1,21 @@
+type: object
+properties:
+  DataDirectory:
+    type: string
+    description: The data directory or a zipped file where the profiles are stored.
+  Workspace:
+    type: string
+    description: The name of the workspace.
+  InputName:
+    type: string
+    description: The name of the form input when uploading files from a form.
+  DuplicateAction:
+    type: string
+    description: >-
+      This setting determines how to handle profiles that already exist during
+      an import.
+    default: Overwrite
+  IncludeDirectories:
+    type: string
+    description: Whether to retain directories on non-default locations.
+    default: 'False'

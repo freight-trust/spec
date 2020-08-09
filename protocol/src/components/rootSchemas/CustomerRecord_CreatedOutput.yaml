@@ -1,0 +1,28 @@
+description: Create/replace customer records (each one may or may not have succeeded)
+type: array
+items:
+  $ref: ./CustomerRecord_CreatedStatus.yaml
+  oneOf:
+    - $ref: ./CustomerRecord_CreatedSuccess.yaml
+    - $ref: ./CustomerRecord_CreatedFailure.yaml
+example:
+  - status: 500
+    error:
+      code: CUSTOMER_RECORDS_CREATE_CUSTOMER_RECORD_INSERT_FAILURE
+      message: >-
+        An error occurred creating one of the customer records; the
+        corresponding customer record not created
+      timestamp: 1570038401
+  - status: 200
+    customerRecord:
+      associatedCarrierName: Carrier123
+      associatedCarrierOrgId: 7e341469-c35a-4725-986f-74043736f61a
+      code: '22222222222'
+      name: CustomerA-C
+      address: 2222 Main St.
+      postalCode: '22222'
+      city: Anothercity
+      country: Somecountry
+      masterId: '12345678'
+      masterName: CustomerA
+      recordId: a7ed9d0f-034d-4138-8490-6f31ca8bd99a

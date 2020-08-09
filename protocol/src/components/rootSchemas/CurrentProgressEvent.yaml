@@ -1,0 +1,26 @@
+type: object
+properties:
+  sequence:
+    type: integer
+    format: int64
+    example: 1
+    description: Sequence number of this event
+  locationKey:
+    type: string
+    example: USNWK
+    description: >-
+      The value of the highest priority Location field in a group of events. 
+      Only returned on transportSummary queries. Purpose is to help group events
+      that are in the same location.
+  actuals:
+    type: array
+    description: The list of actual events
+    items:
+      $ref: "#/components/schemas/ApiV1TransportEvent"
+  estimates:
+    type: array
+    description: The list of estimated events
+    items:
+      $ref: "#/components/schemas/ApiV1TransportEvent"
+  planned:
+    $ref: "#/components/schemas/ApiV1TransportEvent"

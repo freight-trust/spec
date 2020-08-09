@@ -1,0 +1,15 @@
+type: object
+required:
+  - code
+  - message
+  - timestamp
+properties:
+  code:
+    type: string
+    description: Error Code
+  message:
+    type: string
+    description: Exception Message
+  timestamp:
+    type: string
+    description: 'timestamp '

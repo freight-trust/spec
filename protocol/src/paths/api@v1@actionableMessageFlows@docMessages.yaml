@@ -1,0 +1,37 @@
+post:
+  tags:
+    - Actionable Message Flows
+  summary: Performs Document Action
+  description: "Performs an action on a document. Example of an action is :  VERIFY_COPY document for an SI-BOL flow needs to be approved or rejected by the Shipper\r"
+  operationId: performDocumentActionUsingPOST
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/DocumentMessageRequest"
+    description: DocumentMessageRequest
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/DocumentMessageResponse"
+    "202":
+      description: Request Accepted
+    "400":
+      description: Bad request
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

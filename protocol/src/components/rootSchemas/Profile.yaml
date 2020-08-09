@@ -1,0 +1,40 @@
+type: object
+properties:
+  id:
+    type: string
+  policies:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+        policy:
+          $ref: ./Policy.yaml
+      required:
+        - name
+        - policy
+    description: >-
+      Various policies defined by the organization which may be applied by the
+      system under certain circumstances
+  etag:
+    $ref: ./Etag.yaml
+required:
+  - id
+  - policies
+example:
+  id: org-123abc
+  policies:
+    - name: consignment
+      policy:
+        - subject:
+            attributes:
+              - name: role
+                value: 'tradeparty:CONSIGNEE'
+          resource:
+            attributes:
+              - name: 'document:type'
+                value: BILL_OF_LADING
+          action:
+            - 'document:read'
+  etag: 01-4923395af

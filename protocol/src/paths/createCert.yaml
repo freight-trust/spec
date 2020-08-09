@@ -1,0 +1,28 @@
+post:
+  summary: Create the public/private certificate key pair.
+  description: Create the public/private certificate key pair.
+  tags:
+    - createCert
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/createCert_input.yaml
+    required: true
+  responses:
+    '200':
+      description: The action result
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/createCert_output.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

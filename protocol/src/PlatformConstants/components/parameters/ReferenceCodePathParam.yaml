@@ -1,0 +1,6 @@
+in: path
+description: Reference value or SCV code
+name: code
+schema:
+  type: string
+required: true

@@ -1,0 +1,16 @@
+properties:
+  api:
+    type: string
+  timestamp:
+    type: string
+  status:
+    type: string
+  requestParameters:
+    type: object
+    properties:
+      billOfLadingNumber:
+        type: string
+      oceanCarrierCode:
+        type: string
+      consignorPrintedParty:
+        type: string

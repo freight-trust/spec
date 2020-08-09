@@ -1,0 +1,7 @@
+in: query
+description: >-
+  Comma separated list of organization types to filter business partners list.
+  Example `shipper,ocean carrier`
+name: org_types
+schema:
+  type: string

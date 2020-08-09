@@ -1,0 +1,33 @@
+type: object
+required:
+  - actionName
+  - status
+properties:
+  actionName:
+    type: string
+    example: UploadShippingInstruction
+    description: Name of the action
+  resourceAttribute:
+    type: object
+    example:
+      version: "1"
+    description: Performed action resource attribute.
+  resourceId:
+    type: string
+    example: c93b1946-d8f7-11e7-9296-cec278b6b50a
+    description: Performed action resource id.
+  resourceType:
+    type: string
+    example: CONSIGNMENT
+    description: Performed action resource type.
+  status:
+    type: string
+    example: InProgress
+    description: >-
+      Status of the transaction. This can be either Complete, Failed or
+      InProgress
+    enum:
+      - Complete
+      - Failed
+      - InProgress
+title: FlowActionResponse

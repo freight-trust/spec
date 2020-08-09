@@ -1,0 +1,6 @@
+type: object
+properties:
+  references:
+    type: array
+    items:
+      $ref: "#/components/schemas/TradeObjectReference"

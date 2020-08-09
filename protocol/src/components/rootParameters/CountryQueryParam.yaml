@@ -1,0 +1,7 @@
+in: query
+description: >-
+  The customer country to filter search results on (includes match; ignores
+  case)
+name: country
+schema:
+  type: string

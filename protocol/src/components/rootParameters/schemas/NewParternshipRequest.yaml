@@ -1,0 +1,10 @@
+allOf:
+  - $ref: ./PartnerId.yaml
+  - type: object
+    properties:
+      references:
+        type: array
+        items:
+          $ref: ./OrgReferenceWithoutId.yaml
+  - required:
+      - partnerId

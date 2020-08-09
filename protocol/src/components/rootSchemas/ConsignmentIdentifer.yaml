@@ -1,0 +1,14 @@
+type: object
+properties:
+  carrierBookingNumber:
+    type: string
+    example: "123456789"
+    description: The carrier booking number to search with
+  billOfLadingNumber:
+    type: string
+    example: BOL8331939
+    description: The bill of lading number to search with
+  references:
+    type: array
+    items:
+      $ref: "#/components/schemas/TradeObjectReference"

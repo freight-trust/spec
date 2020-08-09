@@ -1,0 +1,41 @@
+type: object
+required:
+  - references
+  - shipmentCreationTime
+  - shipmentId
+  - shipmentUpdateTime
+properties:
+  shipmentId:
+    type: string
+    description: Service created identifier for this shipment
+  shipmentCreationTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the shipment was created
+  shipmentUpdateTime:
+    type: integer
+    format: int64
+    description: Timestamp of when the shipment was most recently updated
+  references:
+    type: array
+    description: List of customer created references to this shipment
+    items:
+      $ref: "#/components/schemas/DescriptiveTradeObjectReference"
+  goodsDescription:
+    type: string
+    description: Description of the goods in this shipment
+  associatedConsignmentIds:
+    type: array
+    description: ConsignmentIds associated with this shipment
+    items:
+      type: string
+  plannedCompletionDate8601:
+    type: string
+    description: >-
+      Estimated date that the goods in the shipment will be finalized or
+      complete
+  plannedDeliveryDate8601:
+    type: string
+    description: >-
+      The last date which the receiving party has to take possession of goods in
+      the shipment

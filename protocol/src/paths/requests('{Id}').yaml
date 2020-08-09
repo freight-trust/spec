@@ -1,0 +1,35 @@
+get:
+  summary: Return a single requests
+  description: Returns a single requests object using the specified key.
+  tags:
+    - requests
+  operationId: getrequests
+  parameters:
+    - name: Id
+      in: path
+      description: The key Id
+      required: true
+      schema:
+        type: string
+    - name: $select
+      in: query
+      schema:
+        type: string
+      description: Select structural property
+  responses:
+    '200':
+      description: requests response
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/requests.yaml
+    default:
+      description: Unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/CDataError.yaml
+  security:
+    - basic: []
+    - authtoken_header: []
+    - authtoken_query: []

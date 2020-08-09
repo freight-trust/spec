@@ -1,0 +1,16 @@
+type: object
+required:
+  - equipmentQuantity
+properties:
+  description:
+    type: string
+    example: Livestock carrier
+    description: Human readable equipment type
+  equipmentType:
+    type: string
+    example: 22T3
+    description: The equipment type based on ISO 6346
+  equipmentQuantity:
+    type: integer
+    format: int32
+    description: The quantity of transport equipment

@@ -1,0 +1,13 @@
+get:
+  tags:
+    - Constants and Types
+  summary: Returns document actions
+  description: Returns list of supported document actions in Tradelens
+  operationId: getDocActions
+  responses:
+    '200':
+      description: Meta information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/actions.yaml

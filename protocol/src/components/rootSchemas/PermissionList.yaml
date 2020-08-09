@@ -1,0 +1,15 @@
+type: object
+properties:
+  permissions:
+    type: array
+    items:
+      allOf:
+        - $ref: ./IdMixin.yaml
+        - $ref: ./Permission.yaml
+      required:
+        - id
+        - role
+        - resourceType
+        - operations
+required:
+  - permissions

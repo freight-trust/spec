@@ -1,0 +1,7 @@
+in: query
+description: >-
+  The customer master name to filter search results on (includes match; ignores
+  case)
+name: masterName
+schema:
+  type: string

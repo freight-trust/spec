@@ -1,0 +1,20 @@
+type: object
+properties:
+  objectAttr:
+    type: object
+    example:
+      consignee: consigneeOrg
+      isTitleHolder: "false"
+      documentId: 12312312-1233-34534-awed-15e1035c563c
+      issuer: issuerOrg
+      status: ISSUED
+    description: objectAttr
+  objectId:
+    type: string
+    example: fd1e2fd4-a18a-4e8f-8d19-6123b7459046
+  objectRef:
+    type: string
+  objectType:
+    type: string
+    example: eBLRecord
+title: ActionObjectResponse
