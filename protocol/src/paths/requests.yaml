@@ -47,7 +47,7 @@ get:
         you can use the following filter to retrieve records with the name
         'John': $filter=Name eq 'John'
   responses:
-    '200':
+    "200":
       description: requests response
       content:
         application/json:

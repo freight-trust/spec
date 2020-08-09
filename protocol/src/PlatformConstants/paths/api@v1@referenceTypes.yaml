@@ -7,7 +7,7 @@ get:
     returns them in a json array.
   operationId: getAllReferenceTypesUsingGET
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:

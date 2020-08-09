@@ -18,4 +18,4 @@ properties:
   IncludeDirectories:
     type: string
     description: Whether to retain directories on non-default locations.
-    default: 'False'
+    default: "False"

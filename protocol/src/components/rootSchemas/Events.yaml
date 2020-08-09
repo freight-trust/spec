@@ -734,7 +734,7 @@ properties:
     type: array
     description: List of customer created references to this trade object
     items:
-      $ref: "#/components/schemas/TradeObjectReference"
+      $ref: "#/components/schemas/TradeInstrumentReference"
   sealNumber:
     type: string
     description: Seal number

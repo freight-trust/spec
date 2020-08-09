@@ -1,5 +1,5 @@
 in: path
-description: Unique identifier of a resource in the TradeLens platform
+description: Unique identifier of a resource in the  platform
 name: id
 schema:
   $ref: ../schemas/UUID.yaml

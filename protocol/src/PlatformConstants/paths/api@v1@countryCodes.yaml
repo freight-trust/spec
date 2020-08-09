@@ -7,7 +7,7 @@ get:
     Retrieves all country codes (for events), with their code and name, and
     returns them in a json array.
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:

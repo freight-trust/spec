@@ -27,8 +27,8 @@ properties:
   status:
     type: string
     example: InProgress
-    description: 'Status of the transaction.This can be either Complete,Failed or InProgress'
-  tradeObjectType:
+    description: "Status of the transaction.This can be either Complete,Failed or InProgress"
+  tradeInstrumentType:
     type: string
     example: consignment
     description: Trade object type

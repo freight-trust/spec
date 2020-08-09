@@ -3,6 +3,6 @@ example:
   id: org-A
   attributes:
     - name: role
-      value: 'tradeparty:BUYER'
+      value: "tradeparty:BUYER"
     - name: role
-      value: 'tradeparty:SELLER'
+      value: "tradeparty:SELLER"

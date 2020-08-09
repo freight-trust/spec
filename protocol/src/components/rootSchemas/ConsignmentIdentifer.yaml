@@ -11,4 +11,4 @@ properties:
   references:
     type: array
     items:
-      $ref: "#/components/schemas/TradeObjectReference"
+      $ref: "#/components/schemas/TradeInstrumentReference"

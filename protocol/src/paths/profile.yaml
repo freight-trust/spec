@@ -47,7 +47,7 @@ get:
         you can use the following filter to retrieve records with the name
         'John': $filter=Name eq 'John'
   responses:
-    '200':
+    "200":
       description: profile response
       content:
         application/json:
@@ -82,7 +82,7 @@ put:
         schema:
           $ref: ../components/schemas/profile.yaml
   responses:
-    '204':
+    "204":
       description: profile updated
       content: {}
     default:

@@ -8,8 +8,8 @@ properties:
     $ref: "#/components/schemas/FlowDefnMetadata"
   flowTypeAttributes:
     $ref: "#/components/schemas/FlowTypeAttributes"
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
   flowState:
     type: string
   instantiatedBy:

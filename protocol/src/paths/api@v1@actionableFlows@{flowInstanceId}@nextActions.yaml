@@ -16,7 +16,7 @@ post:
       application/json:
         schema:
           $ref: "#/components/schemas/QueryNextActionRequest"
-    description: QueryNextAction with optional filters by tradeObjectIdentifiers
+    description: QueryNextAction with optional filters by tradeInstrumentIdentifiers
   responses:
     "200":
       description: OK

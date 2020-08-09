@@ -149,7 +149,7 @@ properties:
     type: array
     description: List of customer created references to this consignment
     items:
-      $ref: "#/components/schemas/DescriptiveTradeObjectReference"
+      $ref: "#/components/schemas/DescriptiveTradeInstrumentReference"
   onWater:
     type: boolean
     example: false

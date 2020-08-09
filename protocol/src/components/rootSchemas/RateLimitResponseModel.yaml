@@ -27,4 +27,4 @@ properties:
     type: integer
     format: int64
     example: 1583434912493
-    description: 'Timestamp at which the rejected request was submitted, in epoch time'
+    description: "Timestamp at which the rejected request was submitted, in epoch time"

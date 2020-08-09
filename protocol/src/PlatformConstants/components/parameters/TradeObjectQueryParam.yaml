@@ -1,5 +1,5 @@
 in: query
 description: Trade object type
-name: tradeObject
+name: tradeInstrument
 schema:
   type: string

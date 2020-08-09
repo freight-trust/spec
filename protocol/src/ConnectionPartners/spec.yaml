@@ -7,12 +7,12 @@ info:
   title: Internal API
   version: 1.0.0
 paths:
-  '/api/v1/organizations/{orgId}/references/{code}':
-    $ref: 'paths/api@v1@organizations@{orgId}@references@{code}.yaml'
+  "/api/v1/organizations/{orgId}/references/{code}":
+    $ref: "paths/api@v1@organizations@{orgId}@references@{code}.yaml"
   /api/v1/user/profiles:
     $ref: paths/api@v1@user@profiles.yaml
-  '/api/v1/organizations/{orgId}/references':
-    $ref: 'paths/api@v1@organizations@{orgId}@references.yaml'
+  "/api/v1/organizations/{orgId}/references":
+    $ref: "paths/api@v1@organizations@{orgId}@references.yaml"
   /api/v1/retroPartyAdded:
     $ref: paths/api@v1@retroPartyAdded.yaml
   /api/v1/routeRecords:
@@ -47,7 +47,7 @@ components:
             - $ref: ./components/schemas/ContactTypeEnum.yaml
         contactInfo:
           type: string
-          example: 'https://foo.bar'
+          example: "https://foo.bar"
         nickname:
           type: string
           example: JohnDoe

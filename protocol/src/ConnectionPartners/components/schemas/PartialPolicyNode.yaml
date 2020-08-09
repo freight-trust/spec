@@ -15,6 +15,6 @@ properties:
     $ref: ./Etag.yaml
 example:
   attributes:
-    - name: 'document:type'
+    - name: "document:type"
       value: COMMERCIAL_INVOICE
   etag: 9f8ad38

@@ -9,7 +9,7 @@ post:
         schema:
           $ref: ../components/schemas/refreshTransactions_input.yaml
   responses:
-    '200':
+    "200":
       description: The action result
       content:
         application/json:

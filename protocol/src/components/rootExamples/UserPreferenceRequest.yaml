@@ -6,7 +6,7 @@ value:
     contacts:
       - contact:
           contactType: Webhook
-          contactInfo: 'https://foo.bar'
+          contactInfo: "https://foo.bar"
           nickname: JohnDoe
       - contact:
           contactType: Email

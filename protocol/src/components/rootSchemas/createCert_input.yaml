@@ -26,11 +26,11 @@ properties:
   Expiration:
     type: string
     description: The expiration (in years).
-    default: '1'
+    default: "1"
   KeySize:
     type: string
     description: The key size.
-    default: '2048'
+    default: "2048"
   PublicKeyType:
     type: string
     description: The public key type.

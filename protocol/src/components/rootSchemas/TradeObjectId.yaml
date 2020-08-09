@@ -1,7 +1,7 @@
 type: object
 required:
   - creationTime
-  - relatedTradeObjectIds
+  - relatedTradeInstrumentIds
 properties:
   consignmentId:
     type: string
@@ -12,7 +12,7 @@ properties:
   shipmentId:
     type: string
     description: The ID of the shipment matching the query.
-  relatedTradeObjectIds:
+  relatedTradeInstrumentIds:
     type: array
     description: Alternate unique identifiers that are associated with this trade object.
     items:

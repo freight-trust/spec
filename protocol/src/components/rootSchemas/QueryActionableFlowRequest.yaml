@@ -20,6 +20,6 @@ properties:
       - TRANSFERRED
       - SURRENDERED
       - SWITCHEDTOPAPER
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
 title: QueryActionableFlowRequest

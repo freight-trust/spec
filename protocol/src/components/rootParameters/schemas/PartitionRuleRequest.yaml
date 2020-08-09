@@ -11,7 +11,7 @@ properties:
     type: string
     example: ocean-carrier
     description: Name of the carrier organization
-  tradeObjectType:
+  tradeInstrumentType:
     type: string
     example: consignment
     description: Trade object type

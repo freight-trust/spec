@@ -4,7 +4,7 @@ put:
     Updates an existing user for the logged in organization. With the PUT
     operation, the logged in user can update the `name` and/or `isAdmin` value
     for the id specified. The `type` of user is a part of the identifier, and
-    hence cannot be modified. 
+    hence cannot be modified.
   operationId: UpdateUser
   tags:
     - Organization Admin
@@ -16,7 +16,7 @@ put:
         schema:
           $ref: ../components/schemas/UpdateUserRequest.yaml
   responses:
-    '200':
+    "200":
       description: User updated succesfully.
       content:
         application/json:
@@ -45,7 +45,7 @@ delete:
     - $ref: ../components/parameters/IdPathParam.yaml
     - $ref: ../components/parameters/RequiredTypeQueryParam.yaml
   responses:
-    '200':
+    "200":
       description: User deleted succesfully.
       content:
         application/json:

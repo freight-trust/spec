@@ -29,7 +29,7 @@ properties:
             properties:
               name:
                 type: string
-                example: 'resource:type'
+                example: "resource:type"
               value:
                 type: string
                 example: document

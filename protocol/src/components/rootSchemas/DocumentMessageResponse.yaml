@@ -1,7 +1,7 @@
 type: object
 required:
   - flowTransactionId
-  - tradeObjectIdentifiers
+  - tradeInstrumentIdentifiers
 properties:
   actionIdentifiers:
     $ref: "#/components/schemas/ActionIdentifiers"
@@ -21,6 +21,6 @@ properties:
       Unique ID generated for the each request. Each request is represented as
       actionable doc flow transaction and refer with the unique
       flowTransactionId.
-  tradeObjectIdentifiers:
-    $ref: "#/components/schemas/TradeObjectIdentifiers"
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
 title: DocumentMessageResponse

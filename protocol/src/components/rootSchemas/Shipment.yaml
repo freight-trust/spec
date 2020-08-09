@@ -20,7 +20,7 @@ properties:
     type: array
     description: List of customer created references to this shipment
     items:
-      $ref: "#/components/schemas/DescriptiveTradeObjectReference"
+      $ref: "#/components/schemas/DescriptiveTradeInstrumentReference"
   goodsDescription:
     type: string
     description: Description of the goods in this shipment
