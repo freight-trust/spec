@@ -1,0 +1,28 @@
+{
+  "name": "@freight-trust/spec",
+  "version": "0.1.0",
+  "description": "- [Freight Trust Network](#freight-trust-network)   - [Network Overview](#network-overview)   - [EDI Messages](#edi-messages)   - [Nodes](#nodes)     - [Network Nodes](#network-nodes)     - [Concensus Nodes](#concensus-nodes)   - [Protocol](#protocol)   - [Burgess](#burgess)     - [Unit Concepts](#unit-concepts)   - [Blocks as `units of agreement`](#blocks-as--units-of-agreement-)     - [Facts](#facts)     - [Rules](#rules)   - [Rulebook](#rulebook)   - [Further Documentation](#further-documentation)   - [License](#license)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freight-trust/spec.git"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/freight-trust/spec/issues"
+  },
+  "homepage": "https://github.com/freight-trust/spec#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "yaml-lint": "^1.2.4"
+  }
+}
