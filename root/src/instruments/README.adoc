@@ -1,0 +1,5737 @@
+= Trade Instrument API
+team@openapitools.org
+2.0.0
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Trade Instrument API 
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://openapi-generator.tech
+:app-name: Trade Instrument API
+
+[abstract]
+.Abstract
+This REST API provides the ability to query various data elements in the system.  Please click this link to enable Swagger to call the APIs.  Without this step, all attempts to try out the APIs will result in a 401 Not Authorized error.  
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.ConsignmentQueries]
+=== ConsignmentQueries
+
+
+[.queryConsignmentCreatorsUsingGET]
+==== queryConsignmentCreatorsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/consignments/creators`
+
+Query for organization names of consignment creators
+
+===== Description 
+
+Queries for the names of all organizations that have created a consignment that the user has access to.
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/creators/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<ConsignmentCreatorsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ConsignmentCreatorsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/creators/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/creators/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/consignments/creators/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/creators/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryConsignmentEventsByConsignmentIdUsingGET]
+==== queryConsignmentEventsByConsignmentIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/{consignmentId}`
+
+Query for consignment events by consignment ID
+
+===== Description 
+
+Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Get the events of this consignment  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| all 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ConsignmentEventsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ConsignmentEventsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/events/consignmentId/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryConsignmentsUsingGET]
+==== queryConsignmentsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/consignments`
+
+Query all consignments
+
+===== Description 
+
+Queries for all consignments visible to the user, filtered using the criteria below.  We return up to a maximum of 1000 consignments in one query. Paging is used to retrieve consignments beyond this number. Provide the \"newFrom\" value from the response body as the \"from\" parameter to retrieve the next page of results. If \"from\" is given, all other parameters are ignored, except for \"size\".  For the fields listed below, wildcard matching is supported. A '*' can be used in place of one or more characters, and a '?' can replace a single character. - exportCountry - importCountry - entryPort - exitPort - consignmentId - consignmentRef - transportEquipmentId - transportEquipmentRef - harmonizedCode - billOfLadingNumber - carrierBookingNumber - originLocation - destinationLocation - terminal  Commodity information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of the correct types, then the following fields will be removed from all consignment response objects, and you will not be allowed to search on these fields: - harmonizedCode - commodityHarmonizedCode (in the commodities array in bookingData) - commodityDescription (in the commodities array in bookingData) 
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| size 
+| Optional, number of consignments to return, max 1000  
+| - 
+| 50 
+|  
+
+| from 
+| Optional, bookmark to get the next chunk of results to a previously executed query. This must be the newFrom value from a previous consignments query.  
+| - 
+| null 
+|  
+
+| createdBy 
+| Optional, only include results that were created by any of the given organizations <<String>> 
+| - 
+| null 
+|  
+
+| createdAfter 
+| Optional, only include results that were created on or after this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| createdBefore 
+| Optional, only include results that were created on or before this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| exportCountry 
+| Optional, only include results that match this export country  
+| - 
+| null 
+|  
+
+| importCountry 
+| Optional, only include results that match this import country  
+| - 
+| null 
+|  
+
+| entryPort 
+| Optional, only include results that match this entry port  
+| - 
+| null 
+|  
+
+| exitPort 
+| Optional, only include results that match this exit port  
+| - 
+| null 
+|  
+
+| consignmentId 
+| Optional, only include results that match this consignment ID  
+| - 
+| null 
+|  
+
+| consignmentRef 
+| Optional, only include results that match this consignment reference  
+| - 
+| null 
+|  
+
+| status 
+| Optional, only include results that match this consignment status  
+| - 
+| null 
+|  
+
+| transportEquipmentId 
+| Optional, only include results with a container that matches this transport equipment ID  
+| - 
+| null 
+|  
+
+| transportEquipmentRef 
+| Optional, only include results with a container that matches this transport equipment reference  
+| - 
+| null 
+|  
+
+| equipmentNumber 
+| Optional, only include results with a transport equipment that matches this equipment number  
+| - 
+| null 
+|  
+
+| billOfLadingNumber 
+| Optional, only include results that match this bill of lading number  
+| - 
+| null 
+|  
+
+| harmonizedCode 
+| Optional, only include results that match this harmonized system code. Your org must have permission to see commodity information to search on this parameter  
+| - 
+| null 
+|  
+
+| carrierBookingNumber 
+| Optional, only include results that match this carrier booking number  
+| - 
+| null 
+|  
+
+| terminal 
+| Optional, only include results that match this terminal name  
+| - 
+| null 
+|  
+
+| startPlannedVesselDeparture 
+| Optional, start date in Planned Vessel Departure date range. Only include results where a consignment leaves the Exit Port (Planned Vessel Departure) on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endPlannedVesselDeparture 
+| Optional, end date in Planned Vessel Departure date range. Only include results where a consignment leaves the Exit Port (Planned Vessel Departure) on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| startPlannedVesselArrival 
+| Optional, start date in Planned Vessel Arrival date range. Only include results where a consignment arrives at the Entry Port (Planned Vessel Arrival) on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endPlannedVesselArrival 
+| Optional, end date in Planned Vessel Arrival date range. Only include results where a consignment arrives at the Entry Port (Planned Vessel Arrival) on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| originLocation 
+| Optional, only include results that match the value of the origin location. Searches for matches in the originLocation in the booking data as well as the exit port  
+| - 
+| null 
+|  
+
+| destinationLocation 
+| Optional, only include results that match the value of the destination location. Searches for matches in the destinationLocation in the bookingData as well as the entry port  
+| - 
+| null 
+|  
+
+| startBookingDepartureDate 
+| Optional, start departure date in Booking . Only include results where a consignment leaves the origin on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endBookingDepartureDate 
+| Optional, end departure date in Booking. Only include results when a consignment arrives at the destination on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| commodityHarmonizedCode 
+| Optional, only include results that match this commodity harmonized system code. Your org must have permission to see harmonized system codes to search on this parameter  
+| - 
+| null 
+|  
+
+| commodityDescription 
+| Optional, only include results that match this commodity description. Your org must have permission to see commodity information to search on this parameter  
+| - 
+| null 
+|  
+
+| vehicleName 
+| Optional, only include results that match this vehicleName in the bookingData  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ConsignmentQueryResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ConsignmentQueryResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/consignments/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryConsignmentsUsingGET1]
+==== queryConsignmentsUsingGET1
+    
+`GET /api/v2/consignments`
+
+Query all consignments
+
+===== Description 
+
+Queries for all consignments visible to the user, filtered using the criteria below.  We return up to a maximum of 1000 consignments in one query. Paging is used to retrieve consignments beyond this number. Provide the \"newFrom\" value from the response body as the \"from\" parameter to retrieve the next page of results. If \"from\" is given, all other parameters are ignored, except for \"size\".  For the fields listed below, wildcard matching is supported. A '*' can be used in place of one or more characters, and a '?' can replace a single character. - exportCountry - importCountry - entryPort - exitPort - consignmentId - references - transportEquipmentId - transportEquipmentReferences - harmonizedCode - billOfLadingNumber - carrierBookingNumber - originLocation - destinationLocation - terminal  Commodity information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of the correct types, then the following fields will be removed from all consignment response objects, and you will not be allowed to search on these fields: - harmonizedCode - commodityHarmonizedCode (in the commodities array in bookingData) - commodityDescription (in the commodities array in bookingData) 
+
+
+// markup not found, no include::{specDir}api/v2/consignments/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| size 
+| Optional, number of consignments to return, max 1000  
+| - 
+| 50 
+|  
+
+| from 
+| Optional, bookmark to get the next chunk of results to a previously executed query. This must be the newFrom value from a previous consignments query.  
+| - 
+| null 
+|  
+
+| createdBy 
+| Optional, only include results that were created by any of the given organizations <<String>> 
+| - 
+| null 
+|  
+
+| createdAfter 
+| Optional, only include results that were created on or after this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| createdBefore 
+| Optional, only include results that were created on or before this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| exportCountry 
+| Optional, only include results that match this export country  
+| - 
+| null 
+|  
+
+| importCountry 
+| Optional, only include results that match this import country  
+| - 
+| null 
+|  
+
+| entryPort 
+| Optional, only include results that match this entry port  
+| - 
+| null 
+|  
+
+| exitPort 
+| Optional, only include results that match this exit port  
+| - 
+| null 
+|  
+
+| consignmentId 
+| Optional, only include results that match this consignment ID  
+| - 
+| null 
+|  
+
+| referenceType 
+| Optional, only include results that match this reference type for the consignment.  
+| - 
+| null 
+|  
+
+| references 
+| Optional, only include results that match these references number/code for the consignment. <<String>> 
+| - 
+| null 
+|  
+
+| status 
+| Optional, only include results that match this consignment status  
+| - 
+| null 
+|  
+
+| transportEquipmentId 
+| Optional, only include results with a container that matches this transport equipment ID  
+| - 
+| null 
+|  
+
+| transportEquipmentReferenceType 
+| Optional, only include results that match this transport equipment reference type.  
+| - 
+| null 
+|  
+
+| transportEquipmentReferences 
+| Optional, only include results that match these trasport equipment references number/code. <<String>> 
+| - 
+| null 
+|  
+
+| equipmentNumber 
+| Optional, only include results with a transport equipment that matches this equipment number  
+| - 
+| null 
+|  
+
+| billOfLadingNumber 
+| Optional, only include results that match this bill of lading number  
+| - 
+| null 
+|  
+
+| harmonizedCode 
+| Optional, only include results that match this harmonized system code. Your org must have permission to see commodity information to search on this parameter  
+| - 
+| null 
+|  
+
+| carrierBookingNumber 
+| Optional, only include results that match this carrier booking number  
+| - 
+| null 
+|  
+
+| terminal 
+| Optional, only include results that match this terminal name  
+| - 
+| null 
+|  
+
+| startPlannedVesselDeparture 
+| Optional, start date in Planned Vessel Departure date range. Only include results where a consignment leaves the Exit Port (Planned Vessel Departure) on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endPlannedVesselDeparture 
+| Optional, end date in Planned Vessel Departure date range. Only include results where a consignment leaves the Exit Port (Planned Vessel Departure) on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| startPlannedVesselArrival 
+| Optional, start date in Planned Vessel Arrival date range. Only include results where a consignment arrives at the Entry Port (Planned Vessel Arrival) on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endPlannedVesselArrival 
+| Optional, end date in Planned Vessel Arrival date range. Only include results where a consignment arrives at the Entry Port (Planned Vessel Arrival) on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| originLocation 
+| Optional, only include results that match the value of the origin location. Searches for matches in the originLocation in the booking data as well as the exit port  
+| - 
+| null 
+|  
+
+| destinationLocation 
+| Optional, only include results that match the value of the destination location. Searches for matches in the destinationLocation in the bookingData as well as the entry port  
+| - 
+| null 
+|  
+
+| startBookingDepartureDate 
+| Optional, start departure date in Booking . Only include results where a consignment leaves the origin on this date or later. The date must be in epoch milliseconds format. The value used will be this epoch day at time 00:00:01 HH:MM:SS  
+| - 
+| null 
+|  
+
+| endBookingDepartureDate 
+| Optional, end departure date in Booking. Only include results when a consignment arrives at the destination on this date or earlier. The date must be in epoch milliseconds format. The value used will be this epoch day at time 23:59:59 HH:MM:SS  
+| - 
+| null 
+|  
+
+| commodityHarmonizedCode 
+| Optional, only include results that match this commodity harmonized system code. Your org must have permission to see commodity information to search on this parameter  
+| - 
+| null 
+|  
+
+| commodityDescription 
+| Optional, only include results that match this commodity description. Your org must have permission to see commodity information to search on this parameter  
+| - 
+| null 
+|  
+
+| vehicleName 
+| Optional, only include results that match this vehicleName in the bookingData  
+| - 
+| null 
+|  
+
+| onWater 
+| Optional, only include results where the onWater field equals the given value. OnWater is true if all the equipment for this consignment have been loaded onto the vessel but none have been discharged  
+| - 
+| null 
+|  
+
+| transshipment 
+| Optional, only include results where the transshipment field equals the given value. Transhipment is true if two different vehicle IDs are used in the vessel transport events sent to the consignment or its equipment, indicating its equipment will be transferred between vessels mid journey  
+| - 
+| null 
+|  
+
+| startChangeInVesselArrivalFromFirstPlan 
+| Optional, only include results where the plannedVesselArrival time has changed from its earliest value by the given amount or more, in milliseconds. A negative value for changeInVesselArrivalFromFirstPlan indicates the consignment is arriving earlier than expected, a positive value indicates the consignment is arriving later  
+| - 
+| null 
+|  
+
+| endChangeInVesselArrivalFromFirstPlan 
+| Optional, only include results where the plannedVesselArrival time has changed from its earliest value by the given amount or less, in milliseconds. A negative value for changeInVesselArrivalFromFirstPlan indicates the consignment is arriving earlier than expected, a positive value indicates the consignment is arriving later  
+| - 
+| null 
+|  
+
+| startChangeInVesselArrivalFromFirstPlanDays 
+| Optional, only include results where the plannedVesselArrival time has changed from its earliest value by the given amount or more, in days. A negative value for changeInVesselArrivalFromFirstPlan indicates the consignment is arriving earlier than expected, a positive value indicates the consignment is arriving later  
+| - 
+| null 
+|  
+
+| endChangeInVesselArrivalFromFirstPlanDays 
+| Optional, only include results where the plannedVesselArrival time has changed from its earliest value by the given amount or less, in days. A negative value for changeInVesselArrivalFromFirstPlan indicates the consignment is arriving earlier than expected, a positive value indicates the consignment is arriving later  
+| - 
+| null 
+|  
+
+| startLatestPlanIssuanceTime 
+| Optional, only include results where the latest set of planned events sent to this consignment had a transportPlanIssuanceTime of this time or later. Time in milliseconds since epoch. A user may either use the latestPlanIssuedInLastNDays param or this param, not both  
+| - 
+| null 
+|  
+
+| endLatestPlanIssuanceTime 
+| Optional, only include results where the latest set of planned events sent to this consignment had a transportPlanIssuanceTime of this time or earlier. Time in milliseconds since epoch. A user may either use the latestPlanIssuedInLastNDays param or this param, not both  
+| - 
+| null 
+|  
+
+| latestPlanIssuedInLastNDays 
+| Optional, only include results where the transport plan for this consignment was changed between now and n days ago. The consignment must have received more than one complete transport plan for the plan to have \&quot;changed\&quot;. A user may not supply both this field and any of startNumberPlansReceived, endNumberPlansReceived, startLatestPlanIssuanceTime, endLatestPlanIssuanceTime, or planChangedLastNDays  
+| - 
+| null 
+|  
+
+| planChangedLastNDays 
+| Optional, only include results where the transport plan for this consignment was changed between now and n days ago. The consignment must have received more than one complete transport plan for the plan to have \&quot;changed\&quot;. A user may not supply both this field and any of startNumberPlansReceived, endNumberPlansReceived, startLatestPlanIssuanceTime, endLatestPlanIssuanceTime, or latestPlanIssuedInLastNDays  
+| - 
+| null 
+|  
+
+| startNumberPlansReceived 
+| Optional, only include consignments which have received at least this many complete transport plans (inclusive)  
+| - 
+| null 
+|  
+
+| endNumberPlansReceived 
+| Optional, only include consignments which have received at most this many complete transport plans (inclusive)  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ConsignmentQueryResponseV2>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ConsignmentQueryResponseV2>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/v2/consignments/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/v2/consignments/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/v2/consignments/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/v2/consignments/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.transportSummaryConsignmentIdUsingGET]
+==== transportSummaryConsignmentIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/{consignmentId}`
+
+Get the transport summary for a consignment given a consignment ID
+
+===== Description 
+
+Provide the consignment ID for a consignment.  Transport Plan Analysis: This endpoint will return all of the transport plans for the consignment, ordered from most recent to oldest. Each transport plan will include a list of planned events, ordered by the event occurrence time. Together these events indicate the series of locations that each transport equipment, that is associated with the given consignnment, will move on its journey.  Planned events provide the planned route of a transport equipment.  Note that the only events returned by this endpoint are the set of events known as “transport” planned events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment use the …/events/consignmentId/{consignmentId} endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+
+
+===== Return Type
+
+<<ConsignmentVersionedTransportSummary>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ConsignmentVersionedTransportSummary>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/consignments/transportSummaries/consignmentId/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.EventQueries]
+=== EventQueries
+
+
+[.queryUnassociatedEventsUsingGET]
+==== queryUnassociatedEventsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/unassociatedEvents`
+
+Fetch unassociated events
+
+===== Description 
+
+Queries for all unassociated events visible to the user. This includes \"orphaned\" events which are events that are not associated with a trade instrument yet. This also includes \"homeless\" events which are events that will never be associated with a trade instrument for various reasons. For example, if the event's identifiers match multiple trade instruments then the event might be in the homeless category.  We return up to a maximum of 1000 of each unassociated event type in one query. Paging is used to retrieve events beyond this number. Provide the \"newFrom\" value from the response body as the \"from\" parameter to retrieve the next page of results. If \"from\" is given, all other parameters are ignored, except for \"size\".  The fields listed below all refer to locations. More than one location field can be queried on at a time, but if multiple location fields are used, then only the events that match ALL specified location fields will be returned. - unlocode - address - smdgTerminal - geoCoord - splc - gln
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/unassociatedEvents/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| size 
+| Optional, limit to apply to the individual queries for orphaned events and homeless events, max 1000. Since this limit applies to each category of \&quot;unassociated events\&quot; individually, using a size of 50 could result in at most 100 returned events (50 homeless events, 50 orphaned events).  
+| - 
+| 50 
+|  
+
+| from 
+| Optional, bookmark to get the next chunk of results to a previously executed query. This must be the newFrom value from a previous unassociated events query.  
+| - 
+| null 
+|  
+
+| eventTransactionId 
+| Optional, only include unassociated events that match this eventTransactionId.  
+| - 
+| null 
+|  
+
+| originatorName 
+| Optional, only include unassociated events that match this originatorName.  
+| - 
+| null 
+|  
+
+| originatorId 
+| Optional, only include unassociated events that match this originatorId.  
+| - 
+| null 
+|  
+
+| eventType 
+| Optional, only include unassociated events that match this eventType.  
+| - 
+| null 
+|  
+
+| correlationId 
+| Optional, only include unassociated events that match this correlationId.  
+| - 
+| null 
+|  
+
+| equipmentNumber 
+| Optional, only include unassociated events that match this equipmentNumber.  
+| - 
+| null 
+|  
+
+| unlocode 
+| Optional, only include unassociated events that match this UN/LOCODE.  
+| - 
+| null 
+|  
+
+| address 
+| Optional, only include unassociated events that match this address. The address should be comma separated values in the format: city,stateProvince,country. For example: Raleigh,NC,US  
+| - 
+| null 
+|  
+
+| smdgTerminal 
+| Optional, only include unassociated events that match this SMDG code for an Ocean Terminal.  
+| - 
+| null 
+|  
+
+| geoCoord 
+| Optional, only include unassociated events that match these geo coordinates. The geoCoord should be comma separated values in the format: latitude,longitude. Both values should be numbers. For example: 40.693351,-74.147572  
+| - 
+| null 
+|  
+
+| splc 
+| Optional, only include unassociated events that match this SPLC code for a Rail Terminal.  
+| - 
+| null 
+|  
+
+| gln 
+| Optional, only include unassociated events that match this GLN.  
+| - 
+| null 
+|  
+
+| billOfLadingNumber 
+| Optional, only include unassociated events that match this billOfLadingNumber.  
+| - 
+| null 
+|  
+
+| carrierBookingNumber 
+| Optional, only include unassociated events that match this carrierBookingNumber.  
+| - 
+| null 
+|  
+
+| startEventOccurrenceTime8601 
+| Optional, only include unassociated events where the event occurrence time is on this date or later. Must be in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. If the timezone is not specified, then UTC will be used.  
+| - 
+| null 
+|  
+
+| endEventOccurrenceTime8601 
+| Optional, only include unassociated events where the event occurrence time is on this date or earlier. Must be in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ. If the timezone is not specified, then UTC will be used.  
+| - 
+| null 
+|  
+
+| sortBy 
+| Optional, the field on which to order the results  
+| - 
+| null 
+|  
+
+| sortOrder 
+| Optional, the sort order to apply to sortBy field.  
+| - 
+| ascending 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<UnassociatedEventsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<UnassociatedEventsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/unassociatedEvents/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/unassociatedEvents/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/unassociatedEvents/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/unassociatedEvents/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.ShipmentQueries]
+=== ShipmentQueries
+
+
+[.queryShipmentCreatorsUsingGET]
+==== queryShipmentCreatorsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/shipments/creators`
+
+Query for organization names of shipment creators
+
+===== Description 
+
+Queries for the names of all organizations that have created a shipment that the user has access to.
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/creators/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<ShipmentCreatorsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ShipmentCreatorsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/creators/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/creators/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/shipments/creators/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/creators/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryShipmentEventsUsingGET]
+==== queryShipmentEventsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/shipments/{shipmentId}/events`
+
+Fetch a specific shipment's events
+
+===== Description 
+
+
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/\{shipmentId\}/events/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| shipmentId 
+| Fetch the events for a specific shipment.  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| all 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ShipmentEventsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ShipmentEventsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/\{shipmentId\}/events/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/\{shipmentId\}/events/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/shipments/{shipmentId}/events/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/\{shipmentId\}/events/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryShipmentsUsingGET]
+==== queryShipmentsUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/shipments`
+
+Query all shipments
+
+===== Description 
+
+Queries for all shipments visible to the user, filtered using the criteria below.  We return up to a maximum of 1000 shipments in one query. Paging is used to retrieve shipments beyond this number. Provide the \"newFrom\" value from the response body as the \"from\" parameter to retrieve the next page of results. If \"from\" is given, all other parameters are ignored, except for \"size\".  Note: A leading wildcard will not be added to shipment queries.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| size 
+| Optional, number of shipments to return, max 1000.  
+| - 
+| 50 
+|  
+
+| from 
+| Optional, bookmark to get the next chunk of results to a previously executed query. This must be the newFrom value from a previous shipment query.  
+| - 
+| null 
+|  
+
+| shipmentId 
+| Optional, only include results that match this shipment ID.  
+| - 
+| null 
+|  
+
+| createdBy 
+| Optional, only include results that were created by the given party. <<String>> 
+| - 
+| null 
+|  
+
+| createdAfter 
+| Optional, only include results that were created on or after this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| createdBefore 
+| Optional, only include results that were created on or before this date. The date must be in epoch format.  
+| - 
+| null 
+|  
+
+| myRole 
+| Optional, only include results where the caller has one of the given roles.  
+| - 
+| null 
+|  
+
+| referenceType 
+| Optional, only include results that match this reference type for the shipment.  
+| - 
+| null 
+|  
+
+| references 
+| Optional, only include results that match these references number/code for the shipment. <<String>> 
+| - 
+| null 
+|  
+
+| seller 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| buyer 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| exporter 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| importer 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| origin3plAgent 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| destination3plAgent 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| exportCustomsBroker 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| importCustomsBroker 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| exportAuthority 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| importAuthority 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| buyersBank 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| sellersBank 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+| insuranceProvider 
+| Optional, only include results where the party reference matches the role.  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<ShipmentQueryResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<ShipmentQueryResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/shipments/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/shipments/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/shipments/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.TradeInstrumentIdQueries]
+=== TradeInstrumentIdQueries
+
+
+[.queryTradeInstrumentIdsUsingPOST]
+==== queryTradeInstrumentIdsUsingPOST
+    
+`POST /api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds`
+
+Query for a Freight Trust Network object id by external references.
+
+===== Description 
+
+Queries for unique IDs of Freight Trust Network objects matching the given search criteria.  Search for consignments by providing the 'consignment' search criteria. Matching consignment IDs are returned.  Search for transport equipments by providing the 'transportEquipment' search criteria. Matching transport equipment IDs are returned.  Search for shipments by providing the 'shipment' search criteria. Matching shipment IDs are returned.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+===== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| TradeInstrumentIdsIdentifiers 
+| See Model to the right for the full description of the identifiers. Note that only one identifier can be specified (consignment, transportEquipment or shipment) and within that identifier, at least one field must be specified but not all are required. <<TradeInstrumentIdsIdentifiers>> 
+| - 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<TradeInstrumentIdsResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<TradeInstrumentIdsResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/tradeInstrumentIds/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.TransportEquipmentQueries]
+=== TransportEquipmentQueries
+
+
+[.currentProgressConsignmentIdUsingGET]
+==== currentProgressConsignmentIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/{consignmentId}`
+
+Get the current progress for one or more pieces of transport equipment 
+
+===== Description 
+
+Provide the consignmentId of a Consignment. Returns the current progress of all transport equipment associated with that consignment.   Transport events are divided into three categories: planned, estimated and actual. Planned events provide the planned route of a transport equipment. Estimated events provide the estimated time things will occur to the transport equipment. Actual events indicate things that occurred to the transport equipment.  Current Progress Analysis:  The current progress will include a list of current progress events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Each current progress event is made up of a list of actual events, a list of estimated events and the associated planned event.  Note that the only events returned by this endpoint are the set of events known as “transport” events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+
+
+===== Return Type
+
+<<CurrentProgressResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<CurrentProgressResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/consignmentId/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.currentProgressSplitFromConsignmentByIDUsingGET]
+==== currentProgressSplitFromConsignmentByIDUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/{consignmentId}`
+
+Get the current progress for one or more pieces of transport equipment that were split from the consignment with the given consignment ID
+
+===== Description 
+
+Provide the consignmentId for a consignment. Returns the current progress for all of the transport equipment split from the consignment that are not yet associated with another consignment.  Current Progress Analysis:  The current progress will include a list of current progress events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Each current progress event is made up of a list of actual events, a list of estimated events and the associated planned event.  Note that the only events returned by this endpoint are the set of events known as “transport” events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+
+
+===== Return Type
+
+<<CurrentProgressResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<CurrentProgressResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/splitFromConsignment/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.currentProgressTEIdUsingGET]
+==== currentProgressTEIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/{transportEquipmentId}`
+
+Get the current progress for a transport equipment 
+
+===== Description 
+
+Provide the transport equipment ID of a transport equipment. Returns the current progress of the transport equipment with that ID.  Transport events are divided into three categories: planned, estimated and actual. Planned events provide the planned route of a transport equipment. Estimated events provide the estimated time things will occur to the transport equipment. Actual events indicate things that occurred to the transport equipment.  Current Progress Analysis:  The current progress will include a list of current progress events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Each current progress event is made up of a list of actual events, a list of estimated events and the associated planned event.  Note that the only events returned by this endpoint are the set of events known as “transport” events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/\{transportEquipmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| transportEquipmentId 
+| Transport Equipment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+
+
+===== Return Type
+
+<<CurrentProgressResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<CurrentProgressResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/\{transportEquipmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/\{transportEquipmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/{transportEquipmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/currentProgress/transportEquipmentId/\{transportEquipmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryTEEventsConsignmentIdUsingGET]
+==== queryTEEventsConsignmentIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/{consignmentId}`
+
+Query TE events by consignment ID
+
+===== Description 
+
+Query for events belonging to all Transport Equipments associated with the Consignment with the given ID. The event filter parameter can be used to control how much processing is done to the resulting list.   * latest - Only the most recent versions of an event will be returned. The transportPlanIssuanceTime8601 will be used to determine the most recent Planned events. All Actual events will be returned, no filtering is done. For Estimated events, the location, the eventSubmissionTime, the originatorId, and the fullStatus fields will be used. For non transport events, the eventSubmissionTime will be used.   * all - No filtering is done. All events are returned.   If the eventFilter is not specified, the default is \"all\".  You may optionally specify a transportEquipmentId to return only results for the transport equipment with that ID.   The list of events are sorted on occurrence time if present, otherwise the submission time.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| null 
+|  
+
+| transportEquipmentIdFilter 
+| Transport Equipment ID  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<NewAllEventsQueryResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<NewAllEventsQueryResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/consignmentId/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.queryTEEventsTEIdUsingGET]
+==== queryTEEventsTEIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/{transportEquipmentId}`
+
+Query TE events by TE ID
+
+===== Description 
+
+Query for events for the Transport Equipment with the given ID. The event filter parameter can be used to control how much processing is done to the resulting list.   * latest - Only the most recent versions of an event will be returned. The transportPlanIssuanceTime8601 will be used to determine the most recent Planned events. All Actual events will be returned, no filtering is done. For Estimated events, the location, the eventSubmissionTime, the originatorId, and the fullStatus fields will be used. For non transport events, the eventSubmissionTime will be used.   * all - No filtering is done. All events are returned.   If the eventFilter is not specified, the default is \"all\".  You may optionally specify a transportEquipmentId to return only results for the transport equipment with that ID.   The list of events are sorted on occurrence time if present, otherwise the submission time.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/\{transportEquipmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| transportEquipmentId 
+| Transport Equipment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<NewAllEventsQueryResponse>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<NewAllEventsQueryResponse>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/\{transportEquipmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/\{transportEquipmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/{transportEquipmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/events/transportEquipmentId/\{transportEquipmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.transportSummaryConsignmentIdUsingGET1]
+==== transportSummaryConsignmentIdUsingGET1
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/{consignmentId}`
+
+Get the transport summary for one or more pieces of transport equipment 
+
+===== Description 
+
+Provide the consignmentId of a Consignment. Returns the transport summary of all transport equipment associated with that consignment.  Transport Plan Analysis: This endpoint will construct an up-to-date transport summary for each transport equipment returned by the query. This transport summary will include a list of transport plan events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Events are divided into three categories: planned, estimated and actual. Planned events provide the planned route of a transport equipment. Estimated events provide the estimated time things will occur to the transport equipment. Actual events indicate things that occurred to the transport equipment.  The event filter parameter can be used to control the processing done in the transport plan analysis.  * latest -  The transportPlanIssuanceTime8601 will be used to determine the most recent transport plan. All Actual events will be returned, no filtering is done. For Estimated events, the location, the eventSubmissionTime, the originatorId, and the fullStatus fields will be used to determine the most recent version of the event. Estimated events will be replaced by the corresponding Actual events. The resulting list will contain the Planned event (if there is one) followed by the Actual or Estimated (if not Actual).  * all - All the transport plans sent to this trade instrument will be returned, from most recent to oldest. Each transport plan will have a version, the transport plan issuance date, and the name of the organization that sent the plan, along with the list of Planned events.  Note that the only events returned by this endpoint are the set of events known as “transport”events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<VersionedTransportSummary>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<VersionedTransportSummary>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/consignmentId/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.transportSummarySplitFromConsignmentByIDUsingGET]
+==== transportSummarySplitFromConsignmentByIDUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/{consignmentId}`
+
+Get the transport summary for one or more pieces of transport equipment that were split from the consignment with the given consignment ID
+
+===== Description 
+
+Provide the consignmentId for a consignment. Returns the transport summary for all of the transport equipment split from the consignment that are not yet associated with another consignment.  Transport Plan Analysis: This endpoint will construct an up-to-date transport summary for each transport equipment returned by the query. This transport summary will include a list of transport plan events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Events are divided into three categories: planned, estimated and actual. Planned events provide the planned route of a transport equipment. Estimated events provide the estimated time things will occur to the transport equipment. Actual events indicate things that occurred to the transport equipment.  The event filter parameter can be used to control the processing done in the transport plan analysis.  * latest -  The transportPlanIssuanceTime8601 will be used to determine the most recent transport plan. All Actual events will be returned, no filtering is done. For Estimated events, the location, the eventSubmissionTime, the originatorId, and the fullStatus fields will be used to determine the most recent version of the event. Estimated events will be replaced by the corresponding Actual events. The resulting list will contain the Planned event (if there is one) followed by the Actual or Estimated (if not Actual).  * all - All the transport plans sent to this transport equipment will be returned, from most recent to oldest. Each transport plan will have a version, the transport plan issuance date, and the name of the organization that sent the plan, along with the list of Planned events.  Note that the only events returned by this endpoint are the set of events known as “transport”events. This does NOT include consignment, transport equipment, generic, or document events.. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/\{consignmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| consignmentId 
+| Consignment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<VersionedTransportSummary>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<VersionedTransportSummary>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/\{consignmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/\{consignmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/{consignmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/splitFromConsignment/\{consignmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.transportSummaryTEIdUsingGET]
+==== transportSummaryTEIdUsingGET
+    
+`GET /api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/{transportEquipmentId}`
+
+Get the transport summary a transport equipment 
+
+===== Description 
+
+Provide the transport equipment ID of a transport equipment. Returns the transport summary of the transport equipment with that ID.  Transport Plan Analysis: This endpoint will construct an up-to-date transport summary for each transport equipment returned by the query. This transport summary will include a list of transport plan events, ordered by the sequence in which they occur. Together these events indicate the series of locations that each transport equipment will move, or has moved, on its journey and everything that happened to it along the way.  Events are divided into three categories: planned, estimated and actual. Planned events provide the planned route of a transport equipment. Estimated events provide the estimated time things will occur to the transport equipment. Actual events indicate things that occurred to the transport equipment.  The event filter parameter can be used to control the processing done in the transport plan analysis.  * latest -  The transportPlanIssuanceTime8601 will be used to determine the most recent transport plan. All Actual events will be returned, no filtering is done. For Estimated events, the location, the eventSubmissionTime, the originatorId, and the fullStatus fields will be used to determine the most recent version of the event. Estimated events will be replaced by the corresponding Actual events. The resulting list will contain the Planned event (if there is one) followed by the Actual or Estimated (if not Actual).  * all - All the transport plans sent to this transport equipment will be returned, from most recent to oldest. Each transport plan will have a version, the transport plan issuance date, and the name of the organization that sent the plan, along with the list of Planned events.  Note that the only events returned by this endpoint are the set of events known as “transport”events. This does NOT include consignment, transport equipment, generic, or document events. For a complete list of transport events, see the Transport Events category in the Event Publish Swagger documentation. To get all events for a consignment or transport equipment, use the …/events/... endpoint.  Commodity and originator information visibility is restricted to orgs that were onboarded with certain types. If your org does not have one of these correct types, then you may not have visibility to the following fields in each event: Commodity information: - harmonizedCodes - bookingData.commodities.commodityDescription - bookingData.commodities.commodityHarmonizedCode  Originator information: - originatorName - originatorId - senderOrgId  In addition, The originator information on a Party Add/Update/Remove event will be hidden if you are not the org who submitted the event or one of the parties being added. The originator information and 'destinationOrgName' field on a Document event whose 'action' field is 'issued', 'transferred', or 'surrendered' will be hidden if you are not the org who submitted the event or the org that the document is being transferred to.  
+
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/\{transportEquipmentId\}/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+====== Path Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| transportEquipmentId 
+| Transport Equipment ID  
+| X 
+| null 
+|  
+
+|===         
+
+
+
+====== Header Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| Accept-Language 
+| Accept-Language  
+| - 
+| en 
+|  
+
+|===         
+
+====== Query Parameters
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| eventFilter 
+| {all | latest}  
+| - 
+| null 
+|  
+
+|===         
+
+
+===== Return Type
+
+<<VersionedTransportSummary>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| OK
+|  <<VersionedTransportSummary>>
+
+
+| 403
+| Forbidden
+|  <<ForbiddenResponse>>
+
+
+| 404
+| Not Found
+|  <<NotFoundResponse>>
+
+
+| 429
+| Too Many Requests
+|  <<RateLimitResponseModel>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/\{transportEquipmentId\}/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/\{transportEquipmentId\}/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/{transportEquipmentId}/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}api/${SERVICE_ID}/${VERSION}/transportEquipment/transportSummaries/transportEquipmentId/\{transportEquipmentId\}/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#Address]
+=== _Address_ 
+
+
+
+[.fields-Address]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| address1 
+|  
+| String  
+| The first line of the street address.
+|  
+
+| address2 
+|  
+| String  
+| The second line of the street address.
+|  
+
+| city 
+| X 
+| String  
+| The name of the city.
+|  
+
+| country 
+| X 
+| String  
+| The country identification provided in the 2 Alpha ISO 3166 country code standard. The country codes are available in the Platform Constants API
+|  
+
+| stateProvince 
+|  
+| String  
+| The province or state identification, provided in the ISO 3166-2 standard.
+|  
+
+| zipPostal 
+|  
+| String  
+| The zip or postal code used to identify a geographical area within a country/region.
+|  
+
+|===
+
+
+[#ApiV1TransportEvent]
+=== _ApiV1TransportEvent_ 
+
+
+
+[.fields-ApiV1TransportEvent]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+|  
+| String  
+| Generated ID for the consignment.
+|  
+
+| consignmentRef 
+|  
+| String  
+| Reference to an existing consignment.
+|  
+
+| correlationId 
+|  
+| String  
+| User-supplied ID for this event
+|  
+
+| equipmentNumber 
+|  
+| String  
+| The unique identifier found on the transport equipment.
+|  
+
+| eventName 
+|  
+| String  
+| Event Name
+|  
+
+| eventOccurrenceTime 
+|  
+| Long  
+| When the event occurred, as the number of milliseconds since Epoch
+| int64 
+
+| eventOccurrenceTime8601 
+|  
+| String  
+| When the event occurred, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ.
+|  
+
+| eventPriority 
+|  
+| Integer  
+| Event Priority
+| int32 
+
+| eventSubmissionGpsLocation 
+|  
+| String  
+| GPS coordinates of where the event originated from (mobile device only)
+|  
+
+| eventSubmissionTime 
+| X 
+| Long  
+| Time of submission
+| int64 
+
+| eventTransactionId 
+|  
+| String  
+| The unique ID for the event
+|  
+
+| eventType 
+|  
+| String  
+| Event Type
+|  
+
+| fullStatus 
+|  
+| String  
+| Is the container full or empty
+|  _Enum:_ Full, Empty, 
+
+| location 
+|  
+| Location  
+| 
+|  
+
+| originatorId 
+| X 
+| String  
+| The Originator ID
+|  
+
+| originatorName 
+| X 
+| String  
+| The Originator Name
+|  
+
+| senderOrgName 
+| X 
+| String  
+| The name of the organization that sent the event
+|  
+
+| transportEquipmentId 
+|  
+| String  
+| Generated ID for the transport equipment.
+|  
+
+| transportEquipmentRef 
+|  
+| String  
+| Reference to an existing transport equipment.  Value should be very unique and created by a user.
+|  
+
+| transportPlanIssuanceTime8601 
+|  
+| String  
+| A timestamp used to group planned events that make up a Transport Plan, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ.
+|  
+
+| transportationPhase 
+|  
+| String  
+| The transportation phase
+|  _Enum:_ Import, Export, Transshipment, Domestic, 
+
+| vehicleId 
+|  
+| String  
+| ID of truck, rail, barge, or vessel
+|  
+
+| vehicleName 
+|  
+| String  
+| Name of truck, rail, barge, or vessel
+|  
+
+| voyageId 
+|  
+| String  
+| Voyage number
+|  
+
+|===
+
+
+[#ApiV1TransportSummaryEvent]
+=== _ApiV1TransportSummaryEvent_ 
+
+
+
+[.fields-ApiV1TransportSummaryEvent]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| sequence 
+| X 
+| Long  
+| Sequence number of this event
+| int64 
+
+| event 
+| X 
+| ApiV1TransportEvent  
+| 
+|  
+
+|===
+
+
+[#BookingData]
+=== _BookingData_ 
+
+
+
+[.fields-BookingData]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| originLocation 
+| X 
+| Location  
+| 
+|  
+
+| destinationLocation 
+| X 
+| Location  
+| 
+|  
+
+| contractCarriageCondition 
+|  
+| String  
+| Contract Carriage Condition
+|  _Enum:_ SD_SD, SD_CY, CY_SD, CY_CY, 
+
+| departureTime8601 
+|  
+| String  
+| Departure date and time, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ
+|  
+
+| vehicleId 
+|  
+| String  
+| Vehicle ID. For vessels, Lloyd&#39;s IMO code expected. For trucks, license plate expected.
+|  
+
+| vehicleName 
+|  
+| String  
+| Name of truck, rail, barge, or vessel
+|  
+
+| voyageId 
+|  
+| String  
+| Voyage Identifier
+|  
+
+| transportEquipmentDetails 
+| X 
+| List  of <<TransportEquipmentDetails>> 
+| Transport Equipment details
+|  
+
+| commodities 
+|  
+| List  of <<Commodity>> 
+| List of Commodity descriptions
+|  
+
+|===
+
+
+[#CombinedConsignment]
+=== _CombinedConsignment_ 
+
+
+
+[.fields-CombinedConsignment]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| billOfLadingNumber 
+|  
+| String  
+| 
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| 
+|  
+
+| consignmentId 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#Commodity]
+=== _Commodity_ 
+
+
+
+[.fields-Commodity]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| itemNumber 
+| X 
+| Long  
+| Item Number
+| int64 
+
+| commodityDescription 
+| X 
+| String  
+| Commodity Description
+|  
+
+| commodityHarmonizedCode 
+|  
+| String  
+| Commodity Harmonized Code
+|  
+
+| commodityQuantity 
+|  
+| Long  
+| Commodity Quantity
+| int64 
+
+| commodityWeight 
+|  
+| String  
+| Commodity Gross Weight. Specify units in Kg or Lb
+|  
+
+|===
+
+
+[#Consignment]
+=== _Consignment_ 
+
+
+
+[.fields-Consignment]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+| X 
+| String  
+| Service created identifier for this consignment
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| Carrier booking number for this consignment
+|  
+
+| consignmentRefs 
+|  
+| List  of <<string>> 
+| List of customer created references to this consignment.
+|  
+
+| status 
+| X 
+| String  
+| Status of this consignment
+|  _Enum:_ Active, Canceled, Combined, 
+
+| cutOffs 
+|  
+| List  of <<CutOff>> 
+| Cutoffs for all transport equipments for this consignment.
+|  
+
+| transportEquipmentIds 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; IDs
+|  
+
+| transportEquipmentRefs 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; reference numbers
+|  
+
+| exportCountries 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned export countries
+|  
+
+| importCountries 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned import countries
+|  
+
+| entryPorts 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned entry ports
+|  
+
+| exitPorts 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned exit ports
+|  
+
+| harmonizedCodes 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; harmonized system codes
+|  
+
+| billOfLadingNumbers 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; bill of lading numbers
+|  
+
+| creationTime 
+| X 
+| Long  
+| Time this consignment was created
+| int64 
+
+| terminals 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned terminals
+|  
+
+| plannedVesselArrival 
+|  
+| Long  
+| Planned Vessel Arrival in epoch milliseconds
+| int64 
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Planned Vessel Departure in epoch milliseconds
+| int64 
+
+| eventCreationTime 
+|  
+| Long  
+| Submission time of the event that created the consignment
+| int64 
+
+| eventUpdateTime 
+|  
+| Long  
+| Submission time of the event that most recently updated the consignment
+| int64 
+
+| consignmentCreationTime 
+|  
+| Long  
+| Timestamp of when the consignment was created
+| int64 
+
+| consignmentUpdateTime 
+|  
+| Long  
+| Timestamp of when the consignment was most recently updated
+| int64 
+
+| bookingData 
+|  
+| BookingData  
+| 
+|  
+
+| parentConsignmentIds 
+|  
+| List  of <<string>> 
+| ID of the parent consignment for which this consignment subcontracts
+|  
+
+| subcontractIds 
+|  
+| List  of <<string>> 
+| IDs of the children consignments which subcontract this consignment
+|  
+
+| callerRoles 
+|  
+| List  of <<string>> 
+| The list of caller party roles
+|  
+
+| createdBy 
+| X 
+| String  
+| The organization name of the creator of the consignment
+|  
+
+| splitFromConsignment 
+|  
+| SplitFromConsignment  
+| 
+|  
+
+| combinedIntoConsignment 
+|  
+| CombinedConsignment  
+| 
+|  
+
+| combinedConsignments 
+|  
+| List  of <<CombinedConsignment>> 
+| The combined consignment information of consignments that were combined into this one
+|  
+
+| formerlyAssociatedTransportEquipment 
+|  
+| List  of <<FormerlyAssociatedTransportEquipment>> 
+| Transport equipment in the system that was formerly associated
+|  
+
+| partBillOf 
+|  
+| PartBillOf  
+| 
+|  
+
+|===
+
+
+[#ConsignmentCreatorsResponse]
+=== _ConsignmentCreatorsResponse_ 
+
+
+
+[.fields-ConsignmentCreatorsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentCreators 
+| X 
+| List  of <<TradeInstrumentCreator>> 
+| Information about the organizations returned by the query.
+|  
+
+|===
+
+
+[#ConsignmentEventsResponse]
+=== _ConsignmentEventsResponse_ 
+
+
+
+[.fields-ConsignmentEventsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| events 
+|  
+| List  of <<Events>> 
+| The list of events for the consignment
+|  
+
+|===
+
+
+[#ConsignmentIdentifer]
+=== _ConsignmentIdentifer_ 
+
+
+
+[.fields-ConsignmentIdentifer]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| carrierBookingNumber 
+|  
+| String  
+| The carrier booking number to search with
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| The bill of lading number to search with
+|  
+
+| references 
+|  
+| List  of <<TradeInstrumentReference>> 
+| 
+|  
+
+|===
+
+
+[#ConsignmentQueryResponse]
+=== _ConsignmentQueryResponse_ 
+
+
+
+[.fields-ConsignmentQueryResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| total 
+| X 
+| Long  
+| The total number of hits returned by the query
+| int64 
+
+| size 
+| X 
+| Integer  
+| Number of consignments in this result
+| int32 
+
+| consignments 
+| X 
+| List  of <<Consignment>> 
+| The list of consignments
+|  
+
+| newFrom 
+| X 
+| String  
+| Bookmark to use for retrieving more query results
+|  
+
+|===
+
+
+[#ConsignmentQueryResponseV2]
+=== _ConsignmentQueryResponseV2_ 
+
+
+
+[.fields-ConsignmentQueryResponseV2]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| total 
+| X 
+| Long  
+| The total number of hits returned by the query
+| int64 
+
+| size 
+| X 
+| Integer  
+| Number of consignments in this result
+| int32 
+
+| consignments 
+| X 
+| List  of <<ConsignmentV2>> 
+| The list of consignments
+|  
+
+| newFrom 
+| X 
+| String  
+| Bookmark to use for retrieving more query results
+|  
+
+|===
+
+
+[#ConsignmentResponse]
+=== _ConsignmentResponse_ 
+
+
+
+[.fields-ConsignmentResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+| X 
+| String  
+| The unique identifier for a consignment
+|  
+
+| consignmentRefs 
+|  
+| List  of <<string>> 
+| The list of consignment references
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| The carrier booking number of the consignment
+|  
+
+| status 
+|  
+| String  
+| The status of the consignment
+|  _Enum:_ Active, Canceled, Combined, 
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Consignment Planned Vessel Departure in epoch milliseconds
+| int64 
+
+| plannedVesselArrival 
+|  
+| Long  
+| Consignment Planned Vessel Arrival in epoch milliseconds
+| int64 
+
+| bookingData 
+|  
+| BookingData  
+| 
+|  
+
+| callerRoles 
+|  
+| List  of <<string>> 
+| The list of caller party roles
+|  
+
+| transportPlans 
+|  
+| List  of <<TransportPlanResponse>> 
+| The list of transport plans
+|  
+
+|===
+
+
+[#ConsignmentSummary]
+=== _ConsignmentSummary_ 
+
+
+
+[.fields-ConsignmentSummary]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+| X 
+| String  
+| The unique identifier for a consignment
+|  
+
+| consignmentRefs 
+|  
+| List  of <<string>> 
+| The list of consignment references
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| The carrier booking number of the consignment
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| The bill of lading number of the consignment
+|  
+
+| cutOffs 
+|  
+| List  of <<CutOff>> 
+| Cutoffs
+|  
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Consignment Planned Vessel Departure in epoch milliseconds
+| int64 
+
+| plannedVesselArrival 
+|  
+| Long  
+| Consignment Planned Vessel Arrival in epoch milliseconds
+| int64 
+
+| bookingData 
+|  
+| BookingData  
+| 
+|  
+
+| cargoTypes 
+|  
+| List  of <<Harmonized_Code_Response>> 
+| The harmonized codes of the type of cargo being shipped plus the descriptions
+|  
+
+|===
+
+
+[#ConsignmentV2]
+=== _ConsignmentV2_ 
+
+
+
+[.fields-ConsignmentV2]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+| X 
+| String  
+| Service created identifier for this consignment
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| Carrier booking number for this consignment
+|  
+
+| status 
+| X 
+| String  
+| Status of this consignment
+|  _Enum:_ Active, Canceled, Combined, 
+
+| cutOffs 
+|  
+| List  of <<CutOff>> 
+| Cutoffs for all transport equipments for this consignment.
+|  
+
+| transportEquipmentIds 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; IDs
+|  
+
+| transportEquipmentRefs 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; reference numbers
+|  
+
+| exportCountries 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned export countries
+|  
+
+| importCountries 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned import countries
+|  
+
+| entryPorts 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned entry ports
+|  
+
+| exitPorts 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned exit ports
+|  
+
+| harmonizedCodes 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; harmonized system codes
+|  
+
+| billOfLadingNumbers 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; bill of lading numbers
+|  
+
+| creationTime 
+| X 
+| Long  
+| Time this consignment was created
+| int64 
+
+| terminals 
+|  
+| List  of <<string>> 
+| Affiliated transport equipments&#39; planned terminals
+|  
+
+| plannedVesselArrival 
+|  
+| Long  
+| Planned Vessel Arrival at the Entry Port in epoch milliseconds. If the consignment has already arrived at the entry port this will be null. Based on the event occurrence time of the latest estimatedVesselArrival event if they are available, or the latest plannedVesselArrival event otherwise
+| int64 
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Planned Vessel Departure from the Exit Port in epoch milliseconds. If the consignment has already left the exit port this will be null. Based on the event occurrence time of the latest estimatedVesselDeparture event if they are available, or the latest plannedVesselDeparture event otherwise
+| int64 
+
+| eventCreationTime 
+|  
+| Long  
+| Submission time of the event that created the consignment
+| int64 
+
+| eventUpdateTime 
+|  
+| Long  
+| Submission time of the event that most recently updated the consignment
+| int64 
+
+| consignmentCreationTime 
+|  
+| Long  
+| Timestamp of when the consignment was created
+| int64 
+
+| consignmentUpdateTime 
+|  
+| Long  
+| Timestamp of when the consignment was most recently updated
+| int64 
+
+| bookingData 
+|  
+| BookingData  
+| 
+|  
+
+| parentConsignmentIds 
+|  
+| List  of <<string>> 
+| ID of the parent consignment for which this consignment subcontracts
+|  
+
+| subcontractIds 
+|  
+| List  of <<string>> 
+| IDs of the children consignments which subcontract this consignment
+|  
+
+| callerRoles 
+|  
+| List  of <<string>> 
+| The list of caller party roles
+|  
+
+| createdBy 
+| X 
+| String  
+| The organization name of the creator of the consignment
+|  
+
+| splitFromConsignment 
+|  
+| SplitFromConsignment  
+| 
+|  
+
+| combinedIntoConsignment 
+|  
+| CombinedConsignment  
+| 
+|  
+
+| combinedConsignments 
+|  
+| List  of <<CombinedConsignment>> 
+| The combined consignment information of consignments that were combined into this one
+|  
+
+| formerlyAssociatedTransportEquipment 
+|  
+| List  of <<FormerlyAssociatedTransportEquipment>> 
+| Transport equipment in the system that was formerly associated
+|  
+
+| references 
+| X 
+| List  of <<DescriptiveTradeInstrumentReference>> 
+| List of customer created references to this consignment
+|  
+
+| onWater 
+| X 
+| Boolean  
+| True if all equipment for this consignment have been loaded onto the vessel and none have been offloaded, false otherwise.
+|  
+
+| transshipment 
+| X 
+| Boolean  
+| True if two different vehicle IDs are used in the vessel transport events sent to the consignment or its equipment, indicating its equipment will be transferred between vessels mid journey, false otherwise. If the consignment has no TEs then this will be false
+|  
+
+| changeInVesselArrivalFromFirstPlan 
+|  
+| Long  
+| Difference in current &#39;plannedVesselArrival&#39; (the planned time of arrival at the entry port) from the plannedVesselArrival calculated when this consignment first received a transport plan. If the consignment has already arrived at the entry port, this value will be the difference between the occurrence time of the actualVesselArrival and the first plannedVesselArrival at the entry port. If there is no planned vessel arrival, this field will be null. Negative times indicate the vessel will arrive earlier than first planned, positive times indicate it will arrive later
+| int64 
+
+| latestPlanIssuanceTime 
+|  
+| Long  
+| transportPlanIssuanceTime on the latest set of planned events sent to this consignment, in milliseconds since epoch. If no plan has ever been sent to this consignment this field will be null
+| int64 
+
+| numberPlansReceived 
+|  
+| Long  
+| Number of complete transport plans which have been sent to this consignment
+| int64 
+
+| partBillOf 
+|  
+| PartBillOf  
+| 
+|  
+
+|===
+
+
+[#ConsignmentVersionedTransportSummary]
+=== _ConsignmentVersionedTransportSummary_ 
+
+
+
+[.fields-ConsignmentVersionedTransportSummary]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignment 
+|  
+| ConsignmentResponse  
+| 
+|  
+
+|===
+
+
+[#CurrentProgressEvent]
+=== _CurrentProgressEvent_ 
+
+
+
+[.fields-CurrentProgressEvent]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| sequence 
+|  
+| Long  
+| Sequence number of this event
+| int64 
+
+| locationKey 
+|  
+| String  
+| The value of the highest priority Location field in a group of events.  Only returned on transportSummary queries. Purpose is to help group events that are in the same location.
+|  
+
+| actuals 
+|  
+| List  of <<ApiV1TransportEvent>> 
+| The list of actual events
+|  
+
+| estimates 
+|  
+| List  of <<ApiV1TransportEvent>> 
+| The list of estimated events
+|  
+
+| planned 
+|  
+| ApiV1TransportEvent  
+| 
+|  
+
+|===
+
+
+[#CurrentProgressResponse]
+=== _CurrentProgressResponse_ 
+
+
+
+[.fields-CurrentProgressResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignment 
+|  
+| ConsignmentSummary  
+| 
+|  
+
+| transportEquipmentList 
+| X 
+| List  of <<TransportEquipmentCPResponse>> 
+| The list of transport equipment that are associated with the query
+|  
+
+|===
+
+
+[#CutOff]
+=== _CutOff_ 
+
+
+
+[.fields-CutOff]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| cutOffDateTime8601 
+|  
+| String  
+| Deadline for the cut off, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ
+|  
+
+| cutOffType 
+|  
+| String  
+| Type of cut off, e.g. Documentation, VGM, Cargo
+|  _Enum:_ Cargo, Documentation, VGM, 
+
+| eventSubmissionTime 
+|  
+| Long  
+| The time the event creating the cutOff was submitted
+| int64 
+
+| eventTransactionId 
+|  
+| String  
+| The event transaction ID of the event that created this cut off
+|  
+
+| location 
+|  
+| Location  
+| 
+|  
+
+|===
+
+
+[#Data]
+=== _Data_ 
+
+
+
+[.fields-Data]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| type 
+|  
+| String  
+| 
+|  _Enum:_ Barge, Bill of Lading Number, Booking Number, Container Type Size, Date and Time, Duns Number, Event Name, MRN Number, Phyto Number, Rail, Truck, Vessel, Weight, Booking Confirmation, Proof of Ready, Certificate of Origin, Inspection Type, Reason, New Transport Owner, Survey result, Survey report, Reason for survey, HTS Code, Schedule B, Reason for split, Temperature, Agency Seal, Carrier Seal, Customs Seal, Veterinary Seal, Electronic Seal, Shippers Own Seal, Partner Role, Container Type, Cargo Type, 
+
+| value 
+|  
+| String  
+| 
+|  
+
+|===
+
+
+[#DescriptiveTradeInstrumentReference]
+=== _DescriptiveTradeInstrumentReference_ 
+
+
+
+[.fields-DescriptiveTradeInstrumentReference]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+|  
+| String  
+| 
+|  
+
+| description 
+|  
+| String  
+| 
+|  
+
+| reference 
+| X 
+| String  
+| A reference to this object
+|  
+
+| type 
+|  
+| String  
+| Type of the reference
+|  
+
+|===
+
+
+[#DocReference]
+=== _DocReference_ 
+
+
+
+[.fields-DocReference]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| referenceName 
+|  
+| String  
+| Reference Name
+|  
+
+| referenceValue 
+|  
+| String  
+| Reference Value
+|  
+
+|===
+
+
+[#Document]
+=== _Document_ 
+
+
+
+[.fields-Document]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| description 
+| X 
+| String  
+| A description of the document passed by URI
+|  
+
+| platformDocumentVersion 
+|  
+| Integer  
+| 
+| int32 
+
+| uri 
+|  
+| String  
+| A URI pointing to a copy of the document
+|  
+
+| hash 
+|  
+| String  
+| The hash code of the document referenced by the URI
+|  
+
+| hashEncodingType 
+|  
+| String  
+| The algorithm used to generate the hash
+|  
+
+| platformDocumentId 
+|  
+| String  
+| The ID of this document in Platform - used by Platform to reconstruct the document URI. 
+|  
+
+|===
+
+
+[#DocumentV2]
+=== _DocumentV2_ 
+
+
+
+[.fields-DocumentV2]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| contentUrl 
+|  
+| String  
+| 
+|  
+
+| description 
+|  
+| String  
+| 
+|  
+
+| docId 
+|  
+| String  
+| 
+|  
+
+| docReferences 
+|  
+| List  of <<DocReference>> 
+| 
+|  
+
+| docType 
+|  
+| String  
+| 
+|  
+
+| docVersion 
+|  
+| Integer  
+| 
+| int32 
+
+|===
+
+
+[#EquipmentTypeResponse]
+=== _EquipmentTypeResponse_ 
+
+
+
+[.fields-EquipmentTypeResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+| X 
+| String  
+| Equipment Type code
+|  
+
+| description 
+|  
+| String  
+| Description of code
+|  
+
+|===
+
+
+[#Events]
+=== _Events_ 
+
+
+
+[.fields-Events]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| action 
+|  
+| String  
+| Field for actionable flows
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| Bill of lading number
+|  
+
+| bookingData 
+|  
+| BookingData  
+| 
+|  
+
+| cargoRemainingOnboardCountries 
+|  
+| List  of <<string>> 
+| Countries where the cargo has remained on board
+|  _Enum:_ 
+
+| carrierBookingNumber 
+|  
+| String  
+| Carrier Booking number
+|  
+
+| certificateType 
+|  
+| String  
+| Certificate type
+|  
+
+| consigneeId 
+|  
+| String  
+| Consignee id
+|  
+
+| consigneeIdType 
+|  
+| String  
+| Consignee type
+|  
+
+| consignmentId 
+|  
+| String  
+| Generated ID for the consignment.
+|  
+
+| consignmentRef 
+|  
+| String  
+| Reference to an existing consignment.
+|  
+
+| correlationId 
+|  
+| String  
+| User-supplied ID for this event
+|  
+
+| dangerousGoodsType 
+|  
+| String  
+| Dangerous goods type
+|  
+
+| data 
+|  
+| List  of <<Data>> 
+| The event data
+|  
+
+| destinationOrgName 
+|  
+| String  
+| Org Name identifying who this document is being transferred to, if this is a Document event with the action &#39;transferred&#39; or &#39;surrendered&#39;
+|  
+
+| doc 
+|  
+| DocumentV2  
+| 
+|  
+
+| document 
+|  
+| Document  
+| 
+|  
+
+| documentId 
+|  
+| String  
+| Internal document identifier
+|  
+
+| documentType 
+|  
+| String  
+| Document Type
+|  
+
+| documentVersion 
+|  
+| Integer  
+| The version of the document
+| int32 
+
+| documents 
+|  
+| List  of <<Document>> 
+| Internal documents list
+|  
+
+| eBLProvider 
+|  
+| String  
+| Electronic Bill of Lading Provider
+|  
+
+| entryPort 
+|  
+| Port  
+| 
+|  
+
+| equipmentNumber 
+|  
+| String  
+| The unique identifier found on the transport equipment.
+|  
+
+| equipmentType 
+|  
+| String  
+| The container Type based on ISO size type
+|  
+
+| eventName 
+|  
+| String  
+| Event Name
+|  
+
+| eventOccurrenceTime 
+|  
+| Long  
+| When the event occurred, as the number of milliseconds since Epoch
+| int64 
+
+| eventOccurrenceTime8601 
+|  
+| String  
+| When the event occurred, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ.
+|  
+
+| eventPriority 
+|  
+| Integer  
+| Event Priority
+| int32 
+
+| eventSubmissionGpsLocation 
+|  
+| String  
+| GPS coordinates of where the event originated from (mobile device only)
+|  
+
+| eventSubmissionTime 
+| X 
+| Long  
+| Time of submission
+| int64 
+
+| eventTransactionId 
+|  
+| String  
+| The unique ID for the event
+|  
+
+| eventType 
+|  
+| String  
+| Event Type
+|  
+
+| exitPort 
+|  
+| Port  
+| 
+|  
+
+| firstPortOfEntryCountry 
+|  
+| String  
+| The first port of entry country
+|  _Enum:_ AD, AE, AF, AG, AI, AL, AM, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, false, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW, OA, OB, OC, OD, OE, OF, OG, OZ, XA, XB, XC, XD, XE, XF, XG, XH, XI, XJ, XK, XL, XM, XN, XO, XP, XQ, XR, XS, XT, XU, XV, XW, XX, XY, XZ, 
+
+| fullStatus 
+|  
+| String  
+| Is the container full or empty
+|  _Enum:_ Full, Empty, 
+
+| harmonizedCodes 
+|  
+| List  of <<string>> 
+| Harmonized System 6 Code
+|  
+
+| location 
+|  
+| Location  
+| 
+|  
+
+| netWeight 
+|  
+| String  
+| Net weight (including unit of measurement)
+|  
+
+| newSlotNumber 
+|  
+| String  
+| New Slot Number
+|  
+
+| operatorCode 
+|  
+| String  
+| Typical SCAC code
+|  
+
+| operatorName 
+|  
+| String  
+| Operator name
+|  
+
+| originatorId 
+| X 
+| String  
+| The Originator ID
+|  
+
+| originatorName 
+| X 
+| String  
+| The Originator Name
+|  
+
+| packingListNumber 
+|  
+| String  
+| Packing List Number
+|  
+
+| partBill 
+|  
+| Boolean  
+| Whether or not the event pertains to a \&quot;part bill of lading\&quot;
+|  
+
+| partBillOf 
+|  
+| PartBillOf  
+| 
+|  
+
+| reasonCode 
+|  
+| String  
+| Reason Code
+|  
+
+| reasonForSurvey 
+|  
+| String  
+| Reason for survey
+|  
+
+| references 
+|  
+| List  of <<TradeInstrumentReference>> 
+| List of customer created references to this trade instrument
+|  
+
+| sealNumber 
+|  
+| String  
+| Seal number
+|  
+
+| sealType 
+|  
+| String  
+| Seal type
+|  _Enum:_ Carrier, Customs, Shippers, Agency, Veterinary, Electronic, 
+
+| seals 
+|  
+| List  of <<Seal>> 
+| Seals
+|  
+
+| senderOrgName 
+| X 
+| String  
+| The name of the organization that sent the event
+|  
+
+| shipperId 
+|  
+| String  
+| Shipper id
+|  
+
+| shipperIdType 
+|  
+| String  
+| Shipper id type
+|  
+
+| splitFromConsignment 
+|  
+| SplitFromConsignment  
+| 
+|  
+
+| terminal 
+|  
+| Terminal  
+| 
+|  
+
+| terminalDescription 
+|  
+| String  
+| The description of the terminal which this consignment is touching
+|  
+
+| transitExportCountries 
+|  
+| List  of <<string>> 
+| Export countries where a transport equipment has moved across international borders to another country over land
+|  _Enum:_ 
+
+| transitImportCountries 
+|  
+| List  of <<string>> 
+| Import countries where a transport equipment has moved across international borders to another country over land
+|  _Enum:_ 
+
+| transportEquipmentId 
+|  
+| String  
+| Generated ID for the transport equipment.
+|  
+
+| transportEquipmentRef 
+|  
+| String  
+| Reference to an existing transport equipment.  Value should be very unique and created by a user.
+|  
+
+| transportPlanIssuanceTime8601 
+|  
+| String  
+| A timestamp used to group planned events that make up a Transport Plan, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ.
+|  
+
+| transportationPhase 
+|  
+| String  
+| The transportation phase
+|  _Enum:_ Import, Export, Transshipment, Domestic, 
+
+| transshipmentPortDescriptions 
+|  
+| List  of <<string>> 
+| Descriptions of ports where off loading the transport equipment from one vessel at an intermediate destination and loading onto another vessel to be further carried to the final port of discharge
+|  
+
+| transshipmentPorts 
+|  
+| List  of <<Port>> 
+| Ports where off loading the transport equipment from one vessel at an intermediate destination and loading onto another vessel to be further carried to the final port of discharge
+|  
+
+| vehicleId 
+|  
+| String  
+| ID of truck, rail, barge, or vessel
+|  
+
+| vehicleName 
+|  
+| String  
+| Name of truck, rail, barge, or vessel
+|  
+
+| verifiedGrossMass 
+|  
+| String  
+| Verified Gross Mass (VGM)
+|  
+
+| voyageId 
+|  
+| String  
+| Voyage number
+|  
+
+| waypointId 
+|  
+| String  
+| Waypoint ID
+|  
+
+|===
+
+
+[#ForbiddenResponse]
+=== _ForbiddenResponse_ 
+
+
+
+[.fields-ForbiddenResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+|  
+| String  
+| HTTP status code
+|  
+
+| message 
+| X 
+| String  
+| Message describing the status
+|  
+
+| timestamp 
+|  
+| String  
+| time of error
+|  
+
+|===
+
+
+[#FormerlyAssociatedTransportEquipment]
+=== _FormerlyAssociatedTransportEquipment_ 
+
+
+
+[.fields-FormerlyAssociatedTransportEquipment]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| transportEquipmentId 
+|  
+| String  
+| Generated ID for the transport equipment
+|  
+
+|===
+
+
+[#GeoCoordinates]
+=== _GeoCoordinates_ 
+
+
+
+[.fields-GeoCoordinates]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| latitude 
+| X 
+| Double  
+| Latitude coordinate
+| double 
+
+| longitude 
+| X 
+| Double  
+| Longitude coordinate
+| double 
+
+|===
+
+
+[#HarmonizedCodeResponse]
+=== _HarmonizedCodeResponse_ 
+
+
+
+[.fields-HarmonizedCodeResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+| X 
+| String  
+| Harmonized code
+|  
+
+| description 
+|  
+| String  
+| Description of code
+|  
+
+|===
+
+
+[#Location]
+=== _Location_ 
+
+
+
+[.fields-Location]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| description 
+|  
+| String  
+| Human readable location data for the event when type is UN/Locode
+|  
+
+| locationKey 
+|  
+| String  
+| The value of the highest priority Location field in a group of events.  Only returned on transportSummary queries. Purpose is to help group events that are in the same location.
+|  
+
+| type 
+|  
+| String  
+| DEPRECATED (DO NOT USE)- The-type-of-location-provided-in-the-value-field
+|  _Enum:_ UN/Locode, GLN, Address, 
+
+| value 
+|  
+| String  
+| DEPRECATED (DO NOT USE)- Location-data-for-the-event
+|  
+
+| unlocode 
+|  
+| String  
+| A valid UN/CEFACT value for a UN/Locode
+|  
+
+| address 
+|  
+| Address  
+| 
+|  
+
+| smdgTerminal 
+|  
+| String  
+| A valid SMDG code for a Ocean Terminal
+|  
+
+| geoCoord 
+|  
+| GeoCoordinates  
+| 
+|  
+
+| splc 
+|  
+| String  
+| A valid SPLC code for a Rail Terminal
+|  
+
+| gln 
+|  
+| String  
+| A GS1 Identification Key for the location
+|  
+
+|===
+
+
+[#NewAllEventsQueryResponse]
+=== _NewAllEventsQueryResponse_ 
+
+
+
+[.fields-NewAllEventsQueryResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| events 
+|  
+| List  of <<Events>> 
+| The list of events for the consignment or transport equipment
+|  
+
+|===
+
+
+[#NotFoundResponse]
+=== _NotFoundResponse_ 
+
+
+
+[.fields-NotFoundResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| code 
+|  
+| String  
+| HTTP status code
+|  
+
+| message 
+| X 
+| String  
+| Message describing the status
+|  
+
+| timestamp 
+|  
+| String  
+| time of error
+|  
+
+|===
+
+
+[#PartBillOf]
+=== _PartBillOf_ 
+
+
+
+[.fields-PartBillOf]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| carrierBookingNumber 
+|  
+| String  
+| The Carrier Booking Number
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| Bill of Lading Number
+|  
+
+| consignmentId 
+|  
+| String  
+| Generated ID for the consignment
+|  
+
+|===
+
+
+[#Port]
+=== _Port_ 
+
+
+
+[.fields-Port]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| unLocode 
+| X 
+| String  
+| UN/Locode for Port
+|  
+
+|===
+
+
+[#RateLimitResponseModel]
+=== _RateLimitResponseModel_ 
+
+
+
+[.fields-RateLimitResponseModel]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| error 
+| X 
+| String  
+| Human readable http response
+|  
+
+| message 
+| X 
+| String  
+| Translated error message
+|  
+
+| path 
+| X 
+| String  
+| Path to API called
+|  
+
+| status 
+| X 
+| Integer  
+| HTTP status (429)
+| int32 
+
+| timestamp 
+| X 
+| Long  
+| Timestamp at which the rejected request was submitted, in epoch time
+| int64 
+
+|===
+
+
+[#Seal]
+=== _Seal_ 
+
+
+
+[.fields-Seal]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| sealNumber 
+| X 
+| String  
+| Seal Identification Number
+|  
+
+| sealType 
+| X 
+| String  
+| Seal Type
+|  _Enum:_ Carrier, Customs, Shippers, Agency, Veterinary, Electronic, 
+
+|===
+
+
+[#Shipment]
+=== _Shipment_ 
+
+
+
+[.fields-Shipment]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| shipmentId 
+| X 
+| String  
+| Service created identifier for this shipment
+|  
+
+| shipmentCreationTime 
+| X 
+| Long  
+| Timestamp of when the shipment was created
+| int64 
+
+| shipmentUpdateTime 
+| X 
+| Long  
+| Timestamp of when the shipment was most recently updated
+| int64 
+
+| references 
+| X 
+| List  of <<DescriptiveTradeInstrumentReference>> 
+| List of customer created references to this shipment
+|  
+
+| goodsDescription 
+|  
+| String  
+| Description of the goods in this shipment
+|  
+
+| associatedConsignmentIds 
+|  
+| List  of <<string>> 
+| ConsignmentIds associated with this shipment
+|  
+
+| plannedCompletionDate8601 
+|  
+| String  
+| Estimated date that the goods in the shipment will be finalized or complete
+|  
+
+| plannedDeliveryDate8601 
+|  
+| String  
+| The last date which the receiving party has to take possession of goods in the shipment
+|  
+
+|===
+
+
+[#ShipmentCreatorsResponse]
+=== _ShipmentCreatorsResponse_ 
+
+
+
+[.fields-ShipmentCreatorsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| shipmentCreators 
+| X 
+| List  of <<TradeInstrumentCreator>> 
+| Information about the organizations returned by the query.
+|  
+
+|===
+
+
+[#ShipmentEventsResponse]
+=== _ShipmentEventsResponse_ 
+
+
+
+[.fields-ShipmentEventsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| events 
+|  
+| List  of <<Events>> 
+| The list of events for the shipment with the provided shipmentId
+|  
+
+|===
+
+
+[#ShipmentIdentifer]
+=== _ShipmentIdentifer_ 
+
+
+
+[.fields-ShipmentIdentifer]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| references 
+|  
+| List  of <<TradeInstrumentReference>> 
+| 
+|  
+
+|===
+
+
+[#ShipmentQueryResponse]
+=== _ShipmentQueryResponse_ 
+
+
+
+[.fields-ShipmentQueryResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| total 
+| X 
+| Long  
+| The total number of hits returned by the query
+| int64 
+
+| size 
+| X 
+| Integer  
+| Number of shipments in this result
+| int32 
+
+| shipments 
+| X 
+| List  of <<Shipment>> 
+| The list of shipments
+|  
+
+| newFrom 
+| X 
+| String  
+| Bookmark to use for retrieving more query results
+|  
+
+|===
+
+
+[#SplitFromConsignment]
+=== _SplitFromConsignment_ 
+
+
+
+[.fields-SplitFromConsignment]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| carrierBookingNumber 
+|  
+| String  
+| The Carrier Booking Number
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| Bill of Lading Number
+|  
+
+| consignmentId 
+|  
+| String  
+| Generated ID for the consignment
+|  
+
+|===
+
+
+[#Terminal]
+=== _Terminal_ 
+
+
+
+[.fields-Terminal]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| unLocode 
+| X 
+| String  
+| UN/Locode for Terminal
+|  
+
+|===
+
+
+[#TradeInstrumentCreator]
+=== _TradeInstrumentCreator_ 
+
+
+
+[.fields-TradeInstrumentCreator]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| orgName 
+| X 
+| String  
+| The name of the organization matching the query.
+|  
+
+|===
+
+
+[#TradeInstrumentId]
+=== _TradeInstrumentId_ 
+
+
+
+[.fields-TradeInstrumentId]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignmentId 
+|  
+| String  
+| The ID of the consignment matching the query.
+|  
+
+| transportEquipmentId 
+|  
+| String  
+| The ID of the transport equipment matching the query.
+|  
+
+| shipmentId 
+|  
+| String  
+| The ID of the shipment matching the query.
+|  
+
+| relatedTradeInstrumentIds 
+| X 
+| List  of <<string>> 
+| Alternate unique identifiers that are associated with this trade instrument.
+|  
+
+| creationTime 
+| X 
+| Long  
+| Time (since epoch, in milliseconds) at which the trade instrument was created.
+| int64 
+
+|===
+
+
+[#TradeInstrumentIdsIdentifiers]
+=== _TradeInstrumentIdsIdentifiers_ 
+
+
+
+[.fields-TradeInstrumentIdsIdentifiers]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignment 
+|  
+| ConsignmentIdentifer  
+| 
+|  
+
+| transportEquipment 
+|  
+| TransportEquipmentIdentifier  
+| 
+|  
+
+| shipment 
+|  
+| ShipmentIdentifer  
+| 
+|  
+
+|===
+
+
+[#TradeInstrumentIdsResponse]
+=== _TradeInstrumentIdsResponse_ 
+
+
+
+[.fields-TradeInstrumentIdsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| tradeInstrumentIds 
+| X 
+| List  of <<TradeInstrumentId>> 
+| IDs of trade instruments matching the query.
+|  
+
+|===
+
+
+[#TradeInstrumentReference]
+=== _TradeInstrumentReference_ 
+
+
+
+[.fields-TradeInstrumentReference]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| reference 
+| X 
+| String  
+| A reference to this object
+|  
+
+| type 
+|  
+| String  
+| Type of the reference
+|  
+
+|===
+
+
+[#TransportEquipmentCPResponse]
+=== _TransportEquipmentCPResponse_ 
+
+
+
+[.fields-TransportEquipmentCPResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| transportEquipmentSummary 
+|  
+| TransportEquipmentSummary  
+| 
+|  
+
+| transportPlanIssuanceTime8601 
+|  
+| String  
+| A timestamp used to group planned events that make up a Transport Plan, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ . This field must be set in every planned event in the transport plan for the transport equipment to calculate a dynamic route using this transport plan
+|  
+
+| senderOrgName 
+|  
+| String  
+| The name of the organization that sent the transport plan
+|  
+
+| sequenceOfLastActual 
+|  
+| Long  
+| The sequence number of the last actual event
+| int64 
+
+| currentProgressEvents 
+|  
+| List  of <<CurrentProgressEvent>> 
+| The current progress for a given Transport Equipment
+|  
+
+|===
+
+
+[#TransportEquipmentDetails]
+=== _TransportEquipmentDetails_ 
+
+
+
+[.fields-TransportEquipmentDetails]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| description 
+|  
+| String  
+| Human readable equipment type
+|  
+
+| equipmentType 
+|  
+| String  
+| The equipment type based on ISO 6346
+|  
+
+| equipmentQuantity 
+| X 
+| Integer  
+| The quantity of transport equipment
+| int32 
+
+|===
+
+
+[#TransportEquipmentIdentifier]
+=== _TransportEquipmentIdentifier_ 
+
+
+
+[.fields-TransportEquipmentIdentifier]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| equipmentNumber 
+|  
+| String  
+| The transport equipment number to search with
+|  
+
+| carrierBookingNumber 
+|  
+| String  
+| The carrier booking number to search with
+|  
+
+| billOfLadingNumber 
+|  
+| String  
+| The bill of lading number to search with
+|  
+
+| references 
+|  
+| List  of <<TradeInstrumentReference>> 
+| 
+|  
+
+|===
+
+
+[#TransportEquipmentResponse]
+=== _TransportEquipmentResponse_ 
+
+
+
+[.fields-TransportEquipmentResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| transportEquipmentId 
+|  
+| String  
+| The unique generated Id for the transport equipment
+|  
+
+| transportEquipmentRefs 
+|  
+| List  of <<string>> 
+| List of customer created references to this transport equipment
+|  
+
+| billsOfLading 
+|  
+| List  of <<string>> 
+| The bills of lading number
+|  
+
+| transportEquipmentTypes 
+|  
+| List  of <<Equipment_Type_Response>> 
+| The types of the transport equipment
+|  
+
+| equipmentNumber 
+|  
+| String  
+| The unique Id that is physically on the transport equipment
+|  
+
+| dangerousCargo 
+|  
+| Boolean  
+| Flag for dangerous cargo
+|  
+
+| cargoTypes 
+| X 
+| List  of <<Harmonized_Code_Response>> 
+| The harmonized codes of the type of cargo being shipped plus the descriptions
+|  
+
+| verifiedGrossMass 
+|  
+| String  
+| Verified gross mass
+|  
+
+| portOfEntry 
+|  
+| String  
+| Port of Entry
+|  
+
+| portOfEntryDescription 
+|  
+| String  
+| Port of Entry Description
+|  
+
+| portOfDischarge 
+|  
+| String  
+| Port of Discharge
+|  
+
+| portOfDischargeDescription 
+|  
+| String  
+| Port of Discharge Description
+|  
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Planned Vessel Departure in epoch milliseconds
+| int64 
+
+| plannedVesselArrival 
+|  
+| Long  
+| Planned Vessel Arrival in epoch milliseconds
+| int64 
+
+| terminals 
+|  
+| List  of <<string>> 
+| Terminals
+|  
+
+| terminalDescriptions 
+|  
+| List  of <<string>> 
+| Terminal Descriptions
+|  
+
+| cutOffs 
+|  
+| List  of <<CutOff>> 
+| Cutoffs
+|  
+
+| callerRoles 
+|  
+| List  of <<string>> 
+| The list of caller party roles
+|  
+
+| transportPlans 
+|  
+| List  of <<TransportPlanResponse>> 
+| The transport summary for a given Transport Equipment
+|  
+
+|===
+
+
+[#TransportEquipmentSummary]
+=== _TransportEquipmentSummary_ 
+
+
+
+[.fields-TransportEquipmentSummary]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| transportEquipmentId 
+|  
+| String  
+| The unique generated Id for the transport equipment
+|  
+
+| transportEquipmentRefs 
+|  
+| List  of <<string>> 
+| List of customer created references to this transport equipment
+|  
+
+| billsOfLading 
+|  
+| List  of <<string>> 
+| The bills of lading number
+|  
+
+| transportEquipmentTypes 
+|  
+| List  of <<Equipment_Type_Response>> 
+| The types of the transport equipment
+|  
+
+| equipmentNumber 
+|  
+| String  
+| The unique Id that is physically on the transport equipment
+|  
+
+| dangerousCargo 
+|  
+| Boolean  
+| Flag for dangerous cargo
+|  
+
+| cargoTypes 
+| X 
+| List  of <<Harmonized_Code_Response>> 
+| The harmonized codes of the type of cargo being shipped plus the descriptions
+|  
+
+| verifiedGrossMass 
+|  
+| String  
+| Verified gross mass
+|  
+
+| portOfEntry 
+|  
+| String  
+| Port of Entry
+|  
+
+| portOfEntryDescription 
+|  
+| String  
+| Port of Entry Description
+|  
+
+| portOfDischarge 
+|  
+| String  
+| Port of Discharge
+|  
+
+| portOfDischargeDescription 
+|  
+| String  
+| Port of Discharge Description
+|  
+
+| plannedVesselDeparture 
+|  
+| Long  
+| Planned Vessel Departure in epoch milliseconds
+| int64 
+
+| plannedVesselArrival 
+|  
+| Long  
+| Planned Vessel Arrival in epoch milliseconds
+| int64 
+
+| terminals 
+|  
+| List  of <<string>> 
+| Terminals
+|  
+
+| terminalDescriptions 
+|  
+| List  of <<string>> 
+| Terminal Descriptions
+|  
+
+| cutOffs 
+|  
+| List  of <<CutOff>> 
+| Cutoffs
+|  
+
+| callerRoles 
+|  
+| List  of <<string>> 
+| The list of caller party roles
+|  
+
+|===
+
+
+[#TransportPlanResponse]
+=== _TransportPlanResponse_ 
+
+
+
+[.fields-TransportPlanResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| version 
+|  
+| Integer  
+| The version of the transport plan. A value of 0 means its the most current version.
+| int32 
+
+| transportPlanIssuanceTime8601 
+|  
+| String  
+| A timestamp used to group planned events that make up a Transport Plan, in common ISO 8601 format yyyy-MM-dd&#39;T&#39;HH:mm:ss.SSSZ . This field must be set in every planned event in the transport plan for the transport equipment to calculate a dynamic route using this transport plan
+|  
+
+| senderOrgName 
+|  
+| String  
+| The name of the organization that sent the transport plan
+|  
+
+| transportSummaryEvents 
+|  
+| List  of <<ApiV1TransportSummaryEvent>> 
+| The transport summary for a given Transport Equipment
+|  
+
+|===
+
+
+[#UnassociatedEventsResponse]
+=== _UnassociatedEventsResponse_ 
+
+
+
+[.fields-UnassociatedEventsResponse]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| total 
+| X 
+| Long  
+| The total number of hits returned by the query
+| int64 
+
+| size 
+| X 
+| Integer  
+| Number of events in this result
+| int32 
+
+| orphanedEvents 
+|  
+| List  of <<Events>> 
+| The list of orphaned events
+|  
+
+| homelessEvents 
+|  
+| List  of <<Events>> 
+| The list of homeless events
+|  
+
+| newFrom 
+| X 
+| String  
+| Bookmark to use for retrieving more query results
+|  
+
+|===
+
+
+[#VersionedTransportSummary]
+=== _VersionedTransportSummary_ 
+
+
+
+[.fields-VersionedTransportSummary]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| consignment 
+|  
+| ConsignmentSummary  
+| 
+|  
+
+| transportEquipmentList 
+| X 
+| List  of <<TransportEquipmentResponse>> 
+| The list of transport equipment that are associated with the query
+|  
+
+|===
+
+
