@@ -1,0 +1,8 @@
+allOf:
+  - type: object
+    properties:
+      role:
+        $ref: ./TradePartyEnum.yaml
+      resourceType:
+        $ref: ./DocumentTypeEnum.yaml
+  - $ref: ./OperationsMixin.yaml

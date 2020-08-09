@@ -1,0 +1,5 @@
+name: orgName
+in: query
+description: The name of an existing organization
+schema:
+  type: string

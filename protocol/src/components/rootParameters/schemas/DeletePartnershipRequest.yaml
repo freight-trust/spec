@@ -1,0 +1,11 @@
+type: object
+properties:
+  partnerId:
+    type: string
+    example: partner123
+  code:
+    type: string
+    example: code123
+required:
+  - partnerId
+  - code

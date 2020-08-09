@@ -1,0 +1,23 @@
+type: object
+required:
+  - consignments
+  - newFrom
+  - size
+  - total
+properties:
+  total:
+    type: integer
+    format: int64
+    description: The total number of hits returned by the query
+  size:
+    type: integer
+    format: int32
+    description: Number of consignments in this result
+  consignments:
+    type: array
+    description: The list of consignments
+    items:
+      $ref: "#/components/schemas/Consignment"
+  newFrom:
+    type: string
+    description: Bookmark to use for retrieving more query results

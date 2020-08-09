@@ -1,0 +1,6 @@
+type: string
+enum:
+  - barge
+  - rail
+  - truck
+  - vessel

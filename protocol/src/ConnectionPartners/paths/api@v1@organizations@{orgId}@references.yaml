@@ -1,0 +1,32 @@
+get:
+  summary: Fetch Multiple organization's reference
+  description: >
+    This is internal endpoint and only works with **App Tokens**. The call will
+
+    only be successful if there exists a business partnership between the
+
+    `orgId` in the path and the `orgId`s in the reference.For Invalid codes we
+    will
+
+    get error response.
+  operationId: GetMultipleOrgReferences
+  tags:
+    - Business Partners
+  parameters:
+    - $ref: ../components/parameters/ReferenceCodesQueryParam.yaml
+    - $ref: ../components/parameters/OrgIdPathParam.yaml
+  responses:
+    "200":
+      description: References for the given organization and codes
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/OrgReference.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

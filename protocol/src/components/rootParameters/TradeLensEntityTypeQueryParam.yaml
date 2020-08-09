@@ -1,0 +1,6 @@
+in: query
+description: Limit returned objects to only those of a certain type
+name: type
+schema:
+  type: string
+example: document

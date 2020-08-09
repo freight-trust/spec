@@ -1,0 +1,53 @@
+type: object
+properties:
+  Name:
+    description: The name of the certificate file.
+    type: string
+  Data:
+    description: The base-64 encoded contents of the certificate file.
+    type: string
+  StoreType:
+    description: The store type.
+    type: string
+  Subject:
+    description: The certificate subject.
+    type: string
+  Issuer:
+    description: The issuer of the certificate.
+    type: string
+  IssuedTo:
+    description: The common name of certificate subject.
+    type: string
+  IssuedBy:
+    description: The common name of certificate issuer.
+    type: string
+  EffectiveDate:
+    description: The effective date of the certificate.
+    type: string
+  ExpirationDate:
+    description: The expiration date of the certificate.
+    type: string
+  ExpirationDays:
+    description: The days until the expiration date of the certificate.
+    type: integer
+    format: int32
+  Serialnumber:
+    description: The serial number of the certificate.
+    type: string
+  Thumbprint:
+    description: The SHA1 thumbprint of the certificate.
+    type: string
+  Keysize:
+    description: The key size of the certificate.
+    type: string
+  SignatureAlgorithm:
+    description: The algorithm used to sign the certificate.
+    type: string
+  ConnectorId:
+    description: The Id of the connector configured to use the certificate.
+    type: string
+  PortId:
+    description: The Id of the port configured to use the certificate.
+    type: string
+required:
+  - Name

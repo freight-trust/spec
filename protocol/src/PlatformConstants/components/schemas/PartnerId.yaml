@@ -1,0 +1,5 @@
+type: object
+properties:
+  partnerId:
+    type: string
+    description: Business partner Id

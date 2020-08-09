@@ -1,0 +1,7 @@
+type: object
+properties:
+  events:
+    type: array
+    description: The list of events for the consignment or transport equipment
+    items:
+      $ref: "#/components/schemas/Events"

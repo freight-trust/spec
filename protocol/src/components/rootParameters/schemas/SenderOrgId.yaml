@@ -1,0 +1,3 @@
+type: string
+example: org-A
+description: Org id of the organization update or remove the role

@@ -1,0 +1,12 @@
+type: object
+properties:
+  references:
+    type: array
+    description: References
+    items:
+      $ref: "#/components/schemas/References"
+  shipmentId:
+    type: string
+    example: sdkjf68-fdsjf0-jsddj-dskjk
+    description: Shipment ID
+title: ShipmentIdentifier

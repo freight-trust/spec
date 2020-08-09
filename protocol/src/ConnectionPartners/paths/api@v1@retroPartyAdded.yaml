@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Internally Generated Events
+  summary: Policy Service Events (retroPartyAdded)
+  description: >-
+    Internal event from Policy Service that specifies a newly on-boarded
+    organization ID and the consignments and/or transport equipment to which it
+    is now associated. This event requires an orgId and IDs specified in either
+    consignments[], transportEquipment[], or both.
+  operationId: issueRetroPartyAddedUsingPOST
+  requestBody:
+    name: event
+    description: >-
+      See Model to the right for the full description of the event. Note that
+      the Example Value is *not* a comprehensive list of all fields in the
+      event. It is a subset meant to provide a minimum working example of the
+      event.
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/IssueRetroPartyAdded_event.yaml
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Response.yaml
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/RateLimitResponseModel.yaml

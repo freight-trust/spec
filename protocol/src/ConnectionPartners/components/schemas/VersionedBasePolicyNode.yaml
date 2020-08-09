@@ -1,0 +1,6 @@
+allOf:
+  - $ref: ./BasePolicyNode.yaml
+  - type: object
+    properties:
+      etag:
+        $ref: ./Etag.yaml

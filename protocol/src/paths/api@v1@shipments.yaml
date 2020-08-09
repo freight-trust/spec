@@ -1,0 +1,232 @@
+get:
+  tags:
+    - Shipment Queries
+  summary: Query all shipments
+  description: >+
+    Queries for all shipments visible to the user, filtered using the criteria
+    below.
+
+
+    We return up to a maximum of 1000 shipments in one query. Paging is used to
+    retrieve shipments beyond this number. Provide the "newFrom" value from the
+    response body as the "from" parameter to retrieve the next page of results.
+    If "from" is given, all other parameters are ignored, except for "size".
+
+
+    Note: A leading wildcard will not be added to shipment queries.
+
+  operationId: queryShipmentsUsingGET
+  parameters:
+    - name: size
+      in: query
+      description: "Optional, number of shipments to return, max 1000."
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 50
+    - name: from
+      in: query
+      description: >-
+        Optional, bookmark to get the next chunk of results to a previously
+        executed query. This must be the newFrom value from a previous shipment
+        query.
+      required: false
+      schema:
+        type: string
+    - name: shipmentId
+      in: query
+      description: "Optional, only include results that match this shipment ID."
+      required: false
+      schema:
+        type: string
+    - name: createdBy
+      in: query
+      description: "Optional, only include results that were created by the given party."
+      required: false
+      explode: true
+      schema:
+        type: array
+        items:
+          type: string
+    - name: createdAfter
+      in: query
+      description: >-
+        Optional, only include results that were created on or after this date.
+        The date must be in epoch format.
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: createdBefore
+      in: query
+      description: >-
+        Optional, only include results that were created on or before this date.
+        The date must be in epoch format.
+      required: false
+      schema:
+        type: integer
+        format: int64
+    - name: myRole
+      in: query
+      description: >-
+        Optional, only include results where the caller has one of the given
+        roles.
+      required: false
+      schema:
+        type: string
+    - name: referenceType
+      in: query
+      description: >-
+        Optional, only include results that match this reference type for the
+        shipment.
+      required: false
+      schema:
+        type: string
+    - name: references
+      in: query
+      description: >-
+        Optional, only include results that match these references number/code
+        for the shipment.
+      required: false
+      explode: true
+      schema:
+        type: array
+        items:
+          type: string
+    - name: seller
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: buyer
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: exporter
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: importer
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: origin3plAgent
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: destination3plAgent
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: exportCustomsBroker
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: importCustomsBroker
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: exportAuthority
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: importAuthority
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: buyersBank
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: sellersBank
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: insuranceProvider
+      in: query
+      description: >-
+        Optional, only include results where the party reference matches the
+        role.
+      required: false
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ShipmentQueryResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

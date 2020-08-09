@@ -1,0 +1,4 @@
+description: Organization Profile
+allOf:
+  - $ref: ./OrganizationMetadata.yaml
+  - $ref: ./OrganizationPreferences.yaml

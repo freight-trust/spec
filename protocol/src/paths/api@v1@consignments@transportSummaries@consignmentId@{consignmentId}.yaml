@@ -1,0 +1,95 @@
+get:
+  tags:
+    - Consignment Queries
+  summary: Get the transport summary for a consignment given a consignment ID
+  description: >
+    Provide the consignment ID for a consignment. 
+
+    Transport Plan Analysis: This endpoint will return all of the transport
+    plans for the consignment, ordered from most recent to oldest. Each
+    transport plan will include a list of planned events, ordered by the event
+    occurrence time. Together these events indicate the series of locations that
+    each transport equipment, that is associated with the given consignnment,
+    will move on its journey.
+
+
+    Planned events provide the planned route of a transport equipment.
+
+
+    Note that the only events returned by this endpoint are the set of events
+    known as “transport” planned events. This does NOT include consignment,
+    transport equipment, generic, or document events. For a complete list of
+    transport events, see the Transport Events category in the Event Publish
+    Swagger documentation. To get all events for a consignment use the
+    …/events/consignmentId/{consignmentId} endpoint.
+
+
+    Commodity and originator information visibility is restricted to orgs that
+    were onboarded with certain types. If your org does not have one of these
+    correct types, then you may not have visibility to the following fields in
+    each event:
+
+    Commodity information:
+
+    - harmonizedCodes
+
+    - bookingData.commodities.commodityDescription
+
+    - bookingData.commodities.commodityHarmonizedCode
+
+
+    Originator information:
+
+    - originatorName
+
+    - originatorId
+
+    - senderOrgId
+
+
+    In addition, The originator information on a Party Add/Update/Remove event
+    will be hidden if you are not the org who submitted the event or one of the
+    parties being added. The originator information and 'destinationOrgName'
+    field on a Document event whose 'action' field is 'issued', 'transferred',
+    or 'surrendered' will be hidden if you are not the org who submitted the
+    event or the org that the document is being transferred to.
+  operationId: transportSummaryConsignmentIdUsingGET
+  parameters:
+    - name: consignmentId
+      in: path
+      description: Consignment ID
+      required: true
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ConsignmentVersionedTransportSummary"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

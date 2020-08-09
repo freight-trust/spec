@@ -1,0 +1,14 @@
+summary: User Preference Request
+value:
+  name: Jhon
+  prefs:
+    locale: en_US
+    contacts:
+      - contact:
+          contactType: Webhook
+          contactInfo: "https://foo.bar"
+          nickname: JohnDoe
+      - contact:
+          contactType: Email
+          contactInfo: user@mail.com
+          nickname: JohnD

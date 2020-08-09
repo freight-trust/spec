@@ -1,0 +1,9 @@
+type: object
+properties:
+  docType:
+    type: string
+    example: PACKING_LIST
+    description: Represent the type of the document.
+  tradeInstrumentIdentifiers:
+    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+title: TransactionRequest

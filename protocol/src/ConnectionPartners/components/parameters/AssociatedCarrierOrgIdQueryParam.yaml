@@ -1,0 +1,5 @@
+in: query
+description: The carrier name to filter search results on (exact match)
+name: associatedCarrierOrgId
+schema:
+  type: string

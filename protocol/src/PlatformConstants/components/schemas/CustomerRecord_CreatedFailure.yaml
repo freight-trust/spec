@@ -1,0 +1,5 @@
+description: Create/replace customer record success response
+properties:
+  error:
+    description: The create customer record error info
+    $ref: ./ErrorResponse.yaml

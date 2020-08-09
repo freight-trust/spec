@@ -1,0 +1,16 @@
+summary: User Preference patch Request
+value:
+  name: Jhon
+  prefs:
+    locale: en_US
+    contacts:
+      - contact:
+          contactId: UUID-123-456
+          contactType: Webhook
+          contactInfo: "https://foo.bar"
+          nickname: JohnDoe
+      - contact:
+          contactId: UUID-123-4567
+          contactType: Email
+          contactInfo: user@mail.com
+          nickname: JohnD

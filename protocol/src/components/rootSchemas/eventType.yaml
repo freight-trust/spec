@@ -1,0 +1,7 @@
+description: The Event Type of the object.
+nullable: false
+type: string
+enum:
+  - EQUIPMENT
+  - SHIPMENT
+  - TRANSPORT

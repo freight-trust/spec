@@ -1,0 +1,9 @@
+type: object
+required:
+  - channel
+properties:
+  channel:
+    type: string
+    example: ocean-carrier-channel
+    description: Name of the channel to be mapped to carrier organization
+title: PartitionRuleUpdateRequest

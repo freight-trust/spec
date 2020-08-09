@@ -1,0 +1,11 @@
+type: object
+required:
+  - ConnectorId
+  - NewConnectorId
+properties:
+  ConnectorId:
+    type: string
+    description: The Id of the connector to copy.
+  NewConnectorId:
+    type: string
+    description: The Id of the new connector.

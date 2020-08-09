@@ -1,0 +1,16 @@
+type: object
+properties:
+  flowDefnId:
+    type: string
+  flowDefnStr:
+    type: string
+  flowType:
+    type: string
+  performedBy:
+    type: string
+  status:
+    type: string
+  version:
+    type: integer
+    format: int32
+title: FlowDefnMetadata

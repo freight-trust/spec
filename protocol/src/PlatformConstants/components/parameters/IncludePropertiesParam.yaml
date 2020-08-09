@@ -1,0 +1,5 @@
+in: query
+description: Return resource attributes in the response. Default is false
+name: include_properties
+schema:
+  type: boolean

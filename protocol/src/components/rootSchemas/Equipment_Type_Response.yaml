@@ -1,0 +1,12 @@
+type: object
+required:
+  - code
+properties:
+  code:
+    type: string
+    example: 20H0
+    description: Equipment Type code
+  description:
+    type: string
+    example: INSULATED CONTAINER
+    description: Description of code

@@ -1,0 +1,25 @@
+get:
+  summary: Fetch an organization's reference
+  description: |
+    This is internal endpoint and only works with **App Tokens**. The call will
+    only be successful if there exists a business partnership between the
+    `orgId` in the path and the `orgId` in the reference.
+  operationId: GetOrgReference
+  tags:
+    - Business Partners
+  parameters:
+    - $ref: ../components/parameters/ReferenceCodePathParam.yaml
+    - $ref: ../components/parameters/OrgIdPathParam.yaml
+  responses:
+    "200":
+      description: Reference for the given organization and code
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OrgReference.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

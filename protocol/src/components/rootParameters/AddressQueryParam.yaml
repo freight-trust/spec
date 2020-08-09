@@ -1,0 +1,7 @@
+in: query
+description: >-
+  The customer street address to filter search results on (includes match;
+  ignores case)
+name: address
+schema:
+  type: string

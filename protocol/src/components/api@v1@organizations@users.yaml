@@ -1,0 +1,57 @@
+post:
+  summary: Creates a new user for the logged in organization.
+  description: >
+    Creates a new user for the logged in organization. User can be of type
+    `user` or `system`. `id` is expected to be a valid Email-ID for type:user
+    and a serviceId for type:system.`name` is an optional parameter in the
+    request body, that indicates the User Name. `isAdmin` can be set as
+    true/false.
+  operationId: CreateUser
+  tags:
+    - Organization Admin
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/CreateUserRequest.yaml
+  responses:
+    "200":
+      description: New user created succesfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/UserProfile.yaml
+          examples:
+            UserProfile:
+              $ref: ../components/examples/UserProfile.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml
+get:
+  summary: Lists all the users of the logged in organization.
+  description: |
+    Fetches the list of users of the logged in organization.
+  operationId: GetUsers
+  tags:
+    - Organization Admin
+  parameters:
+    - $ref: ../components/parameters/TypeQueryParam.yaml
+  responses:
+    "200":
+      description: Users fetched succesfully.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/GetUsersResponse.yaml
+          examples:
+            GetUsersResponse:
+              $ref: ../components/examples/GetUsersResponse.yaml
+    default:
+      description: Response for all non 2xx response codes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ErrorResponse.yaml

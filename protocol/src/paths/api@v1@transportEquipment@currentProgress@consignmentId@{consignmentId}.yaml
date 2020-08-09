@@ -1,0 +1,104 @@
+get:
+  tags:
+    - Transport Equipment Queries
+  summary: "Get the current progress for one or more pieces of transport equipment "
+  description: >
+    Provide the consignmentId of a Consignment. Returns the current progress of
+    all transport equipment associated with that consignment. 
+
+
+    Transport events are divided into three categories: planned, estimated and
+    actual. Planned events provide the planned route of a transport equipment.
+    Estimated events provide the estimated time things will occur to the
+    transport equipment. Actual events indicate things that occurred to the
+    transport equipment.
+
+
+    Current Progress Analysis: 
+
+    The current progress will include a list of current progress events, ordered
+    by the sequence in which they occur. Together these events indicate the
+    series of locations that each transport equipment will move, or has moved,
+    on its journey and everything that happened to it along the way. 
+
+    Each current progress event is made up of a list of actual events, a list of
+    estimated events and the associated planned event.
+
+
+    Note that the only events returned by this endpoint are the set of events
+    known as “transport” events. This does NOT include consignment, transport
+    equipment, generic, or document events. For a complete list of transport
+    events, see the Transport Events category in the Event Publish Swagger
+    documentation. To get all events for a consignment or transport equipment,
+    use the …/events/... endpoint.
+
+
+    Commodity and originator information visibility is restricted to orgs that
+    were onboarded with certain types. If your org does not have one of these
+    correct types, then you may not have visibility to the following fields in
+    each event:
+
+    Commodity information:
+
+    - harmonizedCodes
+
+    - bookingData.commodities.commodityDescription
+
+    - bookingData.commodities.commodityHarmonizedCode
+
+
+    Originator information:
+
+    - originatorName
+
+    - originatorId
+
+    - senderOrgId
+
+
+    In addition, The originator information on a Party Add/Update/Remove event
+    will be hidden if you are not the org who submitted the event or one of the
+    parties being added. The originator information and 'destinationOrgName'
+    field on a Document event whose 'action' field is 'issued', 'transferred',
+    or 'surrendered' will be hidden if you are not the org who submitted the
+    event or the org that the document is being transferred to.
+  operationId: currentProgressConsignmentIdUsingGET
+  parameters:
+    - name: consignmentId
+      in: path
+      description: Consignment ID
+      required: true
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/CurrentProgressResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

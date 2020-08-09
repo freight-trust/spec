@@ -1,0 +1,125 @@
+get:
+  tags:
+    - Transport Equipment Queries
+  summary: "Get the transport summary for one or more pieces of transport equipment "
+  description: >
+    Provide the consignmentId of a Consignment. Returns the transport summary of
+    all transport equipment associated with that consignment. 
+
+    Transport Plan Analysis: This endpoint will construct an up-to-date
+    transport summary for each transport equipment returned by the query. This
+    transport summary will include a list of transport plan events, ordered by
+    the sequence in which they occur. Together these events indicate the series
+    of locations that each transport equipment will move, or has moved, on its
+    journey and everything that happened to it along the way.
+
+
+    Events are divided into three categories: planned, estimated and actual.
+    Planned events provide the planned route of a transport equipment. Estimated
+    events provide the estimated time things will occur to the transport
+    equipment. Actual events indicate things that occurred to the transport
+    equipment.
+
+
+    The event filter parameter can be used to control the processing done in the
+    transport plan analysis.
+
+
+    * latest -  The transportPlanIssuanceTime8601 will be used to determine the
+    most recent transport plan. All Actual events will be returned, no filtering
+    is done. For Estimated events, the location, the eventSubmissionTime, the
+    originatorId, and the fullStatus fields will be used to determine the most
+    recent version of the event. Estimated events will be replaced by the
+    corresponding Actual events. The resulting list will contain the Planned
+    event (if there is one) followed by the Actual or Estimated (if not Actual).
+
+
+    * all - All the transport plans sent to this trade object will be returned,
+    from most recent to oldest. Each transport plan will have a version, the
+    transport plan issuance date, and the name of the organization that sent the
+    plan, along with the list of Planned events.
+
+
+    Note that the only events returned by this endpoint are the set of events
+    known as “transport”events. This does NOT include consignment, transport
+    equipment, generic, or document events. For a complete list of transport
+    events, see the Transport Events category in the Event Publish Swagger
+    documentation. To get all events for a consignment or transport equipment,
+    use the …/events/... endpoint.
+
+
+    Commodity and originator information visibility is restricted to orgs that
+    were onboarded with certain types. If your org does not have one of these
+    correct types, then you may not have visibility to the following fields in
+    each event:
+
+    Commodity information:
+
+    - harmonizedCodes
+
+    - bookingData.commodities.commodityDescription
+
+    - bookingData.commodities.commodityHarmonizedCode
+
+
+    Originator information:
+
+    - originatorName
+
+    - originatorId
+
+    - senderOrgId
+
+
+    In addition, The originator information on a Party Add/Update/Remove event
+    will be hidden if you are not the org who submitted the event or one of the
+    parties being added. The originator information and 'destinationOrgName'
+    field on a Document event whose 'action' field is 'issued', 'transferred',
+    or 'surrendered' will be hidden if you are not the org who submitted the
+    event or the org that the document is being transferred to.
+  operationId: transportSummaryConsignmentIdUsingGET_1
+  parameters:
+    - name: consignmentId
+      in: path
+      description: Consignment ID
+      required: true
+      schema:
+        type: string
+    - name: eventFilter
+      in: query
+      description: "{all | latest}"
+      required: false
+      schema:
+        type: string
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/VersionedTransportSummary"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

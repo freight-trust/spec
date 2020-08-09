@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: string
+  entitled:
+    type: boolean
+example:
+  id: bolVerifier
+  allowed: true

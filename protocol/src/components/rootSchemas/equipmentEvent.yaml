@@ -1,0 +1,46 @@
+description: >-
+  The equipment event entity is a specialization of the event entity to support
+  specification of data that only applies to an equipment event.
+allOf:
+  - $ref: "#/components/schemas/event"
+  - type: object
+    properties:
+      eventType:
+        type: string
+        example: EQUIPMENT
+        nullable: false
+        enum:
+          - EQUIPMENT
+      eventTypeCode:
+        type: string
+        example: LOAD
+        enum:
+          - LOAD
+          - DISC
+          - GTIN
+          - GTOT
+          - STUF
+          - STRP
+        nullable: false
+        maxLength: 4
+        description: >
+          Unique identifier for Event Type Code. For equipment events this can
+          be:
+
+          - LOAD (Load)
+
+          - DISC (Discharge)
+
+          - GTIN (Gate in)
+
+          - GTOT (Gate out)
+
+          - STUF (Stuffing)
+
+          - STRP (Stripping)
+      equipmentReference:
+        $ref: "#/components/schemas/equipmentReference"
+      emptyIndicatorCode:
+        $ref: "#/components/schemas/emptyIndicatorCode"
+    required:
+      - emptyIndicatorCode

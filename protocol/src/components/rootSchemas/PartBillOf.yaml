@@ -1,0 +1,14 @@
+type: object
+properties:
+  carrierBookingNumber:
+    type: string
+    example: "123456789"
+    description: The Carrier Booking Number
+  billOfLadingNumber:
+    type: string
+    example: DMKLLE0020217
+    description: Bill of Lading Number
+  consignmentId:
+    type: string
+    example: c93b1946-d8f7-11e7-9296-cec278b6b50a
+    description: Generated ID for the consignment

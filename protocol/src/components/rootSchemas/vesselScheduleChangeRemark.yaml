@@ -1,0 +1,6 @@
+description: >-
+  Free text information provided by the vessel operator regarding the reasons
+  for the change in schedule and/or plans to mitigate schedule slippage.
+type: string
+example: Bad weather
+maxLength: 250

@@ -1,0 +1,7 @@
+description: List of organizations
+type: object
+properties:
+  organizations:
+    type: array
+    items:
+      $ref: ./Organization.yaml

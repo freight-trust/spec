@@ -1,0 +1,16 @@
+type: object
+required:
+  - message
+properties:
+  code:
+    type: string
+    example: "404"
+    description: HTTP status code
+  message:
+    type: string
+    example: Not Found.
+    description: Message describing the status
+  timestamp:
+    type: string
+    example: 2020-09-13T23:30:52.123Z
+    description: time of error

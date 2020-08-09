@@ -1,0 +1,6 @@
+in: path
+description: userId / serviceId associated with the user.
+name: id
+schema:
+  type: string
+required: true

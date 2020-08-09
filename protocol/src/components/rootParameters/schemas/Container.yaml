@@ -1,0 +1,43 @@
+properties:
+  creationTime:
+    type: string
+  completedTime:
+    type: string
+  eventSubmissionTime:
+    type: string
+  completionState:
+    type: string
+  delegationId:
+    type: string
+  containerTransportId:
+    type: string
+  containerTransportReferences:
+    type: array
+    items:
+      type: string
+  physicalId:
+    type: string
+  shipmentIds:
+    type: array
+    items:
+      type: string
+  carrierBookingNumbers:
+    type: array
+    items:
+      type: string
+  billOfLadingNumbers:
+    type: array
+    items:
+      type: string
+  originPort:
+    type: string
+  destinationPort:
+    type: string
+  inlandTransportProviders:
+    type: array
+    items:
+      type: string
+  tier:
+    type: number
+  oceanCarrier:
+    type: string

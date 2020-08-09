@@ -1,0 +1,7 @@
+in: query
+description: >-
+  Comma separated list of entitlement types to filter business partners list.
+  Currently only bolVerifier and eBOL are supported. Example `bolVerifier, eBOL`
+name: entitlements
+schema:
+  type: string

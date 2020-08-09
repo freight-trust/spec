@@ -1,0 +1,9 @@
+properties:
+  userId:
+    type: string
+  orgId:
+    type: string
+  userName:
+    type: string
+  prefs:
+    $ref: ./prefs.yaml

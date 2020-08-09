@@ -1,0 +1,21 @@
+type: object
+required:
+  - documentSchemaId
+  - version
+properties:
+  documentSchemaId:
+    type: string
+    example: a0b1c2d3-e4f5-0a1b-2c3d-0123456789ab
+    description: >-
+      Unique identifier for the Document Schema entry that corresponds to the
+      schema definition that the uploaded document is adhering to and that the
+      uploaded document will be validated against.
+  version:
+    type: integer
+    format: int32
+    example: v1
+    description: >-
+      The Version of the Document schema entry that corresponds to the schema
+      definition that the uploaded document is adhering to and that the uploaded
+      document will be validated against.
+title: SchemaReference

@@ -1,0 +1,16 @@
+type: object
+properties:
+  PortId:
+    description: The id of the port.
+    type: string
+  Workspace:
+    description: The workspace of the port.
+    type: string
+  PortType:
+    description: The type of the port.
+    type: string
+  ParentPort:
+    description: The parent ports separated by a comma.
+    type: string
+required:
+  - PortId

@@ -1,0 +1,38 @@
+summary: Get Users Response
+value:
+  - type: user
+    name: string
+    userId: string
+    oid: string
+    uid: string
+    solution: string
+    sid: string
+    organization: string
+    isOrganizationAdmin: true
+    isSolutionAdmin: true
+    isSolutionManager: true
+    isSystemUser: true
+    isNetworkAdmin: true
+    isBlockchainClient: true
+    onboardedBy: string
+    created: 0
+    updatedBy: string
+    updated: 0
+  - type: system
+    name: string
+    serviceId: string
+    oid: string
+    uid: string
+    solution: string
+    sid: string
+    organization: string
+    isOrganizationAdmin: true
+    isSolutionAdmin: true
+    isSolutionManager: true
+    isSystemUser: true
+    isNetworkAdmin: true
+    isBlockchainClient: true
+    onboardedBy: string
+    created: 0
+    updatedBy: string
+    updated: 0

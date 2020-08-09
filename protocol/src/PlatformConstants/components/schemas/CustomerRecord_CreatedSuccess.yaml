@@ -1,0 +1,5 @@
+description: Create/replace customer record success response
+properties:
+  customerRecord:
+    description: The created customer record
+    $ref: ./CustomerRecord.yaml

@@ -1,0 +1,36 @@
+type: object
+properties:
+  hasMore:
+    type: boolean
+    example: false
+  newFrom:
+    type: string
+  resources:
+    type: array
+    items:
+      type: object
+      required:
+        - id
+        - success
+      properties:
+        id:
+          type: string
+          example: 0003f9c7-ef2e-4c9f-8018-cc9e98faed37
+        resourceType:
+          type: string
+          example: consignment
+        success:
+          type: boolean
+          example: true
+        error:
+          type: object
+          properties:
+            message:
+              type: string
+              example: Resource does not exist
+            code:
+              type: string
+              example: not_found
+            name:
+              type: string
+              example: NotFoundError

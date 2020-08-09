@@ -1,0 +1,58 @@
+post:
+  tags:
+    - Actionable Flows Queries
+  summary: Query all Actionableflows by FlowType
+  description: "  Queries for Actionable flow for the given Flow Type for currently logged in user.The following rules applies for a valid api request :\n\r\nflowType is required (Currently supporting \"eBOLFlow\" and \"SIToBillFlow\"). e.g.  \"flowType\": \"eBOLFlow\", \r\nflowState  is optional. If present, it can have \"ISSUED, TRANSFERRED, SURRENDERED, SWITCHEDTOPAPER\" as a possible value for \"eBOLFlow\" and \"SI_Draft, VC_PendingApproval, VC_Clarifications, VC_Approved, FinalBill\" for \"SIToBillFlow\" . e.g.\r\n\"flowState\": \"ISSUED\" \r\ntradeInstrumentIdentifiers is optional. For \"eBOLFlow\", If present, A Consignment Identifier with billOfLading number is required. Currently Internal Identifier(consignmentId) or external(CBN without BOL) search is not supported.\r\n For \"SIToBillFlow\", A Consignment Identifier (consignmentId or carrierBookingNumber) is required. ConsignmentId  or carrierBookingNumber or a combination of carrierBookingNumber and billOfLadingNumber can be used to identify a Consignment. If both external(CBN) and internal identifier(consignmentId) is provided then internal identifier takes precedence. Other trade object identifiers (Shipment , Transport equipment) are not supported for search.\"  \n\t  \r\ne.g. {\"tradeInstrumentIdentifiers\":{\"consignment\":{\"billOfLadingNumber\":\"BOL12345\"}}}\r\n\nlimit  is Optional. The default limit is 10.\r\n\nfrom  is Optional. Specififies the bookmark for paginated response."
+  operationId: getAllActionableFlowsByFlowTypeUsingPOST
+  parameters:
+    - name: from
+      in: query
+      description: Specifies the bookmark or offset we start from
+      required: false
+      allowEmptyValue: false
+      schema:
+        type: string
+    - name: limit
+      in: query
+      description: >-
+        Number of flow instances to return. If not set or set to 0, then
+        defaults to 10
+      required: false
+      allowEmptyValue: false
+      schema:
+        type: integer
+        format: int32
+        default: 0
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/QueryActionableFlowRequest"
+    description: >-
+      Request object with flowType and optional tradeInstrumentIdentifiers,
+      includeInactive
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/PaginatedAFQueryResponse"
+    "202":
+      description: Request Accepted
+    "400":
+      description: Bad request
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

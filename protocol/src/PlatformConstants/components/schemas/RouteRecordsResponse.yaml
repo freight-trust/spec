@@ -1,0 +1,29 @@
+description: Route Records Response
+type: object
+properties:
+  routeRecordId:
+    type: string
+    description: UUID associated with the route record.
+  routeType:
+    description: Route Type.
+    allOf:
+      - $ref: ./RouteTypeEnum.yaml
+  routePartnerRef:
+    type: string
+    description: Partner Ref associatied with the route.
+  routeOrigin:
+    description: unlocode associatied with the route Origin location.
+    allOf:
+      - $ref: ./UnLocode.yaml
+  routeDestination:
+    description: unlocode associatied with the route Destination location.
+    allOf:
+      - $ref: ./UnLocode.yaml
+example:
+  routeRecordId: b2a942d8-3487-4c40-a47d-b3f8100878b7
+  routeType: vessel
+  routePartnerRef: routeRef1
+  routeOrigin:
+    unlocode: CUQMA
+  routeDestination:
+    unlocode: SIPTV

@@ -1,0 +1,5 @@
+in: query
+description: Trade object type
+name: tradeInstrument
+schema:
+  type: string

@@ -1,0 +1,88 @@
+get:
+  tags:
+    - Event Queries
+  summary: Fetch unassociated events
+  operationId: queryUnassociatedEventsUsingGET
+  parameters:
+    - name: size
+      in: query
+      description: >-
+        Optional, limit to apply to the individual queries for orphaned events
+        and homeless events, max 1000. Since this limit applies to each category
+        of "unassociated events" individually, using a size of 50 could result
+        in at most 100 returned events (50 homeless events, 50 orphaned events).
+      required: false
+      schema:
+        type: integer
+        format: int32
+        default: 50
+    - name: from
+      in: query
+      description: >-
+        Optional, bookmark to get the next chunk of results to a previously
+        executed query. This must be the newFrom value from a previous
+        unassociated events query.
+      required: false
+      schema:
+        type: string
+    - name: eventTransactionId
+      in: query
+      description: >-
+        Optional, only include unassociated events that match this
+        eventTransactionId.
+      required: false
+      schema:
+        type: string
+    - name: sortBy
+      in: query
+      description: "Optional, the field on which to order the results"
+      required: false
+      schema:
+        type: string
+        enum:
+          - eventOccurrenceTime
+          - equipmentNumber
+          - carrierBookingNumber
+          - billOfLadingNumber
+    - name: sortOrder
+      in: query
+      description: "Optional, the sort order to apply to sortBy field."
+      required: false
+      schema:
+        type: string
+        enum:
+          - ascending
+          - descending
+        default: ascending
+    - name: Accept-Language
+      in: header
+      description: Accept-Language
+      required: false
+      schema:
+        type: string
+        default: en
+  responses:
+    "200":
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/UnassociatedEventsResponse"
+    "403":
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ForbiddenResponse"
+    "404":
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundResponse"
+    "429":
+      description: Too Many Requests
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RateLimitResponseModel"

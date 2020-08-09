@@ -1,0 +1,5 @@
+in: query
+description: Filter response for a specific partnerId
+name: partnerId
+schema:
+  type: string

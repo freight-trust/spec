@@ -1,0 +1,41 @@
+post:
+  tags:
+    - Transactions
+  summary: Fetch actionable doc flow transactions
+  description: "Fetch the actionable doc flow transactions based on OrganizationId .\r\n\r\n\r\nSupports optional filtering by TransactionRequest object which are docType and tradeInstrumentIdentifiers.\r\nFor filtering using tradeInstrumentIdentifiers use the tradeInstrumentIdentifiers property in the request payload.\r\n\r\n\r\ntradeInstrumentIdentifiers: At least one of the defined trade object(consignment or transportEquipment), with at least one of the \r\nobject properties(carrierBookingNumber and/or billOfLadingNumber and/or equipmentNumber) must be specified.\r\n\r\ne.g. \r\n{\"tradeInstrumentIdentifiers\":{\"consignment\":{\"carrierBookingNumber\":\"CBN12345\"}}}"
+  operationId: getAllTransactionsUsingPOST
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "#/components/schemas/TransactionRequest"
+    description: >-
+      TransactionRequest object with optional filters by docType and
+      tradeInstrumentIdentifiers
+    required: true
+  responses:
+    "200":
+      description: OK
+      content:
+        "*/*":
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/TransactionResponse"
+    "202":
+      description: Request Accepted
+    "400":
+      description: Bad request
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+    "401":
+      description: Unauthorized
+    "500":
+      description: Server Error
+      content:
+        "*/*":
+          schema:
+            $ref: "#/components/schemas/AppExceptionResponse"
+  deprecated: false

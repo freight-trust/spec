@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Constants and Types
+  summary: Returns docTypes used to validate content
+  description: Returns list of supported document types in
+  operationId: getMetaInfo
+  parameters:
+    - in: query
+      description: >-
+        Filter document types supported by each tradeInstrument type. Note that only
+        one tradeInstrument type can be specified (shipment, consignment or
+        transportEquipment)
+      name: tradeInstrument
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Meta information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/resource.yaml

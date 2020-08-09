@@ -1,0 +1,7 @@
+in: query
+description: The desired usage timeframe start date (MM-DD-YYYY)
+name: startDate
+schema:
+  type: string
+  pattern: '^([01]\d-[0-3]\d-\d{4,})$'
+required: true

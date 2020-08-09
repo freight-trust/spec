@@ -1,0 +1,7 @@
+type: object
+properties:
+  Workspaceid:
+    description: The Id of the workspace.
+    type: string
+required:
+  - Workspaceid

@@ -1,0 +1,7 @@
+in: path
+description: Rule ID is pl_ followed by the ChannelMember Id
+name: partitionRuleId
+schema:
+  type: string
+  x-example: pl_ocean-carrier
+required: true

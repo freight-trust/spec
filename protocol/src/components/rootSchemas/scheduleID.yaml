@@ -1,0 +1,4 @@
+description: ID uniquely identifying a schedule
+type: number
+example: 3
+nullable: false

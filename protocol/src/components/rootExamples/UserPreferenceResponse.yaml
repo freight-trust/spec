@@ -1,0 +1,16 @@
+summary: User Preference Response
+value:
+  name: Jhon
+  prefs:
+    locale: en_US
+    contacts:
+      - contactId: UUID-123-456
+        contactType: Webhook
+        contactInfo: "https://foo.bar"
+        nickname: JohnDoe
+        verified: true
+      - contactId: UUID-123-4567
+        contactType: Email
+        contactInfo: user@mail.com
+        nickname: JohnD
+        verified: false

@@ -1,0 +1,12 @@
+type: object
+required:
+  - reference
+properties:
+  reference:
+    type: string
+    example: myReference-1
+    description: A reference to this object
+  type:
+    type: string
+    example: proformaInvoiceNumber
+    description: Type of the reference

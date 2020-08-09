@@ -1,0 +1,17 @@
+type: object
+properties:
+  contentUrl:
+    type: string
+  description:
+    type: string
+  docId:
+    type: string
+  docReferences:
+    type: array
+    items:
+      $ref: "#/components/schemas/DocReference"
+  docType:
+    type: string
+  docVersion:
+    type: integer
+    format: int32

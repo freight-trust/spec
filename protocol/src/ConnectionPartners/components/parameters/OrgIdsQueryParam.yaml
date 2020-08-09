@@ -1,0 +1,7 @@
+name: orgId
+in: query
+description: The list of organization IDs to filter
+schema:
+  type: array
+  items:
+    type: string

@@ -1,0 +1,15 @@
+type: object
+properties:
+  actionDisplayName:
+    type: string
+  actionId:
+    type: string
+  actionObject:
+    type: string
+  actionType:
+    type: string
+  docTypes:
+    type: object
+  flowState:
+    type: object
+title: QueryNextAction

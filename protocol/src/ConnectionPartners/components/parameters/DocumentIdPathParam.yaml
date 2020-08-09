@@ -1,0 +1,6 @@
+in: path
+description: The ID of the document
+name: documentId
+schema:
+  $ref: ../schemas/UUID.yaml
+required: true

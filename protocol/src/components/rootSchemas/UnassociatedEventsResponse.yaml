@@ -1,0 +1,27 @@
+type: object
+required:
+  - newFrom
+  - size
+  - total
+properties:
+  total:
+    type: integer
+    format: int64
+    description: The total number of hits returned by the query
+  size:
+    type: integer
+    format: int32
+    description: Number of events in this result
+  orphanedEvents:
+    type: array
+    description: The list of orphaned events
+    items:
+      $ref: "#/components/schemas/Events"
+  homelessEvents:
+    type: array
+    description: The list of homeless events
+    items:
+      $ref: "#/components/schemas/Events"
+  newFrom:
+    type: string
+    description: Bookmark to use for retrieving more query results

@@ -1,0 +1,6 @@
+in: query
+description: The customer organization id.
+name: orgId
+schema:
+  type: string
+required: true

@@ -1,0 +1,28 @@
+type: object
+required:
+  - description
+properties:
+  description:
+    type: string
+    example: Document description
+    description: A description of the document passed by URI
+  platformDocumentVersion:
+    type: integer
+    format: int32
+  uri:
+    type: string
+    example: "https://box.com/file/34534645765543"
+    description: A URI pointing to a copy of the document
+  hash:
+    type: string
+    example: 67c53aa7ddf77389914e2e319abdd158c96a451e2436156bb78e62964aab0930
+    description: The hash code of the document referenced by the URI
+  hashEncodingType:
+    type: string
+    example: MD5
+    description: The algorithm used to generate the hash
+  platformDocumentId:
+    type: string
+    description: >-
+      The ID of this document in Platform - used by Platform to reconstruct the
+      document URI.

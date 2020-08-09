@@ -1,0 +1,5 @@
+type: object
+properties:
+  verified:
+    type: boolean
+    example: true

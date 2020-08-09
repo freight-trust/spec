@@ -1,0 +1,8 @@
+type: object
+properties:
+  orgType:
+    type: string
+    example: truck operator
+  priority:
+    type: number
+    example: 6

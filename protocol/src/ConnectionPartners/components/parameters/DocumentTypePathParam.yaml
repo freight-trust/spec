@@ -1,0 +1,6 @@
+in: path
+description: The code for a supported document type.
+name: documentTypeId
+schema:
+  $ref: ../schemas/DocumentTypeEnum.yaml
+required: true

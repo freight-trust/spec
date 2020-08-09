@@ -1,0 +1,7 @@
+name: role
+in: query
+description: The list of trade party roles to filter
+schema:
+  type: array
+  items:
+    $ref: ../schemas/TradePartyEnum.yaml

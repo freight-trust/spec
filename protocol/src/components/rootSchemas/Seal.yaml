@@ -1,0 +1,20 @@
+type: object
+required:
+  - sealNumber
+  - sealType
+properties:
+  sealNumber:
+    type: string
+    example: SEAL736481273
+    description: Seal Identification Number
+  sealType:
+    type: string
+    example: Carrier
+    description: Seal Type
+    enum:
+      - Carrier
+      - Customs
+      - Shippers
+      - Agency
+      - Veterinary
+      - Electronic

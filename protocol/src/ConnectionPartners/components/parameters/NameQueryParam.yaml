@@ -1,0 +1,5 @@
+in: query
+description: The customer name to filter search results on (includes match; ignores case)
+name: name
+schema:
+  type: string

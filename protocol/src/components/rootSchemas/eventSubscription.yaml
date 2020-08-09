@@ -1,0 +1,3 @@
+allOf:
+  - $ref: "#/components/schemas/subscriptionID"
+  - $ref: "#/components/schemas/eventSubscriptionBody"

@@ -1,0 +1,20 @@
+type: object
+properties:
+  ConnectorId:
+    type: string
+    description: The id of the connector. Required.
+  PortId:
+    type: string
+    description: The id of the port.
+  File:
+    type: string
+    description: The file name.
+  Subfolder:
+    type: string
+    description: The subfolder of the file.
+  Attachment#:
+    type: string
+    description: The attachment file.
+  FormatResult:
+    type: string
+    description: Is format result.
