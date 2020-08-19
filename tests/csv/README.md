@@ -1,4 +1,4 @@
-# Concensus Testing 
+# Concensus Testing
 
 > Clique Concensus testing toolkit
 
@@ -9,6 +9,7 @@ Run 1 chain simulation with `diff_inturn=2`, `diff_noturn=1`, `peer_count=8`, an
 ```bash
 ruby ./diff.rb 2 1 8 0.001 true
 ```
+
 the last argument `true` enables debug logging to display the actual chain simulation:
 
 ```bash
