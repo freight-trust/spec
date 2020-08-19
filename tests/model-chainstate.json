@@ -1,0 +1,9 @@
+  {
+    "peer_count": integer,
+    "diff_inturn": integer,
+    "diff_noturn": boolean,
+    "blocks_chain": unsigned intger,
+    "blocks_target": unsigned intger,
+    "net_fragmentation": signed integer,
+    "num_reorgs": integer
+  }
