@@ -23,34 +23,34 @@ post:
     content:
       application/json:
         schema:
-          $ref: "#/components/schemas/TradeInstrumentIdsIdentifiers"
+          $ref: '#/components/schemas/TradeInstrumentIdsIdentifiers'
     description: >-
       See Model to the right for the full description of the identifiers. Note
       that only one identifier can be specified (consignment, transportEquipment
       or shipment) and within that identifier, at least one field must be
       specified but not all are required.
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/TradeInstrumentIdsResponse"
-    "403":
+            $ref: '#/components/schemas/TradeInstrumentIdsResponse'
+    '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ForbiddenResponse"
-    "404":
+            $ref: '#/components/schemas/ForbiddenResponse'
+    '404':
       description: Not Found
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/NotFoundResponse"
-    "429":
+            $ref: '#/components/schemas/NotFoundResponse'
+    '429':
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/RateLimitResponseModel"
+            $ref: '#/components/schemas/RateLimitResponseModel'

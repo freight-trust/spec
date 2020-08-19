@@ -14,7 +14,7 @@ properties:
       archived.
   PortId:
     type: string
-    description: "The Id of the Port to be archived. If not set, all ports will be archived."
+    description: 'The Id of the Port to be archived. If not set, all ports will be archived.'
   Folder:
     type: string
     description: >-

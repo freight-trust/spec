@@ -4,5 +4,5 @@ properties:
   productId:
     type: string
 example:
-  contractLineId: "1"
+  contractLineId: '1'
   productId: SR41101

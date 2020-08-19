@@ -9,7 +9,7 @@ properties:
     items:
       $ref: ./Attribute.yaml
     example:
-      - name: "resource:type"
+      - name: 'resource:type'
         value: transport_equipment
       - name: channelMemberId
         value: some-test-org

@@ -22,4 +22,4 @@ properties:
     type: array
     description: The transport summary for a given Transport Equipment
     items:
-      $ref: "#/components/schemas/ApiV1TransportSummaryEvent"
+      $ref: '#/components/schemas/ApiV1TransportSummaryEvent'

@@ -47,7 +47,7 @@ get:
         you can use the following filter to retrieve records with the name
         'John': $filter=Name eq 'John'
   responses:
-    "200":
+    '200':
       description: workspaces response
       content:
         application/json:
@@ -82,7 +82,7 @@ post:
           $ref: ../components/schemas/workspaces.yaml
     required: true
   responses:
-    "201":
+    '201':
       description: workspaces created
       content:
         application/json:

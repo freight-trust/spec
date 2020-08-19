@@ -8,34 +8,34 @@ post:
     content:
       application/json:
         schema:
-          $ref: "#/components/schemas/TransactionRequest"
+          $ref: '#/components/schemas/TransactionRequest'
     description: >-
       TransactionRequest object with optional filters by docType and
       tradeInstrumentIdentifiers
     required: true
   responses:
-    "200":
+    '200':
       description: OK
       content:
-        "*/*":
+        '*/*':
           schema:
             type: array
             items:
-              $ref: "#/components/schemas/TransactionResponse"
-    "202":
+              $ref: '#/components/schemas/TransactionResponse'
+    '202':
       description: Request Accepted
-    "400":
+    '400':
       description: Bad request
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
-    "401":
+            $ref: '#/components/schemas/AppExceptionResponse'
+    '401':
       description: Unauthorized
-    "500":
+    '500':
       description: Server Error
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
+            $ref: '#/components/schemas/AppExceptionResponse'
   deprecated: false

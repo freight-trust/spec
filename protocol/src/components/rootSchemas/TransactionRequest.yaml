@@ -5,5 +5,5 @@ properties:
     example: PACKING_LIST
     description: Represent the type of the document.
   tradeInstrumentIdentifiers:
-    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+    $ref: '#/components/schemas/TradeInstrumentIdentifiers'
 title: TransactionRequest

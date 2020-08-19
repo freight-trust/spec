@@ -8,30 +8,30 @@ post:
     content:
       application/json:
         schema:
-          $ref: "#/components/schemas/DocumentMessageRequest"
+          $ref: '#/components/schemas/DocumentMessageRequest'
     description: DocumentMessageRequest
     required: true
   responses:
-    "200":
+    '200':
       description: OK
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/DocumentMessageResponse"
-    "202":
+            $ref: '#/components/schemas/DocumentMessageResponse'
+    '202':
       description: Request Accepted
-    "400":
+    '400':
       description: Bad request
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
-    "401":
+            $ref: '#/components/schemas/AppExceptionResponse'
+    '401':
       description: Unauthorized
-    "500":
+    '500':
       description: Server Error
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
+            $ref: '#/components/schemas/AppExceptionResponse'
   deprecated: false

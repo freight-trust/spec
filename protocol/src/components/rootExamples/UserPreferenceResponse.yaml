@@ -6,7 +6,7 @@ value:
     contacts:
       - contactId: UUID-123-456
         contactType: Webhook
-        contactInfo: "https://foo.bar"
+        contactInfo: 'https://foo.bar'
         nickname: JohnDoe
         verified: true
       - contactId: UUID-123-4567

@@ -20,7 +20,7 @@ properties:
       actionable doc flow transaction and refer with the unique
       flowTransactionId.
   schemaReference:
-    $ref: "#/components/schemas/SchemaReference"
+    $ref: '#/components/schemas/SchemaReference'
   tradeInstrumentIdentifiers:
-    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+    $ref: '#/components/schemas/TradeInstrumentIdentifiers'
 title: VerifyCopyActionableDocFlowResponse

@@ -19,7 +19,7 @@ get:
   parameters:
     - name: size
       in: query
-      description: "Optional, number of shipments to return, max 1000."
+      description: 'Optional, number of shipments to return, max 1000.'
       required: false
       schema:
         type: integer
@@ -36,13 +36,13 @@ get:
         type: string
     - name: shipmentId
       in: query
-      description: "Optional, only include results that match this shipment ID."
+      description: 'Optional, only include results that match this shipment ID.'
       required: false
       schema:
         type: string
     - name: createdBy
       in: query
-      description: "Optional, only include results that were created by the given party."
+      description: 'Optional, only include results that were created by the given party.'
       required: false
       explode: true
       schema:
@@ -206,27 +206,27 @@ get:
         type: string
         default: en
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ShipmentQueryResponse"
-    "403":
+            $ref: '#/components/schemas/ShipmentQueryResponse'
+    '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ForbiddenResponse"
-    "404":
+            $ref: '#/components/schemas/ForbiddenResponse'
+    '404':
       description: Not Found
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/NotFoundResponse"
-    "429":
+            $ref: '#/components/schemas/NotFoundResponse'
+    '429':
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/RateLimitResponseModel"
+            $ref: '#/components/schemas/RateLimitResponseModel'

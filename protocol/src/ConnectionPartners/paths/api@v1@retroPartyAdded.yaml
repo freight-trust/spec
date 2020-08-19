@@ -20,13 +20,13 @@ post:
         schema:
           $ref: ../components/schemas/IssueRetroPartyAdded_event.yaml
   responses:
-    "201":
+    '201':
       description: Created
       content:
         application/json:
           schema:
             $ref: ../components/schemas/Response.yaml
-    "429":
+    '429':
       description: Too Many Requests
       content:
         application/json:

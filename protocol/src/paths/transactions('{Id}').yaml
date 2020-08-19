@@ -17,7 +17,7 @@ get:
         type: string
       description: Select structural property
   responses:
-    "200":
+    '200':
       description: transactions response
       content:
         application/json:
@@ -47,7 +47,7 @@ delete:
       schema:
         type: string
   responses:
-    "204":
+    '204':
       description: transactions deleted
       content: {}
     default:

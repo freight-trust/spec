@@ -35,7 +35,7 @@ get:
         type: string
       description: Select structural property
   responses:
-    "200":
+    '200':
       description: files response
       content:
         application/json:
@@ -90,13 +90,13 @@ put:
         schema:
           $ref: ../components/schemas/files.yaml
   responses:
-    "200":
+    '200':
       description: EntitySet files
       content:
         application/json:
           schema:
             $ref: ../components/schemas/files.yaml
-    "204":
+    '204':
       description: files updated
       content: {}
     default:
@@ -141,7 +141,7 @@ delete:
       schema:
         type: string
   responses:
-    "204":
+    '204':
       description: files deleted
       content: {}
     default:

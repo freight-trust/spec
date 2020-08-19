@@ -10,7 +10,7 @@ post:
           $ref: ../components/schemas/getTransactionLogs_input.yaml
     required: true
   responses:
-    "200":
+    '200':
       description: The action result
       content:
         application/json:

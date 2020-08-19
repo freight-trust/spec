@@ -25,7 +25,7 @@ properties:
       - Survey result
       - Survey report
       - Reason for survey
-      - "HTS Code, Schedule B"
+      - 'HTS Code, Schedule B'
       - Reason for split
       - Temperature
       - Agency Seal

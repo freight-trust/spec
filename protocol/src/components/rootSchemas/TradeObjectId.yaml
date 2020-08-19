@@ -20,4 +20,4 @@ properties:
   creationTime:
     type: integer
     format: int64
-    description: "Time (since epoch, in milliseconds) at which the trade object was created."
+    description: 'Time (since epoch, in milliseconds) at which the trade object was created.'

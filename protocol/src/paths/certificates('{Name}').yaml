@@ -17,7 +17,7 @@ get:
         type: string
       description: Select structural property
   responses:
-    "200":
+    '200':
       description: certificates response
       content:
         application/json:
@@ -47,7 +47,7 @@ delete:
       schema:
         type: string
   responses:
-    "204":
+    '204':
       description: certificates deleted
       content: {}
     default:

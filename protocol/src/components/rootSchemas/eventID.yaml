@@ -1,5 +1,5 @@
 type: string
-example: "1"
+example: '1'
 description: >-
   The unique identifier for the Equipment Event ID/Transport Event ID/Shipment
   Event ID.

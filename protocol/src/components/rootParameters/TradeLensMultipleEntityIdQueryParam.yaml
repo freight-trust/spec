@@ -5,5 +5,5 @@ schema:
   type: array
   items:
     type: string
-  example: "consignment-123,document-xyz"
+  example: 'consignment-123,document-xyz'
 required: true

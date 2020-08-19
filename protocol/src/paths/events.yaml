@@ -9,7 +9,7 @@ get:
       description: The type of event(s) to filter by.
       required: false
       schema:
-        $ref: "#/components/schemas/eventTypeList"
+        $ref: '#/components/schemas/eventTypeList'
     - in: query
       name: bookingReference
       description: >-
@@ -17,7 +17,7 @@ get:
         of the carriers.
       required: false
       schema:
-        $ref: "#/components/schemas/bookingReference"
+        $ref: '#/components/schemas/bookingReference'
     - in: query
       name: transportDocumentID
       description: >-
@@ -30,7 +30,7 @@ get:
         non-negotiable.
       required: false
       schema:
-        $ref: "#/components/schemas/transportDocumentID"
+        $ref: '#/components/schemas/transportDocumentID'
     - in: query
       name: equipmentReference
       description: >-
@@ -38,41 +38,41 @@ get:
         Container Identification Number where possible.
       required: false
       schema:
-        $ref: "#/components/schemas/equipmentReference"
+        $ref: '#/components/schemas/equipmentReference'
     - in: query
       name: scheduleID
-      description: "ID uniquely identifying a schedule, to filter events by."
+      description: 'ID uniquely identifying a schedule, to filter events by.'
       required: false
       schema:
-        $ref: "#/components/schemas/scheduleID"
+        $ref: '#/components/schemas/scheduleID'
     - in: query
       name: transportCallID
-      description: "ID uniquely identifying a transport call, to filter events by."
+      description: 'ID uniquely identifying a transport call, to filter events by.'
       required: false
       schema:
-        $ref: "#/components/schemas/transportCallID"
+        $ref: '#/components/schemas/transportCallID'
     - in: query
       name: limit
       description: Maximum number of items to return.
       schema:
-        $ref: "#/components/parameters/limitParam"
+        $ref: '#/components/parameters/limitParam'
     - in: query
       name: cursor
       description: >-
         A server generated value to specify a specific point in a collection
         result, used for pagination.
       schema:
-        $ref: "#/components/parameters/cursorParam"
+        $ref: '#/components/parameters/cursorParam'
   responses:
-    "200":
+    '200':
       description: Successful operation
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/events"
+            $ref: '#/components/schemas/events'
     default:
       description: Unexpected error
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error"
+            $ref: '#/components/schemas/error'

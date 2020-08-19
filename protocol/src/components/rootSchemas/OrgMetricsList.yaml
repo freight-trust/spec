@@ -6,7 +6,7 @@ required:
 properties:
   creationTime:
     type: string
-    example: "2018-03-01T13:00:00-0500"
+    example: '2018-03-01T13:00:00-0500'
     description: Time when this query was executed.
   numberOfOrgs:
     type: integer

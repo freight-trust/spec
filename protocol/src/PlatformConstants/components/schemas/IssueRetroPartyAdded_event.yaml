@@ -13,7 +13,7 @@ properties:
       event
   eventSubmissionTime:
     type: number
-    description: "Time of submission, as the number of milliseconds since Epoch"
+    description: 'Time of submission, as the number of milliseconds since Epoch'
   eventSubmissionTime8601:
     type: string
     description: "Time of submission, in common ISO 8601 fromat yyyy-MM-dd'T'HH:mm:ss.SSSZ"

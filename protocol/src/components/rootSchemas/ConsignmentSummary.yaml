@@ -21,7 +21,7 @@ properties:
     type: array
     description: Cutoffs
     items:
-      $ref: "#/components/schemas/CutOff"
+      $ref: '#/components/schemas/CutOff'
   plannedVesselDeparture:
     type: integer
     format: int64
@@ -33,11 +33,11 @@ properties:
     example: 1514782800000
     description: Consignment Planned Vessel Arrival in epoch milliseconds
   bookingData:
-    $ref: "#/components/schemas/BookingData"
+    $ref: '#/components/schemas/BookingData'
   cargoTypes:
     type: array
     description: >-
       The harmonized codes of the type of cargo being shipped plus the
       descriptions
     items:
-      $ref: "#/components/schemas/Harmonized_Code_Response"
+      $ref: '#/components/schemas/Harmonized_Code_Response'

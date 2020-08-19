@@ -7,7 +7,7 @@ properties:
       yyyy-MM-dd'T'HH:mm:ss.SSSZ
   cutOffType:
     type: string
-    description: "Type of cut off, e.g. Documentation, VGM, Cargo"
+    description: 'Type of cut off, e.g. Documentation, VGM, Cargo'
     enum:
       - Cargo
       - Documentation
@@ -20,4 +20,4 @@ properties:
     type: string
     description: The event transaction ID of the event that created this cut off
   location:
-    $ref: "#/components/schemas/Location"
+    $ref: '#/components/schemas/Location'

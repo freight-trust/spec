@@ -1,8 +1,8 @@
 type: object
 properties:
   consignment:
-    $ref: "#/components/schemas/ConsignmentIdentifer"
+    $ref: '#/components/schemas/ConsignmentIdentifer'
   transportEquipment:
-    $ref: "#/components/schemas/TransportEquipmentIdentifier"
+    $ref: '#/components/schemas/TransportEquipmentIdentifier'
   shipment:
-    $ref: "#/components/schemas/ShipmentIdentifer"
+    $ref: '#/components/schemas/ShipmentIdentifer'

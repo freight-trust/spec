@@ -17,7 +17,7 @@ get:
         type: string
       description: Select structural property
   responses:
-    "200":
+    '200':
       description: ports response
       content:
         application/json:
@@ -54,13 +54,13 @@ put:
         schema:
           $ref: ../components/schemas/ports.yaml
   responses:
-    "200":
+    '200':
       description: EntitySet ports
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ports.yaml
-    "204":
+    '204':
       description: ports updated
       content: {}
     default:
@@ -87,7 +87,7 @@ delete:
       schema:
         type: string
   responses:
-    "204":
+    '204':
       description: ports deleted
       content: {}
     default:

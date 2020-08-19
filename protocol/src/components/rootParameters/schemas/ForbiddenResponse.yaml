@@ -4,7 +4,7 @@ required:
 properties:
   code:
     type: string
-    example: "403"
+    example: '403'
     description: HTTP status code
   message:
     type: string
@@ -12,5 +12,5 @@ properties:
     description: Message describing the status
   timestamp:
     type: string
-    example: "2020-09-13T23:30:52.123Z"
+    example: '2020-09-13T23:30:52.123Z'
     description: time of error

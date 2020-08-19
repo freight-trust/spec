@@ -1,7 +1,7 @@
 get:
   tags:
     - Transport Equipment Queries
-  summary: "Get the transport summary for one or more pieces of transport equipment "
+  summary: 'Get the transport summary for one or more pieces of transport equipment '
   description: >
     Provide the consignmentId of a Consignment. Returns the transport summary of
     all transport equipment associated with that consignment. 
@@ -87,7 +87,7 @@ get:
         type: string
     - name: eventFilter
       in: query
-      description: "{all | latest}"
+      description: '{all | latest}'
       required: false
       schema:
         type: string
@@ -99,27 +99,27 @@ get:
         type: string
         default: en
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/VersionedTransportSummary"
-    "403":
+            $ref: '#/components/schemas/VersionedTransportSummary'
+    '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ForbiddenResponse"
-    "404":
+            $ref: '#/components/schemas/ForbiddenResponse'
+    '404':
       description: Not Found
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/NotFoundResponse"
-    "429":
+            $ref: '#/components/schemas/NotFoundResponse'
+    '429':
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/RateLimitResponseModel"
+            $ref: '#/components/schemas/RateLimitResponseModel'

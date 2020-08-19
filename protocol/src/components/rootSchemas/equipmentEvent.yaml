@@ -2,7 +2,7 @@ description: >-
   The equipment event entity is a specialization of the event entity to support
   specification of data that only applies to an equipment event.
 allOf:
-  - $ref: "#/components/schemas/event"
+  - $ref: '#/components/schemas/event'
   - type: object
     properties:
       eventType:
@@ -39,8 +39,8 @@ allOf:
 
           - STRP (Stripping)
       equipmentReference:
-        $ref: "#/components/schemas/equipmentReference"
+        $ref: '#/components/schemas/equipmentReference'
       emptyIndicatorCode:
-        $ref: "#/components/schemas/emptyIndicatorCode"
+        $ref: '#/components/schemas/emptyIndicatorCode'
     required:
       - emptyIndicatorCode

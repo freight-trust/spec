@@ -4,7 +4,7 @@ get:
   tags:
     - User Preferences
   responses:
-    "200":
+    '200':
       description: Successfully created user preferences.
       content:
         application/json:

@@ -16,12 +16,12 @@ properties:
     type: array
     description: The list of orphaned events
     items:
-      $ref: "#/components/schemas/Events"
+      $ref: '#/components/schemas/Events'
   homelessEvents:
     type: array
     description: The list of homeless events
     items:
-      $ref: "#/components/schemas/Events"
+      $ref: '#/components/schemas/Events'
   newFrom:
     type: string
     description: Bookmark to use for retrieving more query results

@@ -4,7 +4,7 @@ properties:
     type: array
     description: References
     items:
-      $ref: "#/components/schemas/References"
+      $ref: '#/components/schemas/References'
   shipmentId:
     type: string
     example: sdkjf68-fdsjf0-jsddj-dskjk

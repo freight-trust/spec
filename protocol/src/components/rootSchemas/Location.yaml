@@ -2,7 +2,7 @@ type: object
 properties:
   description:
     type: string
-    example: "Rotterdam, ZH, NL"
+    example: 'Rotterdam, ZH, NL'
     description: Human readable location data for the event when type is UN/Locode
   locationKey:
     type: string
@@ -25,18 +25,18 @@ properties:
     example: USNWK
     description: A valid UN/CEFACT value for a UN/Locode
   address:
-    $ref: "#/components/schemas/Address"
+    $ref: '#/components/schemas/Address'
   smdgTerminal:
     type: string
     example: USEWR-PNCT
     description: A valid SMDG code for a Ocean Terminal
   geoCoord:
-    $ref: "#/components/schemas/GeoCoordinates"
+    $ref: '#/components/schemas/GeoCoordinates'
   splc:
     type: string
-    example: "191821"
+    example: '191821'
     description: A valid SPLC code for a Rail Terminal
   gln:
     type: string
-    example: "1234567890123"
+    example: '1234567890123'
     description: A GS1 Identification Key for the location

@@ -1,5 +1,5 @@
 in: query
-description: "{org Type}"
+description: '{org Type}'
 name: orgType
 required: false
 schema:

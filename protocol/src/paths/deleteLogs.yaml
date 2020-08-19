@@ -13,7 +13,7 @@ post:
         schema:
           $ref: ../components/schemas/deleteLogs_input.yaml
   responses:
-    "200":
+    '200':
       description: The action result
     default:
       description: Unexpected error

@@ -9,4 +9,4 @@ properties:
     example: 1
     description: Sequence number of this event
   event:
-    $ref: "#/components/schemas/ApiV1TransportEvent"
+    $ref: '#/components/schemas/ApiV1TransportEvent'

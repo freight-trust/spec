@@ -9,4 +9,4 @@ default:
   - TRANSPORT
 type: array
 items:
-  $ref: "#/components/schemas/eventType"
+  $ref: '#/components/schemas/eventType'

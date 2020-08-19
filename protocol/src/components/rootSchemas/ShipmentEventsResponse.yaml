@@ -4,4 +4,4 @@ properties:
     type: array
     description: The list of events for the shipment with the provided shipmentId
     items:
-      $ref: "#/components/schemas/Events"
+      $ref: '#/components/schemas/Events'

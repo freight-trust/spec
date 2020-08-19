@@ -2,7 +2,7 @@ type: object
 properties:
   carrierBookingNumber:
     type: string
-    example: "123456789"
+    example: '123456789'
     description: The Carrier Booking Number
   billOfLadingNumber:
     type: string

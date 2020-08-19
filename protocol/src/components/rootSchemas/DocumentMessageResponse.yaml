@@ -4,7 +4,7 @@ required:
   - tradeInstrumentIdentifiers
 properties:
   actionIdentifiers:
-    $ref: "#/components/schemas/ActionIdentifiers"
+    $ref: '#/components/schemas/ActionIdentifiers'
   docVersion:
     type: integer
     format: int32
@@ -22,5 +22,5 @@ properties:
       actionable doc flow transaction and refer with the unique
       flowTransactionId.
   tradeInstrumentIdentifiers:
-    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+    $ref: '#/components/schemas/TradeInstrumentIdentifiers'
 title: DocumentMessageResponse

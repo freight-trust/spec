@@ -8,9 +8,6 @@
   "licenseComments": "This license was released in January 2012. This license list entry is for use when the standard MPL 2.0 is used, as indicated by the standard header (Exhibit A but no Exhibit B).",
   "licenseId": "MPL-2.0",
   "standardLicenseHeader": "This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at http://mozilla.org/MPL/2.0/.",
-  "seeAlso": [
-    "http://www.mozilla.org/MPL/2.0/",
-    "https://opensource.org/licenses/MPL-2.0"
-  ],
+  "seeAlso": ["http://www.mozilla.org/MPL/2.0/", "https://opensource.org/licenses/MPL-2.0"],
   "isOsiApproved": true
 }

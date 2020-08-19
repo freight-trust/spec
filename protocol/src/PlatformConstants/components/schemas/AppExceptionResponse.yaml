@@ -12,4 +12,4 @@ properties:
     description: Exception Message
   timestamp:
     type: string
-    description: "timestamp "
+    description: 'timestamp '

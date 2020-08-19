@@ -1,13 +1,13 @@
 type: object
 properties:
   approve:
-    $ref: "#/components/schemas/ApproveIdentifier"
+    $ref: '#/components/schemas/ApproveIdentifier'
   eBLSurrender:
-    $ref: "#/components/schemas/SurrenderIdentifier"
+    $ref: '#/components/schemas/SurrenderIdentifier'
   eBLSwitchToPaper:
-    $ref: "#/components/schemas/SwitchToPaperIdentifier"
+    $ref: '#/components/schemas/SwitchToPaperIdentifier'
   eBLTransfer:
-    $ref: "#/components/schemas/TransferIdentifier"
+    $ref: '#/components/schemas/TransferIdentifier'
   reject:
-    $ref: "#/components/schemas/RejectIdentifier"
+    $ref: '#/components/schemas/RejectIdentifier'
 title: ActionIdentifiers

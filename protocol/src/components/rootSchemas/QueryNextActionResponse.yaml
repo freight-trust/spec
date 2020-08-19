@@ -5,9 +5,9 @@ properties:
   flowState:
     type: string
   tradeInstrumentIdentifiers:
-    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+    $ref: '#/components/schemas/TradeInstrumentIdentifiers'
   nextActions:
     type: array
     items:
-      $ref: "#/components/schemas/QueryNextAction"
+      $ref: '#/components/schemas/QueryNextAction'
 title: QueryNextActionResponse

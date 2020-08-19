@@ -4,7 +4,7 @@ required:
 properties:
   code:
     type: string
-    example: "404"
+    example: '404'
     description: HTTP status code
   message:
     type: string

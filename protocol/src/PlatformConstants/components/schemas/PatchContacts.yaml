@@ -12,7 +12,7 @@ properties:
           - $ref: ./ContactTypeEnum.yaml
       contactInfo:
         type: string
-        example: "https://foo.bar"
+        example: 'https://foo.bar'
       nickname:
         type: string
         example: JohnDoe

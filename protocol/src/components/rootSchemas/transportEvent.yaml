@@ -2,7 +2,7 @@ description: >-
   The transport event entity is a specialization of the event entity to support
   specification of data that only applies to a transport event.
 allOf:
-  - $ref: "#/components/schemas/event"
+  - $ref: '#/components/schemas/event'
   - type: object
     properties:
       eventType:
@@ -23,8 +23,8 @@ allOf:
           Unique identifier for Event Type Code, for transport events this is
           either ARRI (Arrival) or DEPA (Departure).
       delayReasonCode:
-        $ref: "#/components/schemas/delayReasonCode"
+        $ref: '#/components/schemas/delayReasonCode'
       vesselScheduleChangeRemark:
-        $ref: "#/components/schemas/vesselScheduleChangeRemark"
+        $ref: '#/components/schemas/vesselScheduleChangeRemark'
     required:
       - transportCallID

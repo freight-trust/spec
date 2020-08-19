@@ -9,7 +9,7 @@ properties:
   docReferences:
     type: array
     items:
-      $ref: "#/components/schemas/DocReference"
+      $ref: '#/components/schemas/DocReference'
   docType:
     type: string
   docVersion:

@@ -61,7 +61,7 @@ get:
   parameters:
     - name: size
       in: query
-      description: "Optional, number of consignments to return, max 1000"
+      description: 'Optional, number of consignments to return, max 1000'
       required: false
       schema:
         type: integer
@@ -107,43 +107,43 @@ get:
         format: int64
     - name: exportCountry
       in: query
-      description: "Optional, only include results that match this export country"
+      description: 'Optional, only include results that match this export country'
       required: false
       schema:
         type: string
     - name: importCountry
       in: query
-      description: "Optional, only include results that match this import country"
+      description: 'Optional, only include results that match this import country'
       required: false
       schema:
         type: string
     - name: entryPort
       in: query
-      description: "Optional, only include results that match this entry port"
+      description: 'Optional, only include results that match this entry port'
       required: false
       schema:
         type: string
     - name: exitPort
       in: query
-      description: "Optional, only include results that match this exit port"
+      description: 'Optional, only include results that match this exit port'
       required: false
       schema:
         type: string
     - name: consignmentId
       in: query
-      description: "Optional, only include results that match this consignment ID"
+      description: 'Optional, only include results that match this consignment ID'
       required: false
       schema:
         type: string
     - name: consignmentRef
       in: query
-      description: "Optional, only include results that match this consignment reference"
+      description: 'Optional, only include results that match this consignment reference'
       required: false
       schema:
         type: string
     - name: status
       in: query
-      description: "Optional, only include results that match this consignment status"
+      description: 'Optional, only include results that match this consignment status'
       required: false
       schema:
         type: string
@@ -173,7 +173,7 @@ get:
         type: string
     - name: billOfLadingNumber
       in: query
-      description: "Optional, only include results that match this bill of lading number"
+      description: 'Optional, only include results that match this bill of lading number'
       required: false
       schema:
         type: string
@@ -188,13 +188,13 @@ get:
         type: string
     - name: carrierBookingNumber
       in: query
-      description: "Optional, only include results that match this carrier booking number"
+      description: 'Optional, only include results that match this carrier booking number'
       required: false
       schema:
         type: string
     - name: terminal
       in: query
-      description: "Optional, only include results that match this terminal name"
+      description: 'Optional, only include results that match this terminal name'
       required: false
       schema:
         type: string
@@ -317,27 +317,27 @@ get:
         type: string
         default: en
   responses:
-    "200":
+    '200':
       description: OK
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ConsignmentQueryResponse"
-    "403":
+            $ref: '#/components/schemas/ConsignmentQueryResponse'
+    '403':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/ForbiddenResponse"
-    "404":
+            $ref: '#/components/schemas/ForbiddenResponse'
+    '404':
       description: Not Found
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/NotFoundResponse"
-    "429":
+            $ref: '#/components/schemas/NotFoundResponse'
+    '429':
       description: Too Many Requests
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/RateLimitResponseModel"
+            $ref: '#/components/schemas/RateLimitResponseModel'

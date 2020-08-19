@@ -6,7 +6,7 @@ properties:
     description: The transport equipment number to search with
   carrierBookingNumber:
     type: string
-    example: "123456789"
+    example: '123456789'
     description: The carrier booking number to search with
   billOfLadingNumber:
     type: string
@@ -15,4 +15,4 @@ properties:
   references:
     type: array
     items:
-      $ref: "#/components/schemas/TradeInstrumentReference"
+      $ref: '#/components/schemas/TradeInstrumentReference'

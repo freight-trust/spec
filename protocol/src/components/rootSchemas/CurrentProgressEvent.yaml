@@ -16,11 +16,11 @@ properties:
     type: array
     description: The list of actual events
     items:
-      $ref: "#/components/schemas/ApiV1TransportEvent"
+      $ref: '#/components/schemas/ApiV1TransportEvent'
   estimates:
     type: array
     description: The list of estimated events
     items:
-      $ref: "#/components/schemas/ApiV1TransportEvent"
+      $ref: '#/components/schemas/ApiV1TransportEvent'
   planned:
-    $ref: "#/components/schemas/ApiV1TransportEvent"
+    $ref: '#/components/schemas/ApiV1TransportEvent'

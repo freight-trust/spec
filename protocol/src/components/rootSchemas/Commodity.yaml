@@ -10,7 +10,7 @@ properties:
     description: Item Number
   commodityDescription:
     type: string
-    example: "Coffee, Roasted, Not Decaffeinated"
+    example: 'Coffee, Roasted, Not Decaffeinated'
     description: Commodity Description
   commodityHarmonizedCode:
     type: string

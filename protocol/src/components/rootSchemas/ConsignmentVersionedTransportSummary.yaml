@@ -1,4 +1,4 @@
 type: object
 properties:
   consignment:
-    $ref: "#/components/schemas/ConsignmentResponse"
+    $ref: '#/components/schemas/ConsignmentResponse'

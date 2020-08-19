@@ -21,10 +21,10 @@ properties:
     type: array
     description: The types of the transport equipment
     items:
-      $ref: "#/components/schemas/Equipment_Type_Response"
+      $ref: '#/components/schemas/Equipment_Type_Response'
   equipmentNumber:
     type: string
-    example: "10193652010736"
+    example: '10193652010736'
     description: The unique Id that is physically on the transport equipment
   dangerousCargo:
     type: boolean
@@ -36,7 +36,7 @@ properties:
       The harmonized codes of the type of cargo being shipped plus the
       descriptions
     items:
-      $ref: "#/components/schemas/Harmonized_Code_Response"
+      $ref: '#/components/schemas/Harmonized_Code_Response'
   verifiedGrossMass:
     type: string
     example: 413kg
@@ -47,7 +47,7 @@ properties:
     description: Port of Entry
   portOfEntryDescription:
     type: string
-    example: "Rotterdam, ZH, NL"
+    example: 'Rotterdam, ZH, NL'
     description: Port of Entry Description
   portOfDischarge:
     type: string
@@ -55,7 +55,7 @@ properties:
     description: Port of Discharge
   portOfDischargeDescription:
     type: string
-    example: "Newark, DE, US"
+    example: 'Newark, DE, US'
     description: Port of Discharge Description
   plannedVesselDeparture:
     type: integer
@@ -81,7 +81,7 @@ properties:
     type: array
     description: Cutoffs
     items:
-      $ref: "#/components/schemas/CutOff"
+      $ref: '#/components/schemas/CutOff'
   callerRoles:
     type: array
     description: The list of caller party roles

@@ -15,24 +15,24 @@ get:
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: OK
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/TransactionResponse"
-    "400":
+            $ref: '#/components/schemas/TransactionResponse'
+    '400':
       description: Bad request
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
-    "401":
+            $ref: '#/components/schemas/AppExceptionResponse'
+    '401':
       description: Unauthorized
-    "500":
+    '500':
       description: Server Error
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
+            $ref: '#/components/schemas/AppExceptionResponse'
   deprecated: false

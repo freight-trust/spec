@@ -16,6 +16,6 @@ properties:
         example:
           - key: doctype
             enum:
-              - $ref: "#/components/schemas/DocumentTypeEnum/enum/0"
-              - $ref: "#/components/schemas/DocumentTypeEnum/enum/1"
-              - $ref: "#/components/schemas/DocumentTypeEnum/enum/2"
+              - $ref: '#/components/schemas/DocumentTypeEnum/enum/0'
+              - $ref: '#/components/schemas/DocumentTypeEnum/enum/1'
+              - $ref: '#/components/schemas/DocumentTypeEnum/enum/2'

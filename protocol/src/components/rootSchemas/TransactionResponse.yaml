@@ -19,7 +19,7 @@ properties:
         status: INPROGRESS
     description: stores all Action Related Information
     additionalProperties:
-      $ref: "#/components/schemas/FlowActionResponse"
+      $ref: '#/components/schemas/FlowActionResponse'
   docType:
     type: string
     example: SHIPPING_INSTRUCTIONS
@@ -47,21 +47,21 @@ properties:
   status:
     type: string
     example: InProgress
-    description: "Status of the transaction.This can be either Complete,Failed or InProgress"
+    description: 'Status of the transaction.This can be either Complete,Failed or InProgress'
     enum:
       - Complete
       - Failed
       - InProgress
   tradeInstrumentIdentifiers:
-    $ref: "#/components/schemas/TradeInstrumentIdentifiers"
+    $ref: '#/components/schemas/TradeInstrumentIdentifiers'
   txnStartTime:
     type: integer
     format: int64
     example: 1561585550449
-    description: "Time when the Txn was created "
+    description: 'Time when the Txn was created '
   txnStopTime:
     type: integer
     format: int64
     example: 1561585551449
-    description: "Time when the Txn was completed "
+    description: 'Time when the Txn was completed '
 title: TransactionResponse

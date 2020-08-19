@@ -27,32 +27,32 @@ post:
     content:
       application/json:
         schema:
-          $ref: "#/components/schemas/QueryActionableFlowRequest"
+          $ref: '#/components/schemas/QueryActionableFlowRequest'
     description: >-
       Request object with flowType and optional tradeInstrumentIdentifiers,
       includeInactive
     required: true
   responses:
-    "200":
+    '200':
       description: OK
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/PaginatedAFQueryResponse"
-    "202":
+            $ref: '#/components/schemas/PaginatedAFQueryResponse'
+    '202':
       description: Request Accepted
-    "400":
+    '400':
       description: Bad request
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
-    "401":
+            $ref: '#/components/schemas/AppExceptionResponse'
+    '401':
       description: Unauthorized
-    "500":
+    '500':
       description: Server Error
       content:
-        "*/*":
+        '*/*':
           schema:
-            $ref: "#/components/schemas/AppExceptionResponse"
+            $ref: '#/components/schemas/AppExceptionResponse'
   deprecated: false

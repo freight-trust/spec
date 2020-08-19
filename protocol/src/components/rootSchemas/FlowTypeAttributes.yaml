@@ -1,5 +1,5 @@
 type: object
 properties:
   SIToBillFlow:
-    $ref: "#/components/schemas/SIToBillFlow"
+    $ref: '#/components/schemas/SIToBillFlow'
 title: FlowTypeAttributes

@@ -5,9 +5,9 @@ required:
   - transportEquipmentDetails
 properties:
   originLocation:
-    $ref: "#/components/schemas/Location"
+    $ref: '#/components/schemas/Location'
   destinationLocation:
-    $ref: "#/components/schemas/Location"
+    $ref: '#/components/schemas/Location'
   contractCarriageCondition:
     type: string
     description: Contract Carriage Condition
@@ -28,7 +28,7 @@ properties:
       plate expected.
   vehicleName:
     type: string
-    description: "Name of truck, rail, barge, or vessel"
+    description: 'Name of truck, rail, barge, or vessel'
   voyageId:
     type: string
     description: Voyage Identifier
@@ -36,9 +36,9 @@ properties:
     type: array
     description: Transport Equipment details
     items:
-      $ref: "#/components/schemas/TransportEquipmentDetails"
+      $ref: '#/components/schemas/TransportEquipmentDetails'
   commodities:
     type: array
     description: List of Commodity descriptions
     items:
-      $ref: "#/components/schemas/Commodity"
+      $ref: '#/components/schemas/Commodity'

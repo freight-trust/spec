@@ -12,7 +12,7 @@ properties:
     type: string
     description: Bill of lading number
   bookingData:
-    $ref: "#/components/schemas/BookingData"
+    $ref: '#/components/schemas/BookingData'
   cargoRemainingOnboardCountries:
     type: array
     description: Countries where the cargo has remained on board
@@ -185,7 +185,7 @@ properties:
         - NG
         - NI
         - NL
-        - "NO"
+        - 'NO'
         - NP
         - NR
         - NU
@@ -330,16 +330,16 @@ properties:
     type: array
     description: The event data
     items:
-      $ref: "#/components/schemas/Data"
+      $ref: '#/components/schemas/Data'
   destinationOrgName:
     type: string
     description: >-
       Org Name identifying who this document is being transferred to, if this is
       a Document event with the action 'transferred' or 'surrendered'
   doc:
-    $ref: "#/components/schemas/DocumentV2"
+    $ref: '#/components/schemas/DocumentV2'
   document:
-    $ref: "#/components/schemas/Document"
+    $ref: '#/components/schemas/Document'
   documentId:
     type: string
     description: Internal document identifier
@@ -354,12 +354,12 @@ properties:
     type: array
     description: Internal documents list
     items:
-      $ref: "#/components/schemas/Document"
+      $ref: '#/components/schemas/Document'
   eBLProvider:
     type: string
     description: Electronic Bill of Lading Provider
   entryPort:
-    $ref: "#/components/schemas/Port"
+    $ref: '#/components/schemas/Port'
   equipmentNumber:
     type: string
     description: The unique identifier found on the transport equipment.
@@ -372,7 +372,7 @@ properties:
   eventOccurrenceTime:
     type: integer
     format: int64
-    description: "When the event occurred, as the number of milliseconds since Epoch"
+    description: 'When the event occurred, as the number of milliseconds since Epoch'
   eventOccurrenceTime8601:
     type: string
     description: >-
@@ -396,7 +396,7 @@ properties:
     type: string
     description: Event Type
   exitPort:
-    $ref: "#/components/schemas/Port"
+    $ref: '#/components/schemas/Port'
   firstPortOfEntryCountry:
     type: string
     description: The first port of entry country
@@ -567,7 +567,7 @@ properties:
       - NG
       - NI
       - NL
-      - "NO"
+      - 'NO'
       - NP
       - NR
       - NU
@@ -696,7 +696,7 @@ properties:
     items:
       type: string
   location:
-    $ref: "#/components/schemas/Location"
+    $ref: '#/components/schemas/Location'
   netWeight:
     type: string
     description: Net weight (including unit of measurement)
@@ -723,7 +723,7 @@ properties:
     example: false
     description: Whether or not the event pertains to a "part bill of lading"
   partBillOf:
-    $ref: "#/components/schemas/PartBillOf"
+    $ref: '#/components/schemas/PartBillOf'
   reasonCode:
     type: string
     description: Reason Code
@@ -734,7 +734,7 @@ properties:
     type: array
     description: List of customer created references to this trade object
     items:
-      $ref: "#/components/schemas/TradeInstrumentReference"
+      $ref: '#/components/schemas/TradeInstrumentReference'
   sealNumber:
     type: string
     description: Seal number
@@ -752,7 +752,7 @@ properties:
     type: array
     description: Seals
     items:
-      $ref: "#/components/schemas/Seal"
+      $ref: '#/components/schemas/Seal'
   senderOrgName:
     type: string
     description: The name of the organization that sent the event
@@ -763,12 +763,12 @@ properties:
     type: string
     description: Shipper id type
   splitFromConsignment:
-    $ref: "#/components/schemas/SplitFromConsignment"
+    $ref: '#/components/schemas/SplitFromConsignment'
   terminal:
-    $ref: "#/components/schemas/Terminal"
+    $ref: '#/components/schemas/Terminal'
   terminalDescription:
     type: string
-    example: "Rotterdam, ZH, NL"
+    example: 'Rotterdam, ZH, NL'
     description: The description of the terminal which this consignment is touching
   transitExportCountries:
     type: array
@@ -944,7 +944,7 @@ properties:
         - NG
         - NI
         - NL
-        - "NO"
+        - 'NO'
         - NP
         - NR
         - NU
@@ -1235,7 +1235,7 @@ properties:
         - NG
         - NI
         - NL
-        - "NO"
+        - 'NO'
         - NP
         - NR
         - NU
@@ -1388,13 +1388,13 @@ properties:
       intermediate destination and loading onto another vessel to be further
       carried to the final port of discharge
     items:
-      $ref: "#/components/schemas/Port"
+      $ref: '#/components/schemas/Port'
   vehicleId:
     type: string
-    description: "ID of truck, rail, barge, or vessel"
+    description: 'ID of truck, rail, barge, or vessel'
   vehicleName:
     type: string
-    description: "Name of truck, rail, barge, or vessel"
+    description: 'Name of truck, rail, barge, or vessel'
   verifiedGrossMass:
     type: string
     description: Verified Gross Mass (VGM)

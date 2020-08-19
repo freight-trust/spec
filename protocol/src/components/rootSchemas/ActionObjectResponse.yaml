@@ -4,7 +4,7 @@ properties:
     type: object
     example:
       consignee: consigneeOrg
-      isTitleHolder: "false"
+      isTitleHolder: 'false'
       documentId: 12312312-1233-34534-awed-15e1035c563c
       issuer: issuerOrg
       status: ISSUED

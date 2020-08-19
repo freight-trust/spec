@@ -16,7 +16,7 @@ put:
         schema:
           $ref: ../components/schemas/UpdateUserRequest.yaml
   responses:
-    "200":
+    '200':
       description: User updated succesfully.
       content:
         application/json:
@@ -45,7 +45,7 @@ delete:
     - $ref: ../components/parameters/IdPathParam.yaml
     - $ref: ../components/parameters/RequiredTypeQueryParam.yaml
   responses:
-    "200":
+    '200':
       description: User deleted succesfully.
       content:
         application/json:

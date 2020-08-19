@@ -11,7 +11,7 @@ properties:
     format: int32
   uri:
     type: string
-    example: "https://box.com/file/34534645765543"
+    example: 'https://box.com/file/34534645765543'
     description: A URI pointing to a copy of the document
   hash:
     type: string

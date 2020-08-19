@@ -9,4 +9,4 @@ allOf:
     properties:
       hasReference:
         type: boolean
-        description: "Boolean value, true if there are any non system generated references"
+        description: 'Boolean value, true if there are any non system generated references'

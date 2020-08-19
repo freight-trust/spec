@@ -27,7 +27,7 @@ properties:
     type: array
     description: Cutoffs for all transport equipments for this consignment.
     items:
-      $ref: "#/components/schemas/CutOff"
+      $ref: '#/components/schemas/CutOff'
   transportEquipmentIds:
     type: array
     description: Affiliated transport equipments' IDs
@@ -104,7 +104,7 @@ properties:
     format: int64
     description: Timestamp of when the consignment was most recently updated
   bookingData:
-    $ref: "#/components/schemas/BookingData"
+    $ref: '#/components/schemas/BookingData'
   parentConsignmentIds:
     type: array
     description: ID of the parent consignment for which this consignment subcontracts
@@ -124,20 +124,20 @@ properties:
     type: string
     description: The organization name of the creator of the consignment
   splitFromConsignment:
-    $ref: "#/components/schemas/SplitFromConsignment"
+    $ref: '#/components/schemas/SplitFromConsignment'
   combinedIntoConsignment:
-    $ref: "#/components/schemas/CombinedConsignment"
+    $ref: '#/components/schemas/CombinedConsignment'
   combinedConsignments:
     type: array
     description: >-
       The combined consignment information of consignments that were combined
       into this one
     items:
-      $ref: "#/components/schemas/CombinedConsignment"
+      $ref: '#/components/schemas/CombinedConsignment'
   formerlyAssociatedTransportEquipment:
     type: array
     description: Transport equipment in the system that was formerly associated
     items:
-      $ref: "#/components/schemas/FormerlyAssociatedTransportEquipment"
+      $ref: '#/components/schemas/FormerlyAssociatedTransportEquipment'
   partBillOf:
-    $ref: "#/components/schemas/PartBillOf"
+    $ref: '#/components/schemas/PartBillOf'

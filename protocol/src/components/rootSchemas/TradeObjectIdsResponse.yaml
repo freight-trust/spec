@@ -6,4 +6,4 @@ properties:
     type: array
     description: IDs of trade objects matching the query.
     items:
-      $ref: "#/components/schemas/TradeInstrumentId"
+      $ref: '#/components/schemas/TradeInstrumentId'

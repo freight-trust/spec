@@ -14,7 +14,7 @@ get:
       schema:
         type: string
   responses:
-    "200":
+    '200':
       description: Meta information
       content:
         application/json:

@@ -17,7 +17,7 @@ properties:
     type: array
     description: The list of consignments
     items:
-      $ref: "#/components/schemas/ConsignmentV2"
+      $ref: '#/components/schemas/ConsignmentV2'
   newFrom:
     type: string
     description: Bookmark to use for retrieving more query results

@@ -5,17 +5,17 @@ description: >-
 type: object
 properties:
   eventID:
-    $ref: "#/components/schemas/eventID"
+    $ref: '#/components/schemas/eventID'
   eventType:
-    $ref: "#/components/schemas/eventType"
+    $ref: '#/components/schemas/eventType'
   eventDateTime:
-    $ref: "#/components/schemas/eventDateTime"
+    $ref: '#/components/schemas/eventDateTime'
   eventClassifierCode:
-    $ref: "#/components/schemas/eventClassifierCode"
+    $ref: '#/components/schemas/eventClassifierCode'
   eventTypeCode:
-    $ref: "#/components/schemas/eventTypeCode"
+    $ref: '#/components/schemas/eventTypeCode'
   transportCallID:
-    $ref: "#/components/schemas/transportCallID"
+    $ref: '#/components/schemas/transportCallID'
 required:
   - eventID
   - eventType

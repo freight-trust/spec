@@ -4,4 +4,4 @@ properties:
     type: array
     description: The list of events for the consignment
     items:
-      $ref: "#/components/schemas/Events"
+      $ref: '#/components/schemas/Events'

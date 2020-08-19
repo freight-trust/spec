@@ -2,7 +2,7 @@ type: object
 properties:
   name:
     type: string
-    example: "Rotterdam, ZH, NL"
+    example: 'Rotterdam, ZH, NL'
     description: name xx
   unlocode:
     type: string

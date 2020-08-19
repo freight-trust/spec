@@ -11,21 +11,21 @@ get:
   summary: Find events by eventID.
   description: Returns event with the specified eventID.
   responses:
-    "200":
+    '200':
       description: Successful operation
       content:
         application/json:
           schema:
             oneOf:
-              - $ref: "#/components/schemas/transportEvent"
-              - $ref: "#/components/schemas/shipmentEvent"
-              - $ref: "#/components/schemas/equipmentEvent"
+              - $ref: '#/components/schemas/transportEvent'
+              - $ref: '#/components/schemas/shipmentEvent'
+              - $ref: '#/components/schemas/equipmentEvent'
             discriminator:
               propertyName: eventType
             example:
-              eventID: "1"
+              eventID: '1'
               eventType: SHIPMENT
-              eventDateTime: "2019-11-12T07:41:00+08:30"
+              eventDateTime: '2019-11-12T07:41:00+08:30'
               eventClassifierCode: ACT
               eventTypeCode: ARRI
               transportCallID: 7
@@ -35,4 +35,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/error"
+            $ref: '#/components/schemas/error'

@@ -10,7 +10,7 @@ properties:
   resourceAttribute:
     type: object
     example:
-      version: "1"
+      version: '1'
     description: Performed action resource attribute.
   resourceId:
     type: string

@@ -19,12 +19,12 @@ example:
   subject:
     attributes:
       - name: role
-        value: "tradeparty:BUYER"
+        value: 'tradeparty:BUYER'
   resource:
     attributes:
-      - name: "resource:type"
+      - name: 'resource:type'
         value: document
-      - name: "document:type"
+      - name: 'document:type'
         value: BILL_OF_LADING
   action:
-    - "document:read"
+    - 'document:read'
