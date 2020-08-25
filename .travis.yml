@@ -1,0 +1,10 @@
+
+language: python
+
+install:
+  - pip install -U pip setuptools
+  - pip install stix2-validator
+  - npm install -g ajv-cli ajv-formats-draft2019
+
+script:
+  - ./protocol-validate.sh
